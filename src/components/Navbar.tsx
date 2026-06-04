@@ -32,8 +32,10 @@ export function Navbar({ lang }: { lang: Language }) {
     const currentRoutes = routes[lang];
     let routeKey = '';
     
+    const currentPathname = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+
     for (const [key, path] of Object.entries(currentRoutes)) {
-      if (location.pathname === path || (path !== `/${lang}/` && location.pathname.startsWith(path))) {
+      if (currentPathname === path || (path !== `/${lang}/` && currentPathname.startsWith(path))) {
         routeKey = key;
         break;
       }
@@ -42,9 +44,14 @@ export function Navbar({ lang }: { lang: Language }) {
     if (!routeKey) routeKey = 'home';
     
     const basePath = currentRoutes[routeKey as keyof typeof currentRoutes];
-    const dynamicPart = location.pathname.substring(basePath.length);
+    const dynamicPart = currentPathname.substring(basePath.length);
 
-    return `${routes[targetLang][routeKey as keyof typeof currentRoutes]}${dynamicPart}`;
+    // remove final slash if we added it and there wasn't one original (except for root)
+    let newPath = `${routes[targetLang][routeKey as keyof typeof currentRoutes]}${dynamicPart}`;
+    if (!location.pathname.endsWith('/') && newPath.endsWith('/') && newPath.length > 4) {
+      newPath = newPath.slice(0, -1);
+    }
+    return newPath;
   };
 
   return (
@@ -85,7 +92,6 @@ export function Navbar({ lang }: { lang: Language }) {
               <Link
                 key={l}
                 to={getLanguagePath(l)}
-                reloadDocument
                 className={cn("hover:opacity-100 transition-opacity", lang === l ? "opacity-100 underline underline-offset-4" : "opacity-50")}
               >
                 {l}
@@ -119,7 +125,6 @@ export function Navbar({ lang }: { lang: Language }) {
                 <Link
                   key={l}
                   to={getLanguagePath(l)}
-                  reloadDocument
                   className={cn("hover:opacity-100 transition-opacity", lang === l ? "opacity-100 underline" : "opacity-50")}
                 >
                   {l}
