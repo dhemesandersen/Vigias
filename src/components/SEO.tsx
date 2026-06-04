@@ -39,7 +39,7 @@ export function SEO({ title, description, lang }: SEOProps) {
         
         {/* Hreflang tags para SEO */}
         {languages.map((l) => {
-          const alternatePath = routes[l][routeKey as keyof typeof routes[l]];
+          const alternatePath = routes[l as Language][routeKey as keyof typeof routes['pt']];
           return (
             <link 
               key={l} 

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Language, getRoutes, getTranslation, languages } from "../lib/i18n";
+import { Language, getRoutes, getTranslation, languages, routes } from "../lib/i18n";
 import { cn } from "../lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -29,7 +29,22 @@ export function Navbar({ lang }: { lang: Language }) {
   ];
 
   const getLanguagePath = (targetLang: Language) => {
-    return `/${targetLang}/`; 
+    const currentRoutes = routes[lang];
+    let routeKey = '';
+    
+    for (const [key, path] of Object.entries(currentRoutes)) {
+      if (location.pathname === path || (path !== `/${lang}/` && location.pathname.startsWith(path))) {
+        routeKey = key;
+        break;
+      }
+    }
+
+    if (!routeKey) routeKey = 'home';
+    
+    const basePath = currentRoutes[routeKey as keyof typeof currentRoutes];
+    const dynamicPart = location.pathname.substring(basePath.length);
+
+    return `${routes[targetLang][routeKey as keyof typeof currentRoutes]}${dynamicPart}`;
   };
 
   return (
@@ -67,13 +82,14 @@ export function Navbar({ lang }: { lang: Language }) {
         <div className="hidden md:flex items-center space-x-6">
           <div className="flex gap-4 text-[10px] font-bold tracking-tighter uppercase text-white">
             {languages.map((l) => (
-              <a
+              <Link
                 key={l}
-                href={getLanguagePath(l)}
+                to={getLanguagePath(l)}
+                reloadDocument
                 className={cn("hover:opacity-100 transition transition-opacity", lang === l ? "opacity-100 underline underline-offset-4" : "opacity-50")}
               >
                 {l}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -100,13 +116,14 @@ export function Navbar({ lang }: { lang: Language }) {
           <div className="pt-4 flex items-center justify-between border-t border-white/20">
              <div className="flex space-x-4 text-sm font-semibold uppercase text-white">
               {languages.map((l) => (
-                <a
+                <Link
                   key={l}
-                  href={getLanguagePath(l)}
+                  to={getLanguagePath(l)}
+                  reloadDocument
                   className={cn("hover:opacity-100 transition", lang === l ? "opacity-100 underline" : "opacity-50")}
                 >
                   {l}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
