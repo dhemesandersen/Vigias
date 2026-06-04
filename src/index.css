@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Prata", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --color-brand-bg: #F5F2ED;
+  --color-brand-ink: #1A1A1A;
+  --color-brand-olive: #5A5A40;
+  
+  --color-olive-900: #1A1A1A;
+  --color-olive-800: #333333;
+  --color-olive-700: #5A5A40;
+  
+  --color-cream-100: #FFFFFF;
+  --color-cream-200: #FAFAF7;
+  
+  --color-sand-300: #E5E0D4;
+  --color-sand-400: #D5CEBC;
+  
+  --color-stone-400: #A3A19B;
+  --color-stone-500: #828079;
+  --color-stone-600: #1A1A1AB3;
+  
+  --color-ochre-500: #5A5A40;
+  --color-ochre-600: #1A1A1A;
+
+  --color-warm-white: #F5F2ED;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-ink font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal;
+  }
+}
+
+@layer utilities {
+  .letter-spacing-tight {
+    letter-spacing: -0.02em;
+  }
+  .letter-spacing-wide {
+    letter-spacing: 0.15em;
+  }
+  .vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+}
+
+@layer components {
+  .house-card {
+    transition: all 0.4s ease;
+    border: 1px solid rgba(26, 26, 26, 0.1);
+  }
+  
+  .house-card:hover {
+    border-color: var(--color-brand-ink);
+    background-color: #fff;
+  }
+  
+  .booking-widget {
+    background: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+}
