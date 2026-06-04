@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Language } from "../lib/i18n";
+import { Language, routes, languages } from "../lib/i18n";
 import { useLocation } from "react-router-dom";
 
 interface SEOProps {
@@ -12,23 +12,49 @@ export function SEO({ title, description, lang }: SEOProps) {
   const location = useLocation();
   const baseUrl = "https://vigias.pt";
   
-  // Basic path extraction for localized alternate URLs
-  const pathWithoutLang = location.pathname.replace(`/${lang}`, '') || '/';
+  // Find the route key based on the current pathname
+  const currentRoutes = routes[lang];
+  let routeKey = '';
   
-  // Not perfect for custom mapped routes (like /pt/envolvente vs /es/entorno), 
-  // but acts as base setup. We could map them correctly.
+  for (const [key, path] of Object.entries(currentRoutes)) {
+    // Exact match or base match for dynamic routes (like /pt/casas/casa-sol)
+    if (location.pathname === path || (path !== `/${lang}/` && location.pathname.startsWith(path))) {
+      routeKey = key;
+      break;
+    }
+  }
+
+  // Fallback to home if not found
+  if (!routeKey) routeKey = 'home';
   
+  // Extract trailing dynamic parts (like /casa-sol from /pt/casas/casa-sol)
+  const basePath = currentRoutes[routeKey as keyof typeof currentRoutes];
+  const dynamicPart = location.pathname.substring(basePath.length);
+
   return (
     <Helmet>
         <html lang={lang} />
         <title>{title}</title>
         <meta name="description" content={description} />
         
-        {/* Hreflang tags as requested */}
-        <link rel="alternate" hrefLang="pt" href={`${baseUrl}/pt${pathWithoutLang !== '/' ? pathWithoutLang : ''}`} />
-        <link rel="alternate" hrefLang="es" href={`${baseUrl}/es${pathWithoutLang !== '/' ? pathWithoutLang : ''}`} />
-        <link rel="alternate" hrefLang="en" href={`${baseUrl}/en${pathWithoutLang !== '/' ? pathWithoutLang : ''}`} />
-        <link rel="alternate" hrefLang="x-default" href={`${baseUrl}/en${pathWithoutLang !== '/' ? pathWithoutLang : ''}`} />
+        {/* Hreflang tags para SEO */}
+        {languages.map((l) => {
+          const alternatePath = routes[l][routeKey as keyof typeof routes[l]];
+          return (
+            <link 
+              key={l} 
+              rel="alternate" 
+              hrefLang={l} 
+              href={`${baseUrl}${alternatePath}${dynamicPart}`} 
+            />
+          );
+        })}
+        {/* x-default tag recommended by Google */}
+        <link 
+          rel="alternate" 
+          hrefLang="x-default" 
+          href={`${baseUrl}${routes['pt'][routeKey as keyof typeof routes['pt']]}${dynamicPart}`} 
+        />
         
         <link rel="canonical" href={`${baseUrl}${location.pathname}`} />
     </Helmet>
