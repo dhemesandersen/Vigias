@@ -43,16 +43,26 @@ export function HousesList({ lang }: { lang: Language }) {
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-4 h-[auto] lg:h-[70vh] min-h-[500px]">
           {data.casas.items.map((casa, index) => (
-             <Link key={casa.id} to={casa.link} className="house-card flex flex-col p-6 bg-brand-bg relative">
-                <div className="aspect-[4/5] overflow-hidden mb-6 bg-zinc-300">
-                  <img src={casa.image} alt={casa.name} className="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700 ease-in-out" />
-                </div>
-                <h3 className="font-serif text-3xl text-brand-ink mb-2">{casa.name}</h3>
-                <p className="text-brand-ink/60 font-sans text-sm mb-4 flex-grow">{casa.capacity}</p>
-                <div className="flex gap-4 mt-auto">
-                    <span className="text-brand-ink/40 uppercase tracking-widest text-[#10px] font-bold">0{index + 1}</span>
+             <Link 
+               key={casa.id} 
+               to={casa.link} 
+               className="group relative flex-1 hover:flex-[1.5] lg:hover:flex-[1.8] transition-[flex] duration-700 ease-in-out cursor-pointer overflow-hidden min-h-[200px] lg:min-h-0 bg-brand-bg/50"
+             >
+                <img src={casa.image} alt={casa.name} className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0" />
+                {casa.hoverImage && (
+                  <img src={casa.hoverImage} alt={casa.name} className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100" />
+                )}
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/90 via-brand-ink/20 to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
+                
+                <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
+                   <span className="text-xs uppercase font-bold text-white/50 mb-2">0{index + 1}</span>
+                   <h3 className="font-serif text-3xl text-white mt-1 mb-2">{casa.name}</h3>
+                   <div className="overflow-hidden transition-all duration-700 ease-in-out max-h-0 group-hover:max-h-20 opacity-0 group-hover:opacity-100">
+                     <p className="text-white/80 font-sans text-sm mb-2 mt-1 whitespace-nowrap">{casa.capacity}</p>
+                   </div>
                 </div>
              </Link>
           ))}
