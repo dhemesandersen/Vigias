@@ -52,7 +52,9 @@ const router = createBrowserRouter([
       { path: lang === 'pt' ? 'termos-e-condicoes' : lang === 'es' ? 'terminos-y-condiciones' : 'terms-and-conditions', element: <Terms lang={lang} /> },
     ]
   }))
-]);
+], {
+  basename: import.meta.env.BASE_URL
+});
 
 export default function App() {
   return (
