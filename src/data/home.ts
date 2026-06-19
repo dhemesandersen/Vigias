@@ -12,11 +12,11 @@ export const homeData = {
     },
     casas: {
       items: [
-        { id: "casa-sol", name: "Casa Sol", capacity: "Para 4 pessoas · 2 suites", image: "https://vigias.pt/wp-content/uploads/2023/05/16.jpg", hoverImage: "https://vigias.pt/wp-content/uploads/2023/05/14-1.jpg", link: "/pt/casas/casa-sol" },
-        { id: "casa-gaio", name: "Casa Gaio", capacity: "Para 2 pessoas · Loft privado", image: "https://vigias.pt/wp-content/uploads/2023/05/Vigias-1gaio.jpg", hoverImage: "https://vigias.pt/wp-content/uploads/2023/05/Vigias-2-gaio.jpg", link: "/pt/casas/casa-gaio" },
-        { id: "casa-cal", name: "Casa Cal", capacity: "Para 6 pessoas · 2 suites + mezanino", image: "https://vigias.pt/wp-content/uploads/2024/10/38.jpg", hoverImage: "https://vigias.pt/wp-content/uploads/2024/10/39.jpg", link: "/pt/casas/casa-cal" },
-        { id: "casa-feto", name: "Casa Feto", capacity: "Para 4 pessoas · 2 suites", image: "https://vigias.pt/wp-content/uploads/2024/10/28.png", hoverImage: "https://vigias.pt/wp-content/uploads/2024/10/27.png", link: "/pt/casas/casa-feto" },
-        { id: "casa-ocre", name: "Casa Ocre", capacity: "Para 5 pessoas · 2 quartos + mezanino", image: "https://vigias.pt/wp-content/uploads/2024/10/36.png", hoverImage: "https://vigias.pt/wp-content/uploads/2024/10/35.png", link: "/pt/casas/casa-ocre" }
+        { id: "casa-sol", name: "Casa Sol", capacity: "Para 4 pessoas · 2 suites", image: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_613.jpg", link: "/pt/casas/casa-sol" },
+        { id: "casa-gaio", name: "Casa Gaio", capacity: "Para 2 pessoas · Loft privado", image: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_164.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_107.jpg", link: "/pt/casas/casa-gaio" },
+        { id: "casa-cal", name: "Casa Cal", capacity: "Para 6 pessoas · 2 suites + mezanino", image: "https://www.vigias.pt/fotos/CASA_CAL/IMG_3149.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_CAL/IMG_2769.jpg", link: "/pt/casas/casa-cal" },
+        { id: "casa-feto", name: "Casa Feto", capacity: "Para 4 pessoas · 2 suites", image: "https://www.vigias.pt/fotos/CASA_FETO/IMG_3692_.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg", link: "/pt/casas/casa-feto" },
+        { id: "casa-ocre", name: "Casa Ocre", capacity: "Para 5 pessoas · 2 quartos + mezanino", image: "https://www.vigias.pt/fotos/CASA_OCRE/IMG_3632.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg", link: "/pt/casas/casa-ocre" }
       ]
     },
     envolvente: {
@@ -64,11 +64,11 @@ export const homeData = {
     },
     casas: {
       items: [
-        { id: "casa-sol", name: "Casa Sol", capacity: "Para 4 personas · 2 suites", image: "https://vigias.pt/wp-content/uploads/2023/05/16.jpg", hoverImage: "https://vigias.pt/wp-content/uploads/2023/05/14-1.jpg", link: "/es/casas/casa-sol" },
-        { id: "casa-gaio", name: "Casa Gaio", capacity: "Para 2 personas · Loft privado", image: "https://vigias.pt/wp-content/uploads/2023/05/Vigias-1gaio.jpg", hoverImage: "https://vigias.pt/wp-content/uploads/2023/05/Vigias-2-gaio.jpg", link: "/es/casas/casa-gaio" },
-        { id: "casa-cal", name: "Casa Cal", capacity: "Para 6 personas · 2 suites + altillo", image: "https://vigias.pt/wp-content/uploads/2024/10/38.jpg", hoverImage: "https://vigias.pt/wp-content/uploads/2024/10/39.jpg", link: "/es/casas/casa-cal" },
-        { id: "casa-feto", name: "Casa Feto", capacity: "Para 4 personas · 2 suites", image: "https://vigias.pt/wp-content/uploads/2024/10/28.png", hoverImage: "https://vigias.pt/wp-content/uploads/2024/10/27.png", link: "/es/casas/casa-feto" },
-        { id: "casa-ocre", name: "Casa Ocre", capacity: "Para 5 personas · 2 dormitorios + altillo", image: "https://vigias.pt/wp-content/uploads/2024/10/36.png", hoverImage: "https://vigias.pt/wp-content/uploads/2024/10/35.png", link: "/es/casas/casa-ocre" }
+        { id: "casa-sol", name: "Casa Sol", capacity: "Para 4 personas · 2 suites", image: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_613.jpg", link: "/es/casas/casa-sol" },
+        { id: "casa-gaio", name: "Casa Gaio", capacity: "Para 2 personas · Loft privado", image: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_164.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_107.jpg", link: "/es/casas/casa-gaio" },
+        { id: "casa-cal", name: "Casa Cal", capacity: "Para 6 personas · 2 suites + altillo", image: "https://www.vigias.pt/fotos/CASA_CAL/IMG_3149.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_CAL/IMG_2769.jpg", link: "/es/casas/casa-cal" },
+        { id: "casa-feto", name: "Casa Feto", capacity: "Para 4 personas · 2 suites", image: "https://www.vigias.pt/fotos/CASA_FETO/IMG_3692_.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg", link: "/es/casas/casa-feto" },
+        { id: "casa-ocre", name: "Casa Ocre", capacity: "Para 5 personas · 2 dormitorios + altillo", image: "https://www.vigias.pt/fotos/CASA_OCRE/IMG_3632.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg", link: "/es/casas/casa-ocre" }
       ]
     },
     envolvente: {
@@ -116,11 +116,11 @@ export const homeData = {
     },
     casas: {
       items: [
-        { id: "casa-sol", name: "Casa Sol", capacity: "For 4 people · 2 suites", image: "https://vigias.pt/wp-content/uploads/2023/05/16.jpg", hoverImage: "https://vigias.pt/wp-content/uploads/2023/05/14-1.jpg", link: "/en/houses/casa-sol" },
-        { id: "casa-gaio", name: "Casa Gaio", capacity: "For 2 people · Private loft", image: "https://vigias.pt/wp-content/uploads/2023/05/Vigias-1gaio.jpg", hoverImage: "https://vigias.pt/wp-content/uploads/2023/05/Vigias-2-gaio.jpg", link: "/en/houses/casa-gaio" },
-        { id: "casa-cal", name: "Casa Cal", capacity: "For 6 people · 2 suites + mezzanine", image: "https://vigias.pt/wp-content/uploads/2024/10/38.jpg", hoverImage: "https://vigias.pt/wp-content/uploads/2024/10/39.jpg", link: "/en/houses/casa-cal" },
-        { id: "casa-feto", name: "Casa Feto", capacity: "For 4 people · 2 suites", image: "https://vigias.pt/wp-content/uploads/2024/10/28.png", hoverImage: "https://vigias.pt/wp-content/uploads/2024/10/27.png", link: "/en/houses/casa-feto" },
-        { id: "casa-ocre", name: "Casa Ocre", capacity: "For 5 people · 2 bedrooms + mezzanine", image: "https://vigias.pt/wp-content/uploads/2024/10/36.png", hoverImage: "https://vigias.pt/wp-content/uploads/2024/10/35.png", link: "/en/houses/casa-ocre" }
+        { id: "casa-sol", name: "Casa Sol", capacity: "For 4 people · 2 suites", image: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_613.jpg", link: "/en/houses/casa-sol" },
+        { id: "casa-gaio", name: "Casa Gaio", capacity: "For 2 people · Private loft", image: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_164.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_107.jpg", link: "/en/houses/casa-gaio" },
+        { id: "casa-cal", name: "Casa Cal", capacity: "For 6 people · 2 suites + mezzanine", image: "https://www.vigias.pt/fotos/CASA_CAL/IMG_3149.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_CAL/IMG_2769.jpg", link: "/en/houses/casa-cal" },
+        { id: "casa-feto", name: "Casa Feto", capacity: "For 4 people · 2 suites", image: "https://www.vigias.pt/fotos/CASA_FETO/IMG_3692_.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg", link: "/en/houses/casa-feto" },
+        { id: "casa-ocre", name: "Casa Ocre", capacity: "For 5 people · 2 bedrooms + mezzanine", image: "https://www.vigias.pt/fotos/CASA_OCRE/IMG_3632.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg", link: "/en/houses/casa-ocre" }
       ]
     },
     envolvente: {

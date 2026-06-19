@@ -36,7 +36,7 @@ export function Book({ lang }: { lang: Language }) {
           </p>
           
           <div className="bg-sand-300/30 p-8 md:p-12 w-full rounded-sm">
-             <DirectBookWidget />
+             <DirectBookWidget lang={lang} />
           </div>
 
           <div className="mt-16 flex flex-col justify-center items-center gap-4 text-sm text-stone-500">

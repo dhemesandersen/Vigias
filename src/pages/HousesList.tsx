@@ -50,15 +50,18 @@ export function HousesList({ lang }: { lang: Language }) {
                to={casa.link} 
                className="group relative flex-1 hover:flex-[1.5] lg:hover:flex-[1.8] transition-[flex] duration-700 ease-in-out cursor-pointer overflow-hidden min-h-[200px] lg:min-h-0 bg-brand-bg/50"
              >
-                <img src={casa.image} alt={casa.name} className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0" />
+                <img 
+                  src={casa.image} 
+                  alt={casa.name} 
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0 brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05] ${casa.id === "casa-ocre" ? "object-right" : ""}`} 
+                />
                 {casa.hoverImage && (
-                  <img src={casa.hoverImage} alt={casa.name} className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100" />
+                  <img src={casa.hoverImage} alt={casa.name} className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100 brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05]" />
                 )}
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/90 via-brand-ink/20 to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
                 
                 <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
-                   <span className="text-xs uppercase font-bold text-white/50 mb-2">0{index + 1}</span>
                    <h3 className="font-serif text-3xl text-white mt-1 mb-2">{casa.name}</h3>
                    <div className="overflow-hidden transition-all duration-700 ease-in-out max-h-0 group-hover:max-h-20 opacity-0 group-hover:opacity-100">
                      <p className="text-white/80 font-sans text-sm mb-2 mt-1 whitespace-nowrap">{casa.capacity}</p>

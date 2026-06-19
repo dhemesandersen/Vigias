@@ -1,10 +1,12 @@
 import { Language } from "../lib/i18n";
 import { SEO } from "../components/SEO";
-import { Heart } from "lucide-react";
+import { Heart, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 const experiencesData = [
   {
-    image: "https://vigias.pt/wp-content/uploads/2024/10/1701703901622-1.jpg",
+    image: "https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_713.jpg",
     title: {
       pt: "Trilhos pedestres pela Serra de S. Mamede",
       es: "Senderismo por la Sierra de S. Mamede",
@@ -15,7 +17,28 @@ const experiencesData = [
       es: "En Vigias y alrededores",
       en: "In Vigias and surroundings"
     },
-    tag: "Popular"
+    tag: {
+      pt: "Popular",
+      es: "Popular",
+      en: "Popular"
+    },
+    description: {
+      pt: [
+        "O essencial só para nós.",
+        "Através de caminhos rodeados por sobreiros centenários, num planalto de aves entregues à luxúria do silêncio, chega às Vigias.",
+        "Escondidas na paisagem oculta e montanhosa do Parque Natural da Serra de S. Mamede, as Vigias são o local ideal para uma estadia exclusiva, num ambiente luxuoso e relaxante, onde pode desfrutar do charme das inesgotáveis paisagens do Norte Alentejano."
+      ],
+      es: [
+        "Lo esencial solo para nosotros.",
+        "A través de senderos rodeados de alcornoques centenarios, en una meseta de aves entregadas al deleite del silencio, se llega a Vigias.",
+        "Escondidas en el juego oculto y montañoso del Parque Natural de la Sierra de S. Mamede, Vigias son el lugar ideal para una estancia exclusiva, en un ambiente lujoso y relajante, donde disfrutar del encanto de los inagotables paisajes del Norte Alentejano."
+      ],
+      en: [
+        "The essential just for us.",
+        "Through paths surrounded by centuries-old cork oaks, on a plateau of birds surrendered to the luxury of silence, you reach Vigias.",
+        "Hidden in the hidden and mountainous landscape of the Serra de S. Mamede Natural Park, Vigias are the ideal place for an exclusive stay, in a luxurious and relaxing environment, where you can enjoy the charm of the endless landscapes of Northern Alentejo."
+      ]
+    }
   },
   {
     image: "https://vigias.pt/wp-content/uploads/2024/10/Bikes-Vigias-scaled.jpg",
@@ -25,14 +48,35 @@ const experiencesData = [
       en: "Biking trips around Marvão"
     },
     host: {
-      pt: "Explorar o Alto Alentejo",
-      es: "Explorar el Alto Alentejo",
-      en: "Explore Northern Alentejo"
+      pt: "Mobilidade elétrica",
+      es: "Movilidad eléctrica",
+      en: "Electric mobility"
     },
-    tag: "Aventura"
+    tag: {
+      pt: "Aventura",
+      es: "Aventura",
+      en: "Adventure"
+    },
+    description: {
+      pt: [
+        "Mergulhe no Parque Natural da Serra de S. Mamede e descubra vilas, castelos, caminhos rurais e paisagens abertas de uma forma mais leve, sustentável e silenciosa.",
+        "A mobilidade elétrica permite explorar a região com conforto, baixa pegada ecológica e maior liberdade, respeitando o ritmo da natureza e a autenticidade do território.",
+        "Uma experiência pensada para quem quer descobrir Marvão e o Norte Alentejano sem pressa, com tempo para parar, respirar e contemplar."
+      ],
+      es: [
+        "Sumérjase en el Parque Natural de la Sierra de S. Mamede y descubra pueblos, castillos, caminos rurales y paisajes abiertos de una forma más ligera, sostenible y silenciosa.",
+        "La movilidad eléctrica permite explorar la región con comodidad, una baja huella ecológica y mayor libertad, respetando el ritmo de la naturaleza y la autenticidad del territorio.",
+        "Una experiencia diseñada para quienes desean descubrir Marvão y el norte de Alentejo sin prisas, con tiempo para detenerse, respirar y contemplar."
+      ],
+      en: [
+        "Immerse yourself of the Serra de S. Mamede Natural Park and discover villages, castles, rural roads, and open landscapes in a lighter, more sustainable, and silent way.",
+        "Electric mobility allows you to explore the region in comfort, with a low carbon footprint and greater freedom, respecting the rhythm of nature and the authenticity of the territory.",
+        "An experience designed for those who want to discover Marvão and Northern Alentejo without haste, with time to stop, breathe, and contemplate."
+      ]
+    }
   },
   {
-    image: "https://vigias.pt/wp-content/uploads/2023/04/4.png",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/45/Red_Kite_Milvus_milvus.jpg",
     title: {
       pt: "Avistamento de aves de rapina raras",
       es: "Observación de aves rapaces raras",
@@ -42,10 +86,35 @@ const experiencesData = [
       pt: "Nas Vigias e em redor",
       es: "En Vigias y alrededores",
       en: "In Vigias and surroundings"
+    },
+    tag: {
+      pt: "Natureza",
+      es: "Naturaleza",
+      en: "Nature"
+    },
+    description: {
+      pt: [
+        "Quando a noite desce sobre a Serra de S. Mamede, a paisagem revela uma vida mais discreta e misteriosa.",
+        "Entre montados, zonas arborizadas e caminhos silenciosos, é possível escutar e observar sinais de aves noturnas, como corujas e mochos, sempre com respeito pelo seu habitat natural.",
+        "Esta é uma experiência de contemplação, paciência e silêncio. Mais do que procurar apenas o avistamento perfeito, o convite é entrar no ritmo da natureza e descobrir a beleza quase invisível que vive depois do pôr do sol.",
+        "Os avistamentos dependem sempre da época do ano, das condições naturais e do comportamento das espécies."
+      ],
+      es: [
+        "Cuando la noche desciende sobre la Sierra de S. Mamede, el paisaje revela una vida más discreta y misteriosa.",
+        "Entre dehesas, zonas arboladas y caminos silenciosos, es posible escuchar y observar indicios de aves nocturnas, como búhos y mochuelos, de forma respetuosa con su hábitat natural.",
+        "Esta es una experiencia de contemplación, paciencia y silencio. Más que buscar simplemente el avistamiento perfecto, la invitación es a entrar en el ritmo de la naturaleza y descubrir la belleza casi invisible que cobra vida tras el atardecer.",
+        "Los avistamientos dependen siempre de la época del año, de las condiciones naturales y del comportamiento de las especies."
+      ],
+      en: [
+        "When night descends on the Serra de S. Mamede, the landscape reveals a more discreet and mysterious life.",
+        "Among cork oak forests, wooded areas and silent paths, it is possible to listen and observe signs of nocturnal birds, such as owls, always respecting their natural habitat.",
+        "This is an experience of contemplation, patience, and silence. Rather than just searching for the perfect sighting, the invitation is to step into the rhythm of nature and discover the almost invisible beauty that lives after sunset.",
+        "Sightings always depend on the time of year, natural conditions, and species behavior."
+      ]
     }
   },
   {
-    image: "https://vigias.pt/wp-content/uploads/2023/05/vigias-casas.jpg",
+    image: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_178.jpg",
     title: {
       pt: "Chef em casa com gastronomia local",
       es: "Chef en casa con gastronomía local",
@@ -56,10 +125,34 @@ const experiencesData = [
       es: "Servicio exclusivo bajo reserva",
       en: "Exclusive service upon booking"
     },
-    tag: "Gastronomia"
+    tag: {
+      pt: "Gastronomia",
+      es: "Gastronomía",
+      en: "Gastronomy"
+    },
+    description: {
+      pt: [
+        "Inspiradas nos sabores autênticos do Alentejo e nos produtos locais, as nossas sugestões gastronómicas combinam tradição, sofisticação e conforto.",
+        "A experiência de chef em casa transforma a estadia num momento ainda mais especial, sem que precise de sair das Vigias. À mesa, os ingredientes da região ganham protagonismo através de pratos pensados com cuidado, elegância e respeito pela identidade local.",
+        "É uma forma íntima de descobrir o território através dos seus sabores, num ambiente reservado, sereno e exclusivo.",
+        "Perfeito para jantares especiais, momentos a dois, encontros em família ou simplesmente para quem quer viver o Alentejo com mais profundidade e prazer."
+      ],
+      es: [
+        "Inspiradas en los sabores auténticos del Alentejo y en los productos locales, nuestras propuestas gastronómicas combinan tradición, sofisticación y confort.",
+        "La experiencia de chef en casa transforma su estancia en un momento aún más especial, sin necesidad de salir de Vigias. En la mesa, los ingredientes de la región cobran protagonismo a través de platos diseñados con mimo, elegancia y respeto por la identidad local.",
+        "Es una forma íntima de descubrir el territorio a través de sus sabores, en un ambiente reservado, sereno y exclusivo.",
+        "Perfecto para cenas especiales, momentos en pareja, encuentros familiares o simplemente para quienes quieren vivir el Alentejo con mayor profundidad y placer."
+      ],
+      en: [
+        "Inspired by the authentic flavors of Alentejo and local products, our gastronomic suggestions combine tradition, sophistication, and comfort.",
+        "The chef-at-home experience transforms your stay into an even more special moment, without having to leave Vigias. At the table, local ingredients take center stage through dishes crafted with care, elegance, and respect for the local identity.",
+        "It is an intimate way to discover the territory through its flavors, in a reserved, peaceful, and exclusive setting.",
+        "Perfect for special dinners, romantic moments, family gatherings, or simply for those who want to experience Alentejo with more depth and pleasure."
+      ]
+    }
   },
   {
-    image: "https://vigias.pt/wp-content/uploads/2024/10/image-3.png",
+    image: "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00_MilkyWay_photography.jpg",
     title: {
       pt: "Observação do céu noturno no Alentejo",
       es: "Observación del cielo nocturno en el Alentejo",
@@ -69,10 +162,35 @@ const experiencesData = [
       pt: "Nas Vigias e em redor",
       es: "En Vigias y alrededores",
       en: "In Vigias and surroundings"
+    },
+    tag: {
+      pt: "Céu Noturno",
+      es: "Cielo Nocturno",
+      en: "Night Sky"
+    },
+    description: {
+      pt: [
+        "À noite, o Alentejo revela uma das suas experiências mais bonitas: o silêncio do céu.",
+        "Longe da agitação urbana e rodeadas pela paisagem natural da Serra de S. Mamede, as Vigias oferecem o cenário ideal para contemplar estrelas, constelações e a imensidão do céu noturno.",
+        "É uma experiência simples, mas inesquecível. Basta abrandar, olhar para cima e deixar que a noite faça o resto.",
+        "Entre o conforto da casa, o ar puro da serra e a tranquilidade absoluta da paisagem, observar o céu transforma-se num ritual de pausa, presença e encanto."
+      ],
+      es: [
+        "Por la noche, el Alentejo revela una de sus experiencias más bellas: el silencio del cielo.",
+        "Lejos del bullicio urbano y rodeado por el paisaje natural de la Sierra de S. Mamede, Vigias ofrece el escenario ideal para contemplar estrellas, constelaciones y la inmensidad del cielo nocturno.",
+        "Es una experiencia sencilla pero inolvidable. Simplemente disminuya la velocidad, mire hacia arriba y deje que la noche haga el resto.",
+        "Entre el confort de la casa, el aire puro de la montaña y la tranquilidad absoluta del paisaje, observar el cielo se convierte en un ritual de pausa, presencia y encanto."
+      ],
+      en: [
+        "At night, Alentejo reveals one of its most beautiful experiences: the silence of the sky.",
+        "Far from the urban hustle and bustle and surrounded by the natural landscape of the Serra de S. Mamede, Vigias offers the ideal setting to contemplate stars, constellations, and the vastness of the night sky.",
+        "It is a simple but unforgettable experience. Just slow down, look up, and let the night do the rest.",
+        "Between the comfort of the house, the fresh air of the mountains, and the absolute tranquility of the landscape, watching the sky turns into a ritual of pause, presence, and enchantment."
+      ]
     }
   },
   {
-    image: "https://vigias.pt/wp-content/uploads/2023/09/6.png",
+    image: "https://builder.livingtours.com/public/images/produtos/zYfF9QHg31aft.jpg",
     title: {
       pt: "Passeios de balão e enoturismo",
       es: "Paseos en globo y enoturismo",
@@ -83,11 +201,51 @@ const experiencesData = [
       es: "A 30 a 60 minutos de distancia",
       en: "30 to 60 minutes away"
     },
-    tag: "Destaque"
+    tag: {
+      pt: "Destaque",
+      es: "Destacado",
+      en: "Highlight"
+    },
+    description: {
+      pt: [
+        "Descubra o Alentejo a partir de uma nova perspetiva.",
+        "Os passeios de balão permitem sobrevoar paisagens abertas, vinhas, olivais, colinas suaves e aldeias que parecem suspensas no tempo. Uma experiência serena, memorável e perfeita para quem procura ver a região de uma forma verdadeiramente especial.",
+        "Depois do céu, a terra. O enoturismo convida a descobrir adegas, vinhos e sabores que fazem parte da identidade alentejana, num encontro entre paisagem, cultura e tradição.",
+        "É uma combinação perfeita para quem quer viver o território com todos os sentidos: a leveza do voo, a beleza da paisagem e a profundidade dos sabores locais."
+      ],
+      es: [
+        "Descubra el Alentejo desde una nueva perspectiva.",
+        "Los paseos en globo permiten sobrevolar paisajes abiertos, viñedos, olivares, suaves colinas y pueblos que parecen suspendidos en el tiempo. Una experiencia serena, memorable e ideal para quienes buscan ver la región de una manera verdaderamente especial.",
+        "Después del cielo, la tierra. El enoturismo invita a descubrir bodegas, vinos y sabores que forman parte de la identidad alentejana, en un encuentro entre paisaje, cultura y tradición.",
+        "Es una combinación perfecta para quienes quieren experimentar el territorio con todos los sentidos: la ligereza del vuelo, la belleza del paisaje y la profundidad de los sabores locales."
+      ],
+      en: [
+        "Discover Alentejo from a new perspective.",
+        "Hot air balloon rides allow you to fly over open landscapes, vineyards, olive groves, rolling hills, and villages that seem suspended in time. A serene, memorable experience, perfect for those looking to see the region in a truly special way.",
+        "After the sky, the land. Wine tourism invites you to discover wineries, wines, and flavors that are part of the Alentejo identity, in a meeting between landscape, culture, and tradition.",
+        "It is a perfect combination for those who want to experience the territory with all their senses: the lightness of the flight, the beauty of the landscape, and the deepness of the local flavors."
+      ]
+    }
   }
 ];
 
 export function Experiences({ lang }: { lang: Language }) {
+  const [selectedExp, setSelectedExp] = useState<typeof experiencesData[number] | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedExp(null);
+    };
+    if (selectedExp) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedExp]);
+
   const seo = {
     pt: {
       title: "Experiências no Alto Alentejo · Caminhadas, aves e gastronomia | Vigias",
@@ -123,23 +281,33 @@ export function Experiences({ lang }: { lang: Language }) {
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {experiencesData.map((exp, idx) => (
-            <div key={idx} className="group cursor-pointer flex flex-col gap-3">
+            <div 
+              key={idx} 
+              onClick={() => setSelectedExp(exp)}
+              className="group cursor-pointer flex flex-col gap-3"
+            >
               <div className="relative aspect-[4/5] sm:aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-zinc-200">
                 <img 
                   src={exp.image} 
                   alt={exp.title[lang]} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out filter brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05]"
                 />
                 
                 {/* Heart Icon Button */}
-                <button className="absolute top-4 right-4 text-white hover:scale-110 transition-transform z-10 drop-shadow-md">
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                  className="absolute top-4 right-4 text-white hover:scale-110 transition-transform z-10 drop-shadow-md cursor-pointer"
+                >
                    <Heart className="w-6 h-6 fill-black/30 stroke-white stroke-[1.5]" />
                 </button>
                 
                 {/* Optional Tag */}
                 {exp.tag && (
                   <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-ink px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm">
-                    {exp.tag}
+                    {exp.tag[lang]}
                   </div>
                 )}
               </div>
@@ -156,6 +324,83 @@ export function Experiences({ lang }: { lang: Language }) {
           ))}
         </div>
       </section>
+
+      {/* Modern, Immersive Experience Detail Modal overlay */}
+      <AnimatePresence>
+        {selectedExp && (
+          <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
+            {/* Backdrop with Blur */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedExp(null)}
+              className="fixed inset-0 bg-brand-ink/40 backdrop-blur-md"
+            />
+            
+            {/* Content Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ type: "spring", duration: 0.4 }}
+              className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col z-20 relative font-sans text-brand-ink"
+            >
+              {/* Close Button overlay */}
+              <button
+                onClick={() => setSelectedExp(null)}
+                className="absolute top-4 right-4 z-40 w-10 h-10 flex items-center justify-center rounded-full bg-black/20 hover:bg-black/40 text-white transition-colors cursor-pointer backdrop-blur-xs"
+                aria-label="Fechar"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Top Banner Image with gradient */}
+              <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100 shrink-0">
+                <img
+                  src={selectedExp.image}
+                  alt={selectedExp.title[lang]}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none" />
+                <div className="absolute bottom-6 left-6 right-6 z-30">
+                  {selectedExp.tag && (
+                    <span className="bg-white/95 text-brand-ink text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-2.5 inline-block select-none">
+                      {selectedExp.tag[lang]}
+                    </span>
+                  )}
+                  <h2 className="font-serif text-2xl md:text-3xl text-white tracking-wide leading-tight">
+                    {selectedExp.title[lang]}
+                  </h2>
+                  <p className="text-white/85 font-sans text-xs mt-1 uppercase tracking-widest font-semibold">
+                    {selectedExp.host[lang]}
+                  </p>
+                </div>
+              </div>
+
+              {/* Text, beautifully split into paragraphs */}
+              <div className="p-6 md:p-8 overflow-y-auto flex-1 text-brand-ink/80 leading-relaxed text-[15px] space-y-4">
+                {selectedExp.description[lang].map((paragraph, index) => {
+                  const isBriefLead = index === 0 && paragraph.length < 50;
+                  return (
+                    <p 
+                      key={index} 
+                      className={
+                        isBriefLead 
+                          ? "font-serif text-lg text-brand-ink/95 border-l-2 border-brand-ink/40 pl-4 italic mb-6 leading-relaxed" 
+                          : "font-sans leading-relaxed text-[15px]"
+                      }
+                    >
+                      {paragraph}
+                    </p>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

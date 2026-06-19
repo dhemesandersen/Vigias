@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { Language, getRoutes, getTranslation } from "../lib/i18n";
 import { houseData } from "../data/houses";
+import { homeData } from "../data/home";
 import { SEO } from "../components/SEO";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -37,7 +38,7 @@ export function SingleHouse({ lang }: { lang: Language }) {
                idx === currentImage ? "opacity-100" : "opacity-0"
              )}
            >
-             <img src={img} alt={`${house.h1} - Imagem ${idx + 1}`} className="w-full h-full object-cover" />
+             <img src={img} alt={`${house.h1} - Imagem ${idx + 1}`} className={cn("w-full h-full object-cover", id === "casa-ocre" && idx === 0 && "object-right")} />
              <div className="absolute inset-0 bg-brand-ink/20 mix-blend-multiply"></div>
            </div>
          ))}
@@ -90,7 +91,7 @@ export function SingleHouse({ lang }: { lang: Language }) {
                </p>
             </div>
             
-            <DirectBookWidget houseId={id} embedded={true} />
+            <DirectBookWidget houseId={id} embedded={true} lang={lang} />
           </div>
           
           <div className="lg:w-1/3">
@@ -122,10 +123,10 @@ export function SingleHouse({ lang }: { lang: Language }) {
       </section>
 
       {/* Gallery Grid */}
-      {house.images.length > 1 && (
+      {((house.galleryImages && house.galleryImages.length > 0) || house.images.length > 1) && (
         <section className="pb-24 px-6 md:px-12 bg-white">
            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {house.images.slice(1).map((img: string, idx: number) => (
+              {(house.galleryImages || house.images.slice(1)).map((img: string, idx: number) => (
                 <img key={idx} src={img} alt={`Gallery ${idx}`} className="w-full h-auto aspect-[4/3] object-cover rounded-sm bg-zinc-200" />
               ))}
            </div>
@@ -134,7 +135,42 @@ export function SingleHouse({ lang }: { lang: Language }) {
       
       {/* Related Houses */}
       <section className="py-24 px-6 md:px-12 bg-brand-bg text-center border-t border-brand-ink/5">
-         <h3 className="font-serif text-2xl md:text-3xl text-brand-ink mb-8">{t.common.relatedHouses}</h3>
+         <h3 className="font-serif text-2xl md:text-3xl text-brand-ink mb-12">{t.common.relatedHouses}</h3>
+         
+         {/* Beautiful responsive grid layout of other 4 houses */}
+         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+           {homeData[lang].casas.items
+             .filter((casa: any) => casa.id !== id)
+             .map((casa: any) => (
+                <Link 
+                  key={casa.id} 
+                  to={casa.link} 
+                  className="group block text-left"
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-zinc-200">
+                    <img 
+                      src={casa.image} 
+                      alt={casa.name} 
+                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0 brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05] ${casa.id === "casa-ocre" ? "object-right" : ""}`} 
+                    />
+                    {casa.hoverImage && (
+                      <img 
+                        src={casa.hoverImage} 
+                        alt={casa.name} 
+                        className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100 brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05]" 
+                      />
+                    )}
+                  </div>
+                  <h4 className="font-serif text-lg text-brand-ink mt-4 transition-colors group-hover:text-brand-ink/75">
+                    {casa.name}
+                  </h4>
+                  <p className="text-brand-ink/60 font-sans text-xs mt-1 uppercase tracking-wider">
+                    {casa.capacity}
+                  </p>
+                </Link>
+             ))}
+         </div>
+
          <Link to={r.houses} className="inline-block border-b border-brand-ink text-brand-ink uppercase letter-spacing-wide text-[11px] font-bold pb-1 hover:opacity-60 transition-opacity">
             {t.common.viewHouses}
          </Link>

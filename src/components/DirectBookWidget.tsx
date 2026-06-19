@@ -1,4 +1,64 @@
-export function DirectBookWidget({ houseId, embedded = false }: { houseId?: string, embedded?: boolean }) {
+import { useEffect, useRef } from "react";
+
+export function DirectBookWidget({ 
+  houseId, 
+  embedded = false,
+  lang = "pt"
+}: { 
+  houseId?: string; 
+  embedded?: boolean;
+  lang?: string;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (houseId === "casa-cal" || houseId === "casa-feto") {
+      const container = containerRef.current;
+      if (!container) return;
+
+      // Clear any pre-existing elements inside the container
+      container.innerHTML = "";
+
+      const roomType = houseId === "casa-cal" ? "131903" : "143425";
+
+      // Create Siteminder booking widget target div
+      const ibeDiv = document.createElement("div");
+      ibeDiv.className = "ibe";
+      ibeDiv.setAttribute("data-region", "emea");
+      ibeDiv.setAttribute("data-channelcode", "vigiasdirect");
+      ibeDiv.setAttribute("data-widget", "embed");
+      ibeDiv.setAttribute("data-query-room_type", roomType);
+      ibeDiv.setAttribute("data-query-locale", lang || "pt");
+      ibeDiv.setAttribute("data-query-currency", "EUR");
+
+      container.appendChild(ibeDiv);
+
+      // Load siteminder javascript dynamically
+      const script = document.createElement("script");
+      script.src = "https://widget.siteminder.com/ibe.min.js";
+      script.async = true;
+      script.defer = true;
+      container.appendChild(script);
+
+      return () => {
+        if (container) {
+          container.innerHTML = "";
+        }
+      };
+    }
+  }, [houseId, lang]);
+
+  if (houseId === "casa-cal" || houseId === "casa-feto") {
+    const titleText = houseId === "casa-cal" ? "Casa Cal" : "Casa Feto";
+    return (
+      <div className="w-full mt-12 bg-white rounded-sm min-h-[500px]" ref={containerRef}>
+        <div className="flex items-center justify-center py-20 text-stone-400">
+          <span className="animate-pulse">A carregar motor de reserva de {titleText}...</span>
+        </div>
+      </div>
+    );
+  }
+
   // Base URL for the Direct Book property
   const baseUrl = "https://direct-book.com/properties/vigiasdirect?locale=pt&currency=EUR&trackPage=yes";
   const bookingUrl = houseId ? `${baseUrl}&room_id=${houseId}` : baseUrl;

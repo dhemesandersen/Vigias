@@ -20,11 +20,18 @@ export const houseData = {
         { label: "Internet", value: "Wi-Fi (Starlink)" }
       ],
       images: [
-        "https://vigias.pt/wp-content/uploads/2023/05/16.jpg",
-        "https://vigias.pt/wp-content/uploads/2023/05/14-1.jpg",
-        "https://vigias.pt/wp-content/uploads/2023/05/15-1.jpg",
-        "https://vigias.pt/wp-content/uploads/2023/05/casasol11.jpg",
-        "https://vigias.pt/wp-content/uploads/2023/05/casasol12.jpg"
+        "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg",
+        "https://www.vigias.pt/fotos/CASA_SOL/CASA_SOL00023_rtq002.png"
+      ],
+      galleryImages: [
+        "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_293.jpg",
+        "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_306.jpg",
+        "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_047.jpg",
+        "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_482.jpg",
+        "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_013.jpg",
+        "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_071.jpg",
+        "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_021.jpg",
+        "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_317.jpg"
       ]
     },
     "casa-gaio": {
@@ -47,11 +54,18 @@ export const houseData = {
         { label: "Internet", value: "Wi-Fi" }
       ],
       images: [
-        "https://vigias.pt/wp-content/uploads/2023/05/Vigias-1gaio.jpg",
-        "https://vigias.pt/wp-content/uploads/2023/05/Vigias-2-gaio.jpg",
-        "https://vigias.pt/wp-content/uploads/2023/05/26.png",
-        "https://vigias.pt/wp-content/uploads/2023/05/28.png",
-        "https://vigias.pt/wp-content/uploads/2023/05/27.png"
+        "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_159.jpg",
+        "https://www.vigias.pt/fotos/CASA_GAIO/CASA_GAIO00002.jpg"
+      ],
+      galleryImages: [
+        "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_394-1.jpg",
+        "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_418.jpg",
+        "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_538.jpg",
+        "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_561-HDR.jpg",
+        "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_569.jpg",
+        "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_429.jpg",
+        "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_170.jpg",
+        "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_171.jpg"
       ]
     },
     "casa-cal": {
@@ -68,10 +82,16 @@ export const houseData = {
         { label: "Internet", value: "Wi-Fi de alta velocidade" }
       ],
       images: [
-        "https://vigias.pt/wp-content/uploads/2024/10/38.jpg",
-        "https://vigias.pt/wp-content/uploads/2024/10/39.jpg",
-        "https://vigias.pt/wp-content/uploads/2024/01/Untitled-design-2024-01-18T064425.602.png",
-        "https://vigias.pt/wp-content/uploads/2024/01/Circulacao-Cal.png"
+        "https://www.vigias.pt/fotos/CASA_CAL/IMG_3765_rtq003.png",
+        "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00016.jpg"
+      ],
+      galleryImages: [
+        "https://www.vigias.pt/fotos/CASA_CAL/IMG_3558_rtq_001.jpg",
+        "https://www.vigias.pt/fotos/CASA_CAL/IMG_2785.jpg",
+        "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00033.jpg",
+        "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00028.jpg",
+        "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00005.jpg",
+        "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00007.jpg"
       ]
     },
     "casa-feto": {
@@ -87,10 +107,16 @@ export const houseData = {
         { label: "Climatização", value: "Ar condicionado" }
       ],
       images: [
-        "https://vigias.pt/wp-content/uploads/2024/10/28.png",
-        "https://vigias.pt/wp-content/uploads/2024/10/27.png",
-        "https://vigias.pt/wp-content/uploads/2024/10/26.png",
-        "https://vigias.pt/wp-content/uploads/2024/10/20.png"
+        "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00048.jpg",
+        "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00001.jpg"
+      ],
+      galleryImages: [
+        "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00042.jpg",
+        "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg",
+        "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00007.jpg",
+        "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00012.jpg",
+        "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00043.jpg",
+        "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00029.jpg"
       ]
     },
     "casa-ocre": {
@@ -106,10 +132,20 @@ export const houseData = {
         { label: "Climatização", value: "Ar condicionado e Lareira" }
       ],
       images: [
-        "https://vigias.pt/wp-content/uploads/2024/10/36.png",
-        "https://vigias.pt/wp-content/uploads/2024/10/35.png",
-        "https://vigias.pt/wp-content/uploads/2024/10/16.png",
-        "https://vigias.pt/wp-content/uploads/2024/10/17.png"
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE03_steady.png",
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00002.jpg",
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg"
+      ],
+      galleryImages: [
+        "https://www.vigias.pt/fotos/CASA_OCRE/IMG_3632.jpg",
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00002.jpg",
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg",
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE09_dron_rtq002.png",
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00_MilkyWay_photography.jpg",
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00001.jpg",
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00007.jpg",
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00006.jpg",
+        "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00005.jpg"
       ]
     }
   },
@@ -118,30 +154,146 @@ export const houseData = {
     "casa-sol": {
       seo: { title: "Casa Sol · Villa privada de lujo en Alentejo | Vigias", description: "Casa Sol, villa para cuatro personas..." },
       h1: "Casa Sol", h2: "Villa privada con piscina para cuatro en el Norte Alentejano",
-      capacity: "Capacidad 4 personas", features: "2 suites, piscina privada.", images: ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"]
+      capacity: "Capacidad 4 personas", features: "2 suites, piscina privada.", images: [
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/CASA_SOL00023_rtq002.png"
+      ], galleryImages: [
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_293.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_306.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_047.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_482.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_013.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_071.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_021.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_317.jpg"
+      ]
     },
     "casa-gaio": {
       seo: { title: "Casa Gaio · Loft privado en Alentejo | Vigias", description: "Casa Gaio, loft privado para dos personas..." },
       h1: "Casa Gaio", h2: "Loft privado con piscina para dos, completamente integrado en el montado",
-      capacity: "Capacidad 2 personas", features: "Estudio/loft. Piscina privada.", images: ["https://images.unsplash.com/photo-1502672260266-1c1de2d92011?auto=format&fit=crop&w=1200&q=80"]
+      capacity: "Capacidad 2 personas", features: "Estudio/loft. Piscina privada.", images: [
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_159.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/CASA_GAIO00002.jpg"
+      ], galleryImages: [
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_394-1.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_418.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_538.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_561-HDR.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_569.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_429.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_170.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_171.jpg"
+      ]
     },
-    "casa-cal": { seo: { title: "Casa Cal", description: "" }, h1: "Casa Cal", h2: "", capacity: "", features: "", images: [""] },
-    "casa-feto": { seo: { title: "Casa Feto", description: "" }, h1: "Casa Feto", h2: "", capacity: "", features: "", images: [""] },
-    "casa-ocre": { seo: { title: "Casa Ocre", description: "" }, h1: "Casa Ocre", h2: "", capacity: "", features: "", images: [""] }
+    "casa-cal": { seo: { title: "Casa Cal", description: "" }, h1: "Casa Cal", h2: "", capacity: "", features: "", images: [
+         "https://www.vigias.pt/fotos/CASA_CAL/IMG_3765_rtq003.png",
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00016.jpg"
+      ], galleryImages: [
+         "https://www.vigias.pt/fotos/CASA_CAL/IMG_3558_rtq_001.jpg",
+         "https://www.vigias.pt/fotos/CASA_CAL/IMG_2785.jpg",
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00033.jpg",
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00028.jpg",
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00005.jpg",
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00007.jpg"
+      ] },
+    "casa-feto": { seo: { title: "Casa Feto", description: "" }, h1: "Casa Feto", h2: "", capacity: "", features: "", images: [
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00048.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00001.jpg"
+      ], galleryImages: [
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00042.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00007.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00012.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00043.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00029.jpg"
+      ] },
+    "casa-ocre": { seo: { title: "Casa Ocre", description: "" }, h1: "Casa Ocre", h2: "", capacity: "", features: "", images: [
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE03_steady.png",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00002.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg"
+      ], galleryImages: [
+         "https://www.vigias.pt/fotos/CASA_OCRE/IMG_3632.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00002.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE09_dron_rtq002.png",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00_MilkyWay_photography.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00001.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00007.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00006.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00005.jpg"
+      ] }
   },
   en: {
     "casa-sol": {
       seo: { title: "Casa Sol · Private luxury villa in Alentejo | Vigias", description: "Casa Sol, villa for four people..." },
       h1: "Casa Sol", h2: "Private villa with pool for four in Northern Alentejo",
-      capacity: "Capacity 4 people", features: "2 suites, private pool.", images: ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"]
+      capacity: "Capacity 4 people", features: "2 suites, private pool.", images: [
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/CASA_SOL00023_rtq002.png"
+      ], galleryImages: [
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_293.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_306.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_047.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_482.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_013.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_071.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_021.jpg",
+         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_317.jpg"
+      ]
     },
     "casa-gaio": {
       seo: { title: "Casa Gaio · Private loft in Alentejo | Vigias", description: "Casa Gaio, private loft for two people..." },
       h1: "Casa Gaio", h2: "Private loft with pool for two, seamlessly integrated into nature",
-      capacity: "Capacity 2 people", features: "Studio/loft. Private pool.", images: ["https://images.unsplash.com/photo-1502672260266-1c1de2d92011?auto=format&fit=crop&w=1200&q=80"]
+      capacity: "Capacity 2 people", features: "Studio/loft. Private pool.", images: [
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_159.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/CASA_GAIO00002.jpg"
+      ], galleryImages: [
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_394-1.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_418.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_538.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_561-HDR.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_569.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_429.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_170.jpg",
+         "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_171.jpg"
+      ]
     },
-    "casa-cal": { seo: { title: "Casa Cal", description: "" }, h1: "Casa Cal", h2: "", capacity: "", features: "", images: [""] },
-    "casa-feto": { seo: { title: "Casa Feto", description: "" }, h1: "Casa Feto", h2: "", capacity: "", features: "", images: [""] },
-    "casa-ocre": { seo: { title: "Casa Ocre", description: "" }, h1: "Casa Ocre", h2: "", capacity: "", features: "", images: [""] }
+    "casa-cal": { seo: { title: "Casa Cal", description: "" }, h1: "Casa Cal", h2: "", capacity: "", features: "", images: [
+         "https://www.vigias.pt/fotos/CASA_CAL/IMG_3765_rtq003.png",
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00016.jpg"
+      ], galleryImages: [
+         "https://www.vigias.pt/fotos/CASA_CAL/IMG_3558_rtq_001.jpg",
+         "https://www.vigias.pt/fotos/CASA_CAL/IMG_2785.jpg",
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00033.jpg",
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00028.jpg",
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00005.jpg",
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00007.jpg"
+      ] },
+    "casa-feto": { seo: { title: "Casa Feto", description: "" }, h1: "Casa Feto", h2: "", capacity: "", features: "", images: [
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00048.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00001.jpg"
+      ], galleryImages: [
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00042.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00007.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00012.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00043.jpg",
+         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00029.jpg"
+      ] },
+    "casa-ocre": { seo: { title: "Casa Ocre", description: "" }, h1: "Casa Ocre", h2: "", capacity: "", features: "", images: [
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE03_steady.png",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00002.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg"
+      ], galleryImages: [
+         "https://www.vigias.pt/fotos/CASA_OCRE/IMG_3632.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00002.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE09_dron_rtq002.png",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00_MilkyWay_photography.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00001.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00007.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00006.jpg",
+         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00005.jpg"
+      ] }
   }
 };

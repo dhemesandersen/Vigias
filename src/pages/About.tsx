@@ -1,7 +1,34 @@
 import { Language } from "../lib/i18n";
 import { SEO } from "../components/SEO";
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export function About({ lang }: { lang: Language }) {
+  const paisagensImages = [
+    "https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_179.jpg",
+    "https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_199.jpg",
+    "https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_242.jpg",
+    "https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_257.jpg",
+    "https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_193.jpg"
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % paisagensImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % paisagensImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + paisagensImages.length) % paisagensImages.length);
+  };
+
   const seo = {
     pt: {
       title: "Quem somos · A Nossa História | Vigias Alentejo",
@@ -52,9 +79,9 @@ export function About({ lang }: { lang: Language }) {
                <div className="w-3/4 sm:w-2/3 lg:w-3/4 self-center lg:self-end mb-16 lg:mr-10">
                   <div className="aspect-[4/5] overflow-hidden">
                      <img 
-                       src="https://vigias.pt/wp-content/uploads/2023/05/Vigias-1gaio.jpg" 
+                       src="https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_061.jpg" 
                        alt="Vigias Nature" 
-                       className="w-full h-full object-cover filter brightness-95"
+                       className="w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05]"
                      />
                   </div>
                </div>
@@ -125,18 +152,55 @@ export function About({ lang }: { lang: Language }) {
       </section>
 
       {/* Full Width Image Block */}
-      <section className="w-full h-[60vh] md:h-[80vh] relative overflow-hidden">
-         <img 
-           src="https://vigias.pt/wp-content/uploads/2023/05/parque-natural-s-mamede.jpg" 
-           alt="Parque Natural Serra de São Mamede" 
-           className="w-full h-full object-cover filter brightness-[0.85]"
-         />
-         <div className="absolute inset-0 flex items-center justify-center">
-            <h2 className="text-white font-serif text-4xl md:text-6xl tracking-wide opacity-90">
+      <section className="w-full h-[60vh] md:h-[80vh] relative overflow-hidden group/slider">
+         {paisagensImages.map((imgSrc, idx) => (
+            <img 
+               key={idx}
+               src={imgSrc} 
+               alt={`Paisagens Eternas ${idx + 1}`} 
+               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out filter brightness-[0.85] contrast-[1.02] saturate-[0.93] sepia-[0.05] ${
+                  idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+               }`}
+            />
+         ))}
+
+         {/* Navigation Arrows */}
+         <button 
+            onClick={prevSlide}
+            className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-black/20 hover:bg-black/50 text-white backdrop-blur-xs opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 cursor-pointer"
+            aria-label="Previous image"
+         >
+            <ChevronLeft className="w-6 h-6" />
+         </button>
+         <button 
+            onClick={nextSlide}
+            className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-black/20 hover:bg-black/50 text-white backdrop-blur-xs opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300 cursor-pointer"
+            aria-label="Next image"
+         >
+            <ChevronRight className="w-6 h-6" />
+         </button>
+
+         {/* Text Overlay */}
+         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+            <h2 className="text-white font-serif text-4xl md:text-6xl tracking-wide opacity-90 select-none">
                {lang === 'pt' && "Paisagens Eternas"}
                {lang === 'es' && "Paisajes Eternos"}
                {lang === 'en' && "Eternal Landscapes"}
             </h2>
+         </div>
+
+         {/* Dot Indicators */}
+         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+            {paisagensImages.map((_, idx) => (
+               <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                     idx === currentSlide ? "bg-white w-5" : "bg-white/40 hover:bg-white/60"
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+               />
+            ))}
          </div>
       </section>
     </>

@@ -77,7 +77,7 @@ export function Footer({ lang }: { lang: Language }) {
                 <h4 className="text-[10px] tracking-widest uppercase text-[#E8E6E1]/60 mb-6">{lang === 'pt' ? 'Sobre' : lang === 'es' ? 'Sobre' : 'About'}</h4>
                 <ul className="space-y-4 font-sans text-xs uppercase tracking-widest text-[#E8E6E1]/90">
                   <li><Link to={r.about} className="hover:text-white transition-colors block">{lang === 'pt' ? 'A Nossa Visão' : lang === 'es' ? 'Nuestra Visión' : 'Our Vision'}</Link></li>
-                  <li><Link to={r.sustainability} className="hover:text-white transition-colors block">{lang === 'pt' ? 'Sustentabilidade' : lang === 'es' ? 'Sostenibilidad' : 'Sustainability'}</Link></li>
+                  <li><Link to={r.about} className="hover:text-white transition-colors block">{lang === 'pt' ? 'Sustentabilidade' : lang === 'es' ? 'Sostenibilidad' : 'Sustainability'}</Link></li>
                   <li><Link to={r.terms} className="hover:text-white transition-colors block">{lang === 'pt' ? 'Termos e Condições' : lang === 'es' ? 'Términos y Condiciones' : 'Terms & Conditions'}</Link></li>
                 </ul>
              </div>
