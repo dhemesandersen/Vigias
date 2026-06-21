@@ -108,7 +108,7 @@ export function About({ lang }: { lang: Language }) {
                <div className="w-full h-full min-h-[600px] lg:min-h-[900px] bg-gray-100 overflow-hidden relative">
                   <iframe 
                     src="https://www.youtube.com/embed/IJYMuDc7Gto?autoplay=1&mute=1&controls=0&loop=1&playlist=IJYMuDc7Gto&playsinline=1&showinfo=0&rel=0" 
-                    className="absolute top-1/2 left-1/2 w-[300vw] h-[300vh] -translate-x-1/2 -translate-y-1/2 md:w-[200vw] md:h-[200vh] lg:w-[150vw] lg:h-[150vh] opacity-60 object-cover pointer-events-none"
+                    className="absolute top-1/2 left-1/2 w-[300vw] h-[300vh] -translate-x-1/2 -translate-y-1/2 md:w-[200vw] md:h-[200vh] lg:w-[150vw] lg:h-[150vh] opacity-100 object-cover pointer-events-none"
                     frameBorder="0"
                     allow="autoplay; muted; encrypted-media"
                     title="Vigias Video"

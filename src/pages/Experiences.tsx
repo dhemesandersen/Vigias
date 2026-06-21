@@ -76,11 +76,11 @@ const experiencesData = [
     }
   },
   {
-    image: "https://upload.wikimedia.org/wikipedia/commons/4/45/Red_Kite_Milvus_milvus.jpg",
+    image: "https://www.vigias.pt/fotos/ENTORNO/avistamentoaves.jpg",
     title: {
-      pt: "Avistamento de aves de rapina raras",
-      es: "Observación de aves rapaces raras",
-      en: "Observation of rare birds of prey"
+      pt: "Avistamento de aves e rapina raras",
+      es: "Observación de aves y rapaces raras",
+      en: "Observation of rare birds and birds of prey"
     },
     host: {
       pt: "Nas Vigias e em redor",
@@ -94,22 +94,22 @@ const experiencesData = [
     },
     description: {
       pt: [
-        "Quando a noite desce sobre a Serra de S. Mamede, a paisagem revela uma vida mais discreta e misteriosa.",
-        "Entre montados, zonas arborizadas e caminhos silenciosos, é possível escutar e observar sinais de aves noturnas, como corujas e mochos, sempre com respeito pelo seu habitat natural.",
-        "Esta é uma experiência de contemplação, paciência e silêncio. Mais do que procurar apenas o avistamento perfeito, o convite é entrar no ritmo da natureza e descobrir a beleza quase invisível que vive depois do pôr do sol.",
-        "Os avistamentos dependem sempre da época do ano, das condições naturais e do comportamento das espécies."
+        "Um planalto de aves entregues à luxúria do silêncio. O Parque Natural da Serra de S. Mamede é um local de eleição para a observação de espécies raras e protegidas, como o emblemático Rolieiro-europeu (uma fascinante ave de tons azuis) e diversas aves de rapina.",
+        "Entre montados, zonas arborizadas e caminhos silenciosos, é possível escutar e observar sinais de aves noturnas, como corujas e mochos, além de majestosas rapinas diurnas navegando os céus das Vigias.",
+        "Esta é uma experiência de contemplação, paciência e silêncio. Mais do que procurar apenas o avistamento perfeito, o convite é entrar no ritmo da natureza, seja de dia ou de noite, e descobrir a vida selvagem que habita esta serra.",
+        "Os avistamentos de espécies como o rolieiro dependem sempre da época do ano (principalmente primavera e verão, durante o período de nidificação), das condições naturais e do comportamento das espécies selvagens."
       ],
       es: [
-        "Cuando la noche desciende sobre la Sierra de S. Mamede, el paisaje revela una vida más discreta y misteriosa.",
-        "Entre dehesas, zonas arboladas y caminos silenciosos, es posible escuchar y observar indicios de aves nocturnas, como búhos y mochuelos, de forma respetuosa con su hábitat natural.",
-        "Esta es una experiencia de contemplación, paciencia y silencio. Más que buscar simplemente el avistamiento perfecto, la invitación es a entrar en el ritmo de la naturaleza y descubrir la belleza casi invisible que cobra vida tras el atardecer.",
-        "Los avistamientos dependen siempre de la época del año, de las condiciones naturales y del comportamiento de las especies."
+        "Una meseta de aves entregadas al deleite del silencio. El Parque Natural de la Sierra de S. Mamede es un lugar privilegiado para la observación de especies raras y protegidas, como la emblemática Carraca europea (un ave fascinante de tonos azules) y diversas aves rapaces.",
+        "Entre dehesas, zonas arboladas y caminos silenciosos, es posible escuchar y observar indicios de aves nocturnas, como búhos y mochuelos, además de majestuosas rapaces diurnas navegando los cielos de Vigias.",
+        "Esta es una experiencia de contemplación, paciencia y silencio. Más que buscar simplemente el avistamiento perfecto, la invitación es a entrar en el ritmo de la naturaleza y descubrir la vida silvestre que habita esta sierra.",
+        "Los avistamientos de especies como la carraca europea dependen siempre de la época del año (sobre todo primavera y verano), de las condiciones naturales y del comportamiento de las especies."
       ],
       en: [
-        "When night descends on the Serra de S. Mamede, the landscape reveals a more discreet and mysterious life.",
-        "Among cork oak forests, wooded areas and silent paths, it is possible to listen and observe signs of nocturnal birds, such as owls, always respecting their natural habitat.",
-        "This is an experience of contemplation, patience, and silence. Rather than just searching for the perfect sighting, the invitation is to step into the rhythm of nature and discover the almost invisible beauty that lives after sunset.",
-        "Sightings always depend on the time of year, natural conditions, and species behavior."
+        "A plateau of birds surrendered to the luxury of silence. The Serra de S. Mamede Natural Park is a privileged location for observing rare and protected species, such as the emblematic European Roller (a fascinating bird of bright blue hues) and various birds of prey.",
+        "Among cork oak forests, wooded areas, and silent paths, it is possible to listen and observe signs of nocturnal birds like owls, as well as majestic diurnal raptors sailing the skies of Vigias.",
+        "This is an experience of contemplation, patience, and silence. Rather than just searching for the perfect sighting, the invitation is to step into the rhythm of nature and discover the wildlife that inhabits this mountain range.",
+        "Sightings of species such as the European roller always depend on the time of year (primarily spring and summer), natural conditions, and species behavior."
       ]
     }
   },

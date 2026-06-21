@@ -26,9 +26,9 @@ export const homeData = {
     reviews: {
       title: "O que dizem quem nos visita",
       items: [
-        { name: "M.", from: "Google", text: "Um silêncio absoluto. A casa integra-se perfeitamente na natureza, com uma piscina privada que convida a relaxar. Privacidade total." },
-        { name: "J.", from: "Google", text: "Arquitetura e conforto irrepreensíveis. O acolhimento foi excelente e a vontade de regressar é enorme." },
-        { name: "A.", from: "Google", text: "O verdadeiro luxo é o espaço e a calma deste lugar. A propriedade está muito bem cuidada." }
+        { name: "Luísa", from: "Google", text: "Um verdadeiro paraíso de paz e silêncio absoluto. A casa está perfeitamente integrada na natureza e a piscina privativa é maravilhosa. Privacidade e descanso total!" },
+        { name: "Diogo", from: "Google", text: "Arquitetura minimalista fantástica e conforto excecional em cada detalhe. O acolhimento da Isabel e do Francisco foi fantástico, fazem-nos sentir verdadeiramente em casa. Mal podemos esperar por voltar!" },
+        { name: "Catarina", from: "Google", text: "O verdadeiro luxo do silêncio. Acordar com um pequeno-almoço maravilhoso deixado à porta e desfrutar da vista desimpedida sobre o montado. À noite, o céu estrelado é inesquecível." }
       ]
     },
     sustentabilidade: {
@@ -78,9 +78,9 @@ export const homeData = {
     reviews: {
       title: "Lo que dicen quienes nos visitan",
       items: [
-        { name: "M.", from: "Google", text: "Un silencio absoluto. La casa se integra perfectamente en la naturaleza, con una piscina privada que invita a relajarse. Privacidad total." },
-        { name: "J.", from: "Google", text: "Arquitectura y confort irreprochables. La acogida fue excelente y las ganas de volver son enormes." },
-        { name: "A.", from: "Google", text: "El verdadero lujo es el espacio y la calma de este lugar. La propiedad está muy bien cuidada." }
+        { name: "Luisa", from: "Google", text: "Un verdadero paraíso de paz y silencio absoluto. La casa se integra perfectamente en la naturaleza y la piscina privada es maravillosa. ¡Privacidad y descanso total!" },
+        { name: "Diogo", from: "Google", text: "Arquitectura minimalista fantástica y un confort excepcional en cada detalle. La acogida de Isabel y Francisco fue fantástica, te hacen sentir realmente en casa. ¡Estamos deseando volver!" },
+        { name: "Catarina", from: "Google", text: "El verdadero lujo del silencio. Despertar con un desayuno maravilloso dejado en la puerta y disfrutar de la vista despejada sobre el alcornocal. Por la noche, el cielo estrellado es inolvidable." }
       ]
     },
     sustentabilidade: {
@@ -130,9 +130,9 @@ export const homeData = {
     reviews: {
       title: "What our guests say",
       items: [
-        { name: "M.", from: "Google", text: "Absolute silence. The house integrates perfectly into nature, with a private pool that invites you to relax. Total privacy." },
-        { name: "J.", from: "Google", text: "Impeccable architecture and comfort. The welcome was excellent and the desire to return is very strong." },
-        { name: "A.", from: "Google", text: "The real luxury is the space and calm of this place. The property is very well maintained." }
+        { name: "Luisa", from: "Google", text: "A true paradise of peace and absolute silence. The house is perfectly integrated into nature and the private pool is wonderful. Total privacy and relaxation!" },
+        { name: "Diogo", from: "Google", text: "Fantastic minimalist architecture and exceptional comfort in every detail. The welcome by Isabel and Francisco was fantastic, making us feel truly at home. We can't wait to return!" },
+        { name: "Catarina", from: "Google", text: "The real luxury of silence. Waking up to a wonderful breakfast left at the door and enjoying the unobstructed view of the cork oak forest. At night, the starry sky is unforgettable." }
       ]
     },
     sustentabilidade: {

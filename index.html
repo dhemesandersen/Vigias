@@ -3,11 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <title>As Vigias</title>
+
+    <!-- Google Tag (gtag.js) & Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag.js?id=GT-MB835VH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // Attempt to load from Vite env variables or use the user's provided IDs as default
+      var extGaId = "%VITE_GA_ID%";
+      var extGtmId = "%VITE_GTM_ID%";
+      
+      var gaId = (extGaId && extGaId.indexOf("VITE_GA_ID") === -1) ? extGaId : "G-PQ1CVK8W75";
+      var gtmId = (extGtmId && extGtmId.indexOf("VITE_GTM_ID") === -1) ? extGtmId : "GT-MB835VH";
+
+      if (gaId) {
+        gtag('config', gaId);
+      }
+      if (gtmId) {
+        gtag('config', gtmId);
+      }
+
+      // Traditional GTM script fallback if a classical GTM container layout is inputted
+      if (gtmId && gtmId.startsWith("GTM-")) {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',gtmId);
+      }
+    </script>
+    <!-- End Google Tag -->
   </head>
-  <body>
+  <body class="bg-warm-white text-stone-900 select-none antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

@@ -46,11 +46,17 @@ export function Contact({ lang }: { lang: Language }) {
                </div>
                <div>
                   <h3 className="font-semibold uppercase tracking-widest text-xs text-olive-700 mb-2">WhatsApp / Telefone</h3>
-                  <a href="https://wa.me/351XXXXXXXXX" className="text-lg hover:text-ochre-600 transition">+351 XXXXXXXXX</a>
+                  <a href="https://wa.me/351936721199" className="text-lg hover:text-ochre-600 transition" target="_blank" rel="noopener noreferrer">+351 936721199</a>
                </div>
                <div>
-                  <h3 className="font-semibold uppercase tracking-widest text-xs text-olive-700 mb-2">Localização</h3>
-                  <p className="text-lg">Parque Natural Serra de S. Mamede<br/>Alto Alentejo, Portugal</p>
+                  <h3 className="font-semibold uppercase tracking-widest text-xs text-olive-700 mb-2">
+                     {lang === "pt" ? "Localização" : lang === "es" ? "Ubicación" : "Location"}
+                  </h3>
+                  <p className="text-lg">
+                     Quinta da Vigia<br />
+                     Carreiras – 7300-355<br />
+                     Portalegre, Portugal
+                  </p>
                </div>
             </div>
             
@@ -61,11 +67,17 @@ export function Contact({ lang }: { lang: Language }) {
             </div>
           </div>
           
-          <div className="flex-1 min-h-[300px] bg-sand-300">
-             {/* Map placeholder */}
-             <div className="w-full h-full flex items-center justify-center text-stone-500 uppercase tracking-widest text-xs">
-                Google Maps
-             </div>
+          <div className="flex-1 min-h-[350px] bg-sand-300 overflow-hidden rounded-lg shadow-md border border-stone-200/60">
+             <iframe
+                title="Google Map Quinta da Vigia"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: "350px" }}
+                src="https://maps.google.com/maps?q=Quinta%20da%20Vigia%20Carreiras%20%E2%80%93%207300-355%20Portalegre&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+             />
           </div>
         </div>
       </section>

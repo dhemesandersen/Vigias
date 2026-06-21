@@ -4,7 +4,31 @@ import { SEO } from "../components/SEO";
 import { homeData } from "../data/home";
 import { DirectBookWidget } from "../components/DirectBookWidget";
 import { FaqSection } from "../components/FaqSection";
-import { Mountain, Leaf, Castle } from "lucide-react";
+import { Mountain, Leaf, Castle, Star, ShieldCheck } from "lucide-react";
+
+const ctaTranslations = {
+  pt: {
+    title: "Reserve a sua estadia",
+    description: "Consulte disponibilidade em tempo real e reserve diretamente connosco, sem intermediários.",
+    button: "Verificar disponibilidade",
+    badgeLine1: "Reserva direta",
+    badgeLine2: "sem intermediários"
+  },
+  es: {
+    title: "Reserve su estancia",
+    description: "Consulte disponibilidad en tiempo real y reserve directamente con nosotros, sin intermediarios.",
+    button: "Verificar disponibilidad",
+    badgeLine1: "Reserva directa",
+    badgeLine2: "sin intermediarios"
+  },
+  en: {
+    title: "Reserve your stay",
+    description: "Check real-time availability and book directly with us, with no intermediaries.",
+    button: "Check availability",
+    badgeLine1: "Direct booking",
+    badgeLine2: "no intermediaries"
+  }
+};
 
 export function Home({ lang }: { lang: Language }) {
   const data = homeData[lang];
@@ -135,6 +159,11 @@ export function Home({ lang }: { lang: Language }) {
                {data.reviews.items.map((review, i) => (
                   <div key={i} className="flex flex-col border-t border-brand-ink/10 pt-8">
                      <p className="text-brand-ink/80 text-sm leading-relaxed mb-8 flex-1">"{review.text}"</p>
+                     <div className="flex gap-1 mb-2.5">
+                        {Array.from({ length: 5 }).map((_, starIdx) => (
+                           <Star key={starIdx} className="w-3.5 h-3.5 fill-amber-500 text-amber-500 stroke-[1.5]" />
+                        ))}
+                     </div>
                      <span className="text-[11px] tracking-widest uppercase font-medium text-brand-ink/60">{review.name} · {review.from}</span>
                   </div>
                ))}
@@ -143,12 +172,51 @@ export function Home({ lang }: { lang: Language }) {
       </section>
 
       {/* Bloco 6 - Reservas (direct-book) */}
-      <section className="py-24 px-12 bg-zinc-200">
-         <div className="max-w-4xl mx-auto booking-widget rounded-sm p-8 md:p-12 border border-brand-ink/5">
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-ink mb-8 text-center letter-spacing-tight">
-               Reserve a sua estadia
-            </h2>
-            <DirectBookWidget lang={lang} />
+      <section className="py-20 px-6 md:px-12 bg-white">
+         <div className="max-w-7xl mx-auto bg-brand-bg rounded-sm overflow-hidden flex flex-col md:flex-row shadow-sm border border-brand-ink/5">
+            {/* Painel Esquerdo - Texto e Botão */}
+            <div className="w-full md:w-[50%] lg:w-[45%] p-8 sm:p-12 md:p-14 lg:p-16 flex flex-col justify-center bg-brand-bg text-brand-ink">
+               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight text-brand-ink mb-6">
+                  {ctaTranslations[lang].title}
+               </h2>
+               <p className="text-sm text-brand-ink/70 leading-relaxed mb-10 max-w-md">
+                  {ctaTranslations[lang].description}
+               </p>
+               <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+                  <a 
+                     href={`https://direct-book.com/properties/vigiasdirect?locale=${lang}&currency=EUR&trackPage=yes`}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="inline-block bg-[#1A1A1A] hover:bg-neutral-800 text-white font-sans font-medium text-xs tracking-[0.16em] uppercase transition-colors px-8 py-4.5 whitespace-nowrap text-center shadow-md shadow-brand-ink/5 rounded-none"
+                  >
+                     {ctaTranslations[lang].button}
+                  </a>
+                  <div className="flex items-center gap-3">
+                     <div className="flex items-center justify-center w-10 h-10 rounded-full border border-brand-olive/20 bg-brand-olive/5">
+                        <ShieldCheck className="w-5 h-5 text-brand-olive stroke-[1.2]" />
+                     </div>
+                     <div className="flex flex-col">
+                        <span className="text-[9px] sm:text-[10px] font-sans font-semibold tracking-[0.15em] text-[#5A5A40] uppercase leading-tight">
+                           {ctaTranslations[lang].badgeLine1}
+                        </span>
+                        <span className="text-[9px] sm:text-[10px] font-sans font-semibold tracking-[0.15em] text-brand-ink/50 uppercase leading-snug">
+                           {ctaTranslations[lang].badgeLine2}
+                        </span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            {/* Painel Direito - Imagem Panorâmica */}
+            <div className="w-full md:w-[50%] lg:w-[55%] h-[280px] sm:h-[350px] md:h-auto min-h-[350px] relative overflow-hidden">
+               <img 
+                  src="https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_623.jpg" 
+                  alt="Vigias Landscapes" 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
+                  referrerPolicy="no-referrer"
+               />
+               <div className="absolute inset-0 bg-[#1A1A1A]/5 mix-blend-multiply"></div>
+            </div>
          </div>
       </section>
 
