@@ -1,5 +1,13 @@
 import { useEffect, useRef } from "react";
 
+const ROOM_TYPES: Record<string, string> = {
+  "casa-gaio": "119380",
+  "casa-cal": "131903",
+  "casa-feto": "143425",
+  "casa-ocre": "146010",
+  "casa-sol": "118083"
+};
+
 export function DirectBookWidget({ 
   houseId, 
   embedded = false,
@@ -10,16 +18,15 @@ export function DirectBookWidget({
   lang?: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const roomType = houseId ? ROOM_TYPES[houseId] : undefined;
 
   useEffect(() => {
-    if (houseId === "casa-cal" || houseId === "casa-feto") {
+    if (houseId && roomType) {
       const container = containerRef.current;
       if (!container) return;
 
       // Clear any pre-existing elements inside the container
       container.innerHTML = "";
-
-      const roomType = houseId === "casa-cal" ? "131903" : "143425";
 
       // Create Siteminder booking widget target div
       const ibeDiv = document.createElement("div");
@@ -27,7 +34,7 @@ export function DirectBookWidget({
       ibeDiv.setAttribute("data-region", "emea");
       ibeDiv.setAttribute("data-channelcode", "vigiasdirect");
       ibeDiv.setAttribute("data-widget", "embed");
-      ibeDiv.setAttribute("data-query-room_type", roomType);
+      ibeDiv.setAttribute("data-query-room_type_id", roomType);
       ibeDiv.setAttribute("data-query-locale", lang || "pt");
       ibeDiv.setAttribute("data-query-currency", "EUR");
 
@@ -46,10 +53,14 @@ export function DirectBookWidget({
         }
       };
     }
-  }, [houseId, lang]);
+  }, [houseId, roomType, lang]);
 
-  if (houseId === "casa-cal" || houseId === "casa-feto") {
-    const titleText = houseId === "casa-cal" ? "Casa Cal" : "Casa Feto";
+  if (houseId && roomType) {
+    const titleText = houseId === "casa-gaio" ? "Casa Gaio" 
+      : houseId === "casa-cal" ? "Casa Cal" 
+      : houseId === "casa-feto" ? "Casa Feto" 
+      : houseId === "casa-ocre" ? "Casa Ocre" 
+      : houseId === "casa-sol" ? "Casa Sol" : "";
     return (
       <div className="w-full mt-12 bg-white rounded-sm min-h-[500px]" ref={containerRef}>
         <div className="flex items-center justify-center py-20 text-stone-400">
@@ -60,13 +71,13 @@ export function DirectBookWidget({
   }
 
   // Base URL for the Direct Book property
-  const baseUrl = "https://direct-book.com/properties/vigiasdirect?locale=pt&currency=EUR&trackPage=yes";
-  const bookingUrl = houseId ? `${baseUrl}&room_id=${houseId}` : baseUrl;
+  const baseUrl = `https://direct-book.com/properties/vigiasdirect?locale=${lang || "pt"}&currency=EUR&trackPage=yes`;
+  const bookingUrl = roomType ? `${baseUrl}&room_type_id=${roomType}` : baseUrl;
 
   if (embedded) {
-    const iframeSrc = houseId 
-      ? `https://direct-book.com/properties/vigiasdirect?locale=pt&currency=EUR&trackPage=yes&iframe=true&width=1050&height=850&room_id=${houseId}`
-      : `https://direct-book.com/properties/vigiasdirect?locale=pt&currency=EUR&trackPage=yes&iframe=true&width=1050&height=850`;
+    const iframeSrc = roomType 
+      ? `https://direct-book.com/properties/vigiasdirect?locale=${lang || "pt"}&currency=EUR&trackPage=yes&iframe=true&width=1050&height=850&room_type_id=${roomType}`
+      : `https://direct-book.com/properties/vigiasdirect?locale=${lang || "pt"}&currency=EUR&trackPage=yes&iframe=true&width=1050&height=850`;
 
     return (
       <div className="w-full mt-12 bg-white rounded-sm overflow-hidden">

@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, ChevronUp, Calendar } from "lucide-react";
 
 interface BookingSectionProps {
   houseId?: string;
@@ -61,6 +62,7 @@ const TRANSLATIONS = {
 
 export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const roomType = houseId ? ROOM_TYPES[houseId] : undefined;
   const houseNameObj = houseId ? HOUSE_NAMES[houseId] : undefined;
   const currentHouseName = houseNameObj ? (houseNameObj[lang] || houseNameObj.pt) : "";
@@ -79,7 +81,7 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
     ibeDiv.setAttribute("data-channelcode", "vigiasdirect");
     ibeDiv.setAttribute("data-widget", "embed");
     if (roomType) {
-      ibeDiv.setAttribute("data-query-room_type", roomType);
+      ibeDiv.setAttribute("data-query-room_type_id", roomType);
     }
     ibeDiv.setAttribute("data-query-locale", lang);
     ibeDiv.setAttribute("data-query-currency", "EUR");
@@ -110,7 +112,7 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
       <style dangerouslySetInnerHTML={{ __html: `
         .vigias-booking-section {
           width: 100%;
-          padding: 72px 20px;
+          padding: 60px 20px;
           background: #f7f3ea;
           color: #2f3028;
           box-sizing: border-box;
@@ -128,7 +130,7 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
 
         .vigias-booking-header {
           max-width: 760px;
-          margin: 0 auto 36px;
+          margin: 0 auto 24px;
           text-align: center;
         }
 
@@ -144,7 +146,7 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
 
         .vigias-booking-title {
           margin: 0 0 18px;
-          font-size: clamp(34px, 5vw, 58px);
+          font-size: clamp(34px, 5vw, 52px);
           line-height: 1.05;
           font-weight: 400;
           color: #2f3028;
@@ -152,40 +154,79 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
 
         .vigias-booking-text {
           margin: 0;
-          font-size: clamp(17px, 2vw, 21px);
-          line-height: 1.7;
+          font-size: clamp(16px, 1.8vw, 19px);
+          line-height: 1.6;
           color: #55554a;
+        }
+
+        /* Accordion transition classes */
+        .vigias-booking-accordion {
+          max-height: 0;
+          opacity: 0;
+          overflow: hidden;
+          transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+        }
+
+        .vigias-booking-accordion.open {
+          max-height: 1100px;
+          opacity: 1;
         }
 
         .vigias-booking-shell {
           width: 100%;
-          min-height: 820px;
-          margin: 0 auto;
-          padding: 18px;
-          border-radius: 26px;
+          min-height: 680px;
+          margin: 24px auto 0;
+          padding: 16px;
+          border-radius: 20px;
           background: #ffffff;
-          box-shadow: 0 24px 70px rgba(38, 38, 30, 0.12);
+          box-shadow: 0 16px 48px rgba(38, 38, 30, 0.08);
           overflow: hidden;
         }
 
         .vigias-booking-shell .ibe {
           width: 100%;
-          min-height: 780px;
+          min-height: 640px;
         }
 
         .vigias-booking-shell iframe {
           width: 100% !important;
-          min-height: 780px !important;
+          min-height: 640px !important;
           border: 0 !important;
         }
 
         .vigias-booking-note {
           max-width: 760px;
-          margin: 22px auto 0;
+          margin: 20px auto 0;
           text-align: center;
-          font-size: 14px;
+          font-size: 13px;
           line-height: 1.6;
           color: #777568;
+        }
+
+        .vigias-booking-toggle-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          background: #3f4a3c;
+          color: #ffffff;
+          font-family: inherit;
+          font-size: 13px;
+          font-weight: 500;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          padding: 18px 40px;
+          transition: all 0.25s ease;
+          box-shadow: 0 4px 12px rgba(63, 74, 60, 0.15);
+        }
+
+        .vigias-booking-toggle-btn:hover {
+          background: #2f382d;
+          transform: translateY(-1px);
+          box-shadow: 0 6px 16px rgba(63, 74, 60, 0.25);
         }
 
         .vigias-booking-fallback {
@@ -219,26 +260,26 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
 
         @media (max-width: 767px) {
           .vigias-booking-section {
-            padding: 52px 16px;
+            padding: 48px 16px;
           }
 
           .vigias-booking-header {
             text-align: left;
-            margin-bottom: 28px;
+            margin-bottom: 20px;
           }
 
           .vigias-booking-shell {
-            min-height: 760px;
+            min-height: 640px;
             padding: 8px;
-            border-radius: 18px;
+            border-radius: 14px;
           }
 
           .vigias-booking-shell .ibe {
-            min-height: 740px;
+            min-height: 620px;
           }
 
           .vigias-booking-shell iframe {
-            min-height: 740px !important;
+            min-height: 620px !important;
           }
 
           .vigias-booking-note {
@@ -262,28 +303,46 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
           <p className="vigias-booking-text">
             {formattedText}
           </p>
+          
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="vigias-booking-toggle-btn"
+            >
+              <Calendar className="w-4 h-4 opacity-80" />
+              <span>
+                {isOpen 
+                  ? (lang === 'en' ? 'Hide Rates & Selection' : lang === 'es' ? 'Ocultar tarifas y selección' : 'Ocultar tarifas e seleção')
+                  : (lang === 'en' ? 'Check Rates & Dates' : lang === 'es' ? 'Consultar tarifas y fechas' : 'Consultar tarifas e datas')
+                }
+              </span>
+              {isOpen ? <ChevronUp className="w-4 h-4 ml-1" /> : <ChevronDown className="w-4 h-4 ml-1" />}
+            </button>
+          </div>
         </div>
 
-        <div className="vigias-booking-shell" ref={containerRef}>
-          {/* Siteminder IBE will load here */}
-        </div>
+        <div className={`vigias-booking-accordion ${isOpen ? 'open' : ''}`}>
+          <div className="vigias-booking-shell" ref={containerRef}>
+            {/* Siteminder IBE will load here */}
+          </div>
 
-        <p className="vigias-booking-note">
-          {TRANSLATIONS.note[lang] || TRANSLATIONS.note.pt}
-        </p>
+          <p className="vigias-booking-note">
+            {TRANSLATIONS.note[lang] || TRANSLATIONS.note.pt}
+          </p>
 
-        <div className="vigias-booking-fallback">
-          <a
-            className="ibe vigias-booking-btn"
-            href="#"
-            data-region="emea"
-            data-channelcode="vigiasdirect"
-            {...(roomType ? { "data-query-room_type": roomType } : {})}
-            data-query-locale={lang}
-            data-query-currency="EUR"
-          >
-            {houseId ? ((TRANSLATIONS.button[lang] || TRANSLATIONS.button.pt) + currentHouseName) : (TRANSLATIONS.button[lang] || TRANSLATIONS.button.pt) + "Vigias"}
-          </a>
+          <div className="vigias-booking-fallback">
+            <a
+              className="ibe vigias-booking-btn"
+              href="#"
+              data-region="emea"
+              data-channelcode="vigiasdirect"
+              {...(roomType ? { "data-query-room_type_id": roomType } : {})}
+              data-query-locale={lang}
+              data-query-currency="EUR"
+            >
+              {houseId ? ((TRANSLATIONS.button[lang] || TRANSLATIONS.button.pt) + currentHouseName) : (TRANSLATIONS.button[lang] || TRANSLATIONS.button.pt) + "Vigias"}
+            </a>
+          </div>
         </div>
       </div>
     </section>

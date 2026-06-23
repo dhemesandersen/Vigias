@@ -12,6 +12,9 @@ Options -MultiViews
   RewriteRule ^(.*)$ /vigias/index.html [L]
 </IfModule>
 
+# Definitive fallback for 404 errors (essential for LiteSpeed / Hostinger subdirectories)
+ErrorDocument 404 /vigias/index.html
+
 # Disable caching for index.html (both browsers and servers like LiteSpeed/Hostinger cache)
 <FilesMatch "\.(html|htm)$">
   <IfModule mod_headers.c>
