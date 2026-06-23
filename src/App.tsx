@@ -5,7 +5,7 @@
 
 import {
   RouterProvider,
-  createBrowserRouter,
+  createHashRouter,
   Navigate,
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
@@ -24,7 +24,7 @@ import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { Terms } from "./pages/Terms";
 import { languages } from "./lib/i18n";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
     {
       path: "/",

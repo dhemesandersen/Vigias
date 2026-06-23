@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Language, getRoutes } from "../lib/i18n";
 import { SEO } from "../components/SEO";
 import { homeData } from "../data/home";
 import { DirectBookWidget } from "../components/DirectBookWidget";
 import { FaqSection } from "../components/FaqSection";
-import { Mountain, Leaf, Castle, Star, ShieldCheck } from "lucide-react";
+import { Mountain, Leaf, Castle, Star, ShieldCheck, Play, X } from "lucide-react";
 
 const ctaTranslations = {
   pt: {
@@ -33,6 +34,7 @@ const ctaTranslations = {
 export function Home({ lang }: { lang: Language }) {
   const data = homeData[lang];
   const r = getRoutes(lang);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -52,7 +54,7 @@ export function Home({ lang }: { lang: Language }) {
           <div className="absolute inset-0 bg-brand-ink/10 mix-blend-multiply"></div>
         </div>
         
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center flex flex-col items-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center flex flex-col items-center animate-fade-in">
            <p className="text-[11px] uppercase letter-spacing-wide text-brand-bg/80 mb-6 font-medium tracking-widest">
              {data.hero.subtitle}
            </p>
@@ -67,8 +69,58 @@ export function Home({ lang }: { lang: Language }) {
                 {data.hero.cta2}
               </Link>
            </div>
+           
+           {/* YouTube Video popup trigger */}
+           <button 
+             onClick={() => setIsModalOpen(true)}
+             className="mt-10 text-white/95 text-[10px] uppercase tracking-widest hover:text-white transition-all flex items-center gap-3 font-medium border border-white/40 bg-white/5 hover:bg-white/15 px-7 py-3.5 rounded-none cursor-pointer animate-pulse-glow shadow-sm"
+           >
+             <span className="relative flex h-2 w-2">
+               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+             </span>
+             <Play className="w-3 h-3 fill-current ml-0.5" />
+             {lang === 'pt' ? 'Ver o Filme das Casas' : lang === 'es' ? 'Ver el Filme de las Casas' : 'Watch Houses Film'}
+           </button>
         </div>
       </section>
+
+      {/* video YouTube Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-brand-ink/95 backdrop-blur-md z-[60] flex items-center justify-center p-4 sm:p-6 md:p-10 transition-opacity duration-300">
+          {/* Click background to close */}
+          <div 
+            className="absolute inset-0 cursor-default" 
+            onClick={() => setIsModalOpen(false)}
+          />
+          
+          {/* Modal box */}
+          <div className="relative w-full max-w-4xl bg-black rounded shadow-2xl overflow-hidden z-10 border border-white/10 aspect-video">
+            {/* Close button */}
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 text-white/70 hover:text-white hover:scale-105 transition-all bg-black/50 hover:bg-black/80 p-2.5 rounded-full backdrop-blur-sm z-20 border border-white/10 cursor-pointer"
+              aria-label="Close video"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            
+            <iframe 
+              src={
+                lang === 'pt' 
+                ? "https://www.youtube.com/embed/yWMFi3b5oOg?autoplay=1&rel=0&modestbranding=1" 
+                : lang === 'es'
+                ? "https://www.youtube.com/embed/gp3L3MIr1Nk?autoplay=1&rel=0&modestbranding=1"
+                : "https://www.youtube.com/embed/-uBa-MJf4RY?autoplay=1&rel=0&modestbranding=1"
+              }
+              className="w-full h-full border-0 absolute inset-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Vigias Houses Film"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Bloco 2 - Casas */}
       <section className="py-24 px-12 bg-brand-bg">

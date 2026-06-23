@@ -83,7 +83,7 @@ export const houseData = {
       ],
       images: [
         "https://www.vigias.pt/fotos/CASA_CAL/IMG_3765_rtq003.png",
-        "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00016.jpg"
+        "https://vigias.pt/fotos/CASA_CAL/CASA_CAL00002.jpg"
       ],
       galleryImages: [
         "https://www.vigias.pt/fotos/CASA_CAL/IMG_3558_rtq_001.jpg",
@@ -187,7 +187,7 @@ export const houseData = {
     },
     "casa-cal": { seo: { title: "Casa Cal", description: "" }, h1: "Casa Cal", h2: "", capacity: "", features: "", images: [
          "https://www.vigias.pt/fotos/CASA_CAL/IMG_3765_rtq003.png",
-         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00016.jpg"
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00002.jpg"
       ], galleryImages: [
          "https://www.vigias.pt/fotos/CASA_CAL/IMG_3558_rtq_001.jpg",
          "https://www.vigias.pt/fotos/CASA_CAL/IMG_2785.jpg",
@@ -260,7 +260,7 @@ export const houseData = {
     },
     "casa-cal": { seo: { title: "Casa Cal", description: "" }, h1: "Casa Cal", h2: "", capacity: "", features: "", images: [
          "https://www.vigias.pt/fotos/CASA_CAL/IMG_3765_rtq003.png",
-         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00016.jpg"
+         "https://www.vigias.pt/fotos/CASA_CAL/CASA_CAL00002.jpg"
       ], galleryImages: [
          "https://www.vigias.pt/fotos/CASA_CAL/IMG_3558_rtq_001.jpg",
          "https://www.vigias.pt/fotos/CASA_CAL/IMG_2785.jpg",

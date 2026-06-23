@@ -107,7 +107,13 @@ export function About({ lang }: { lang: Language }) {
             <div className="w-full lg:w-7/12">
                <div className="w-full h-full min-h-[600px] lg:min-h-[900px] bg-gray-100 overflow-hidden relative">
                   <iframe 
-                    src="https://www.youtube.com/embed/IJYMuDc7Gto?autoplay=1&mute=1&controls=0&loop=1&playlist=IJYMuDc7Gto&playsinline=1&showinfo=0&rel=0" 
+                    src={
+                        lang === 'pt' 
+                        ? "https://www.youtube.com/embed/yWMFi3b5oOg?autoplay=1&mute=1&loop=1&playlist=yWMFi3b5oOg&playsinline=1&controls=0&showinfo=0&rel=0&modestbranding=1&start=60&end=69" 
+                        : lang === 'es'
+                        ? "https://www.youtube.com/embed/gp3L3MIr1Nk?autoplay=1&mute=1&loop=1&playlist=gp3L3MIr1Nk&playsinline=1&controls=0&showinfo=0&rel=0&modestbranding=1&start=60&end=69"
+                        : "https://www.youtube.com/embed/-uBa-MJf4RY?autoplay=1&mute=1&loop=1&playlist=-uBa-MJf4RY&playsinline=1&controls=0&showinfo=0&rel=0&modestbranding=1&start=60&end=69"
+                    }
                     className="absolute top-1/2 left-1/2 w-[300vw] h-[300vh] -translate-x-1/2 -translate-y-1/2 md:w-[200vw] md:h-[200vh] lg:w-[150vw] lg:h-[150vh] opacity-100 object-cover pointer-events-none"
                     frameBorder="0"
                     allow="autoplay; muted; encrypted-media"
