@@ -1,7 +1,11 @@
 Options -MultiViews
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /vigias/
+  
+  # Prevent rewriting of static asset files entirely to preserve caching headers
+  RewriteRule \.(js|css|gif|jpe?g|png|ico|svg|woff2?|webp|pdf|txt)$ - [L]
   
   # Serve physical files directly
   RewriteCond %{REQUEST_FILENAME} !-f
@@ -24,5 +28,26 @@ ErrorDocument 404 /vigias/index.html
   </IfModule>
   <IfModule mod_env.c>
     Header set X-LiteSpeed-Cache-Control "no-cache"
+  </IfModule>
+</FilesMatch>
+
+# Explicitly enable aggressive caching for static assets (images, CSS, JS, fonts, icons) to prevent reloading
+<FilesMatch "\.(js|css|jpg|jpeg|gif|png|ico|pdf|txt|xml|zip|svg|woff|woff2|ttf|eot|webp)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "max-age=31536000, public"
+    Header unset Pragma
+  </IfModule>
+  <IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
   </IfModule>
 </FilesMatch>

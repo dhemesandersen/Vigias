@@ -48,11 +48,6 @@ const TRANSLATIONS = {
     es: "Consulte la disponibilidad de las casas Vigias y elija la opción ideal para su estancia en el Norte Alentejano.",
     en: "Check the availability of the Vigias houses and choose the ideal option for your stay in Northern Alentejo."
   },
-  note: {
-    pt: "Caso o motor de reservas não carregue correctamente, confirme se o domínio onde esta página está publicada já foi autorizado pela SiteMinder para utilização do embed.",
-    es: "Si el motor de reservas no se carga correctamente, confirme si el dominio donde está publicada esta página ya ha sido autorizado por SiteMinder para el uso del embed.",
-    en: "If the booking engine does not load correctly, please confirm if the domain where this page is published has already been authorized by SiteMinder for embed use."
-  },
   button: {
     pt: "Reservar ",
     es: "Reservar ",
@@ -106,6 +101,10 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
   const transText = houseId ? (TRANSLATIONS.text[lang] || TRANSLATIONS.text.pt) : (TRANSLATIONS.textGlobal[lang] || TRANSLATIONS.textGlobal.pt);
   const formattedText = houseId ? transText.replace("{houseName}", currentHouseName) : transText;
   const currentEyebrow = houseId ? ((TRANSLATIONS.eyebrow[lang] || TRANSLATIONS.eyebrow.pt) + currentHouseName) : (TRANSLATIONS.eyebrowGlobal[lang] || TRANSLATIONS.eyebrowGlobal.pt);
+
+  const externalBookingUrl = roomType 
+    ? `https://direct-book.com/properties/vigiasdirect?locale=${lang}&currency=EUR&room_type_id=${roomType}` 
+    : `https://direct-book.com/properties/vigiasdirect?locale=${lang}&currency=EUR`;
 
   return (
     <section id={houseId ? `reservar-${houseId}` : "reservas-vigias"} className="vigias-booking-section">
@@ -168,8 +167,9 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
         }
 
         .vigias-booking-accordion.open {
-          max-height: 1100px;
+          max-height: 3500px;
           opacity: 1;
+          overflow: visible;
         }
 
         .vigias-booking-shell {
@@ -180,7 +180,7 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
           border-radius: 20px;
           background: #ffffff;
           box-shadow: 0 16px 48px rgba(38, 38, 30, 0.08);
-          overflow: hidden;
+          overflow: visible;
         }
 
         .vigias-booking-shell .ibe {
@@ -194,13 +194,40 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
           border: 0 !important;
         }
 
-        .vigias-booking-note {
+        .vigias-booking-mobile-external {
+          display: none;
+          justify-content: center;
+          margin: 20px auto 10px;
           max-width: 760px;
-          margin: 20px auto 0;
-          text-align: center;
+          width: 100%;
+          padding: 0 16px;
+        }
+
+        .vigias-booking-mobile-external-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 54px;
+          padding: 14px 24px;
+          border-radius: 8px;
+          background: #e6e0d2;
+          color: #3f4a3c;
+          border: 1px solid #c9beaa;
+          font-family: inherit;
           font-size: 13px;
-          line-height: 1.6;
-          color: #777568;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          text-decoration: none;
+          transition: all 0.25s ease;
+          text-align: center;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .vigias-booking-mobile-external-btn:hover {
+          background: #dbd3c2;
+          color: #2f382d;
         }
 
         .vigias-booking-toggle-btn {
@@ -261,6 +288,11 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
         @media (max-width: 767px) {
           .vigias-booking-section {
             padding: 48px 16px;
+            overflow: visible;
+          }
+
+          .vigias-booking-inner {
+            overflow: visible;
           }
 
           .vigias-booking-header {
@@ -268,26 +300,41 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
             margin-bottom: 20px;
           }
 
+          .vigias-booking-mobile-external {
+            display: flex;
+          }
+
+          .vigias-booking-accordion.open {
+            max-height: 3500px;
+            overflow: visible;
+          }
+
           .vigias-booking-shell {
-            min-height: 640px;
-            padding: 8px;
-            border-radius: 14px;
+            width: 100vw;
+            max-width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            border-radius: 0;
+            padding: 12px 6px;
+            min-height: 1550px;
+            overflow: visible;
+            box-shadow: none;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
           }
 
           .vigias-booking-shell .ibe {
-            min-height: 620px;
+            min-height: 1500px;
+            width: 100%;
           }
 
           .vigias-booking-shell iframe {
-            min-height: 620px !important;
-          }
-
-          .vigias-booking-note {
-            text-align: left;
+            min-height: 1500px !important;
+            width: 100% !important;
           }
 
           .vigias-booking-fallback {
-            text-align: left;
+            text-align: center;
           }
         }
       `}} />
@@ -322,13 +369,22 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
         </div>
 
         <div className={`vigias-booking-accordion ${isOpen ? 'open' : ''}`}>
+          <div className="vigias-booking-mobile-external">
+            <a
+              href={externalBookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="vigias-booking-mobile-external-btn"
+            >
+              <span>
+                {lang === 'en' ? 'Trouble booking? Open in new window' : lang === 'es' ? '¿Problemas al reservar? Abrir en nueva ventana' : 'Dificuldade em reservar? Abrir em nova janela'}
+              </span>
+            </a>
+          </div>
+
           <div className="vigias-booking-shell" ref={containerRef}>
             {/* Siteminder IBE will load here */}
           </div>
-
-          <p className="vigias-booking-note">
-            {TRANSLATIONS.note[lang] || TRANSLATIONS.note.pt}
-          </p>
 
           <div className="vigias-booking-fallback">
             <a
