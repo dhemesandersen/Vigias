@@ -2,9 +2,24 @@ Options -MultiViews
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /vigias/
-  RewriteRule ^index\.html$ - [L]
+  
+  # Serve physical files directly
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /vigias/index.html [L]
+  
+  # Absolute rewrite rule to target the core index.html on the subfolder
+  RewriteRule ^(.*)$ /vigias/index.html [L]
 </IfModule>
+
+# Disable caching for index.html (both browsers and servers like LiteSpeed/Hostinger cache)
+<FilesMatch "\.(html|htm)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </IfModule>
+  <IfModule mod_env.c>
+    Header set X-LiteSpeed-Cache-Control "no-cache"
+  </IfModule>
+</FilesMatch>
