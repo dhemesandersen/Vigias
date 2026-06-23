@@ -5,7 +5,7 @@
 
 import {
   RouterProvider,
-  createHashRouter,
+  createBrowserRouter,
   Navigate,
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
@@ -24,7 +24,10 @@ import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { Terms } from "./pages/Terms";
 import { languages } from "./lib/i18n";
 
-const router = createHashRouter(
+const base = (import.meta as any).env.BASE_URL || "/";
+const routerBasename = base === "/" ? undefined : base.replace(/\/$/, "");
+
+const router = createBrowserRouter(
   [
     {
       path: "/",
@@ -101,7 +104,7 @@ const router = createHashRouter(
     })),
   ],
   {
-    basename: (import.meta as any).env.BASE_URL,
+    basename: routerBasename,
   },
 );
 

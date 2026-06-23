@@ -235,14 +235,12 @@ export function Home({ lang }: { lang: Language }) {
                   {ctaTranslations[lang].description}
                </p>
                <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-                  <a 
-                     href={`https://direct-book.com/properties/vigiasdirect?locale=${lang}&currency=EUR&trackPage=yes`}
-                     target="_blank"
-                     rel="noopener noreferrer"
+                  <Link 
+                     to={r.book}
                      className="inline-block bg-[#1A1A1A] hover:bg-neutral-800 text-white font-sans font-medium text-xs tracking-[0.16em] uppercase transition-colors px-8 py-4.5 whitespace-nowrap text-center shadow-md shadow-brand-ink/5 rounded-none"
                   >
                      {ctaTranslations[lang].button}
-                  </a>
+                  </Link>
                   <div className="flex items-center gap-3">
                      <div className="flex items-center justify-center w-10 h-10 rounded-full border border-brand-olive/20 bg-brand-olive/5">
                         <ShieldCheck className="w-5 h-5 text-brand-olive stroke-[1.2]" />
