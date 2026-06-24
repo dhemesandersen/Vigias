@@ -2,6 +2,7 @@ import { Language } from "../lib/i18n";
 import { SEO } from "../components/SEO";
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { VigiasBookingSection } from "../components/VigiasBookingSection";
 
 export function About({ lang }: { lang: Language }) {
   const paisagensImages = [
@@ -156,6 +157,9 @@ export function About({ lang }: { lang: Language }) {
             </div>
          </div>
       </section>
+
+      {/* Booking Section */}
+      <VigiasBookingSection lang={lang} discreet={true} />
 
       {/* Full Width Image Block */}
       <section className="w-full h-[60vh] md:h-[80vh] relative overflow-hidden group/slider">

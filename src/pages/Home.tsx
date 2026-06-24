@@ -46,7 +46,13 @@ export function Home({ lang }: { lang: Language }) {
           {/* YouTube Video Background */}
           <iframe 
             src="https://www.youtube.com/embed/IJYMuDc7Gto?autoplay=1&mute=1&controls=0&loop=1&playlist=IJYMuDc7Gto&playsinline=1&showinfo=0&rel=0" 
-            className="absolute top-1/2 left-1/2 w-[300vw] h-[300vh] -translate-x-1/2 -translate-y-1/2 md:w-[150vw] md:h-[150vh] opacity-60 object-cover"
+            style={{
+              width: "115vw",
+              height: "64.69vw",
+              minHeight: "115vh",
+              minWidth: "204.44vh"
+            }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-60 pointer-events-none"
             frameBorder="0"
             allow="autoplay; muted; encrypted-media"
             title="Vigias Video"

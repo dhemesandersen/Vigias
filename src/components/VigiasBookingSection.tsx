@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, Calendar } from "lucide-react";
 interface BookingSectionProps {
   houseId?: string;
   lang?: "pt" | "es" | "en";
+  discreet?: boolean;
 }
 
 const ROOM_TYPES: Record<string, string> = {
@@ -55,7 +56,25 @@ const TRANSLATIONS = {
   }
 };
 
-export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionProps) {
+const DISCREET_TRANSLATIONS = {
+  eyebrow: {
+    pt: "RESERVAR ESTADIA",
+    es: "RESERVAR ESTANCIA",
+    en: "BOOK YOUR STAY"
+  },
+  title: {
+    pt: "Vivenciar as Vigias",
+    es: "Vivenciar las Vigias",
+    en: "Experience Vigias"
+  },
+  text: {
+    pt: "Planeie a sua estadia e consulte a disponibilidade das nossas casas diretamente no motor de reservas oficial.",
+    es: "Planifique su estancia y consulte la disponibilidad de nuestras casas directamente en el motor de reservas oficial.",
+    en: "Plan your stay and check the availability of our houses directly in the official booking engine."
+  }
+};
+
+export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }: BookingSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const roomType = houseId ? ROOM_TYPES[houseId] : undefined;
@@ -104,16 +123,26 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
     };
   }, [houseId, roomType, lang, isOpen]);
 
-  const transText = houseId ? (TRANSLATIONS.text[lang] || TRANSLATIONS.text.pt) : (TRANSLATIONS.textGlobal[lang] || TRANSLATIONS.textGlobal.pt);
-  const formattedText = houseId ? transText.replace("{houseName}", currentHouseName) : transText;
-  const currentEyebrow = houseId ? ((TRANSLATIONS.eyebrow[lang] || TRANSLATIONS.eyebrow.pt) + currentHouseName) : (TRANSLATIONS.eyebrowGlobal[lang] || TRANSLATIONS.eyebrowGlobal.pt);
+  const transText = discreet
+    ? (DISCREET_TRANSLATIONS.text[lang] || DISCREET_TRANSLATIONS.text.pt)
+    : (houseId ? (TRANSLATIONS.text[lang] || TRANSLATIONS.text.pt) : (TRANSLATIONS.textGlobal[lang] || TRANSLATIONS.textGlobal.pt));
+
+  const formattedText = houseId && !discreet ? transText.replace("{houseName}", currentHouseName) : transText;
+
+  const currentEyebrow = discreet
+    ? (DISCREET_TRANSLATIONS.eyebrow[lang] || DISCREET_TRANSLATIONS.eyebrow.pt)
+    : (houseId ? ((TRANSLATIONS.eyebrow[lang] || TRANSLATIONS.eyebrow.pt) + currentHouseName) : (TRANSLATIONS.eyebrowGlobal[lang] || TRANSLATIONS.eyebrowGlobal.pt));
+
+  const currentTitle = discreet
+    ? (DISCREET_TRANSLATIONS.title[lang] || DISCREET_TRANSLATIONS.title.pt)
+    : (TRANSLATIONS.title[lang] || TRANSLATIONS.title.pt);
 
   const externalBookingUrl = roomType 
     ? `https://direct-book.com/properties/vigiasdirect?locale=${lang}&currency=EUR&room_type_id=${roomType}` 
     : `https://direct-book.com/properties/vigiasdirect?locale=${lang}&currency=EUR`;
 
   return (
-    <section id={houseId ? `reservar-${houseId}` : "reservas-vigias"} className="vigias-booking-section">
+    <section id={houseId ? `reservar-${houseId}` : "reservas-vigias"} className={`vigias-booking-section ${discreet ? 'is-discreet' : ''}`}>
       <style dangerouslySetInnerHTML={{ __html: `
         .vigias-booking-section {
           width: 100%;
@@ -121,6 +150,34 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
           background: #f7f3ea;
           color: #2f3028;
           box-sizing: border-box;
+        }
+
+        .vigias-booking-section.is-discreet {
+          padding: 45px 20px;
+          background: #fbf9f6;
+        }
+
+        .vigias-booking-section.is-discreet .vigias-booking-eyebrow {
+          color: #8a7657;
+          font-size: 11px;
+          letter-spacing: 0.12em;
+        }
+
+        .vigias-booking-section.is-discreet .vigias-booking-title {
+          font-size: clamp(26px, 3.5vw, 36px);
+          margin-bottom: 10px;
+        }
+
+        .vigias-booking-section.is-discreet .vigias-booking-text {
+          font-size: clamp(14px, 1.4vw, 16px);
+          max-width: 620px;
+          margin: 0 auto;
+          color: #55554a/80;
+        }
+
+        .vigias-booking-section.is-discreet .vigias-booking-toggle-btn {
+          padding: 14px 32px;
+          font-size: 11px;
         }
 
         .vigias-booking-section * {
@@ -351,7 +408,7 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
             {currentEyebrow}
           </span>
           <h2 className="vigias-booking-title">
-            {TRANSLATIONS.title[lang] || TRANSLATIONS.title.pt}
+            {currentTitle}
           </h2>
           <p className="vigias-booking-text">
             {formattedText}
