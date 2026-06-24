@@ -21,7 +21,7 @@ export const houseData = {
       ],
       images: [
         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg",
-        "https://www.vigias.pt/fotos/CASA_SOL/CASA_SOL00023_rtq002.png"
+        "https://vigias.pt/fotos/CASA_SOL/CASA_SOL00023_rtq_002.jpg"
       ],
       galleryImages: [
         "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_293.jpg",
@@ -156,7 +156,7 @@ export const houseData = {
       h1: "Casa Sol", h2: "Villa privada con piscina para cuatro en el Norte Alentejano",
       capacity: "Capacidad 4 personas", features: "2 suites, piscina privada.", images: [
          "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg",
-         "https://www.vigias.pt/fotos/CASA_SOL/CASA_SOL00023_rtq002.png"
+         "https://vigias.pt/fotos/CASA_SOL/CASA_SOL00023_rtq_002.jpg"
       ], galleryImages: [
          "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_293.jpg",
          "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_306.jpg",
@@ -229,7 +229,7 @@ export const houseData = {
       h1: "Casa Sol", h2: "Private villa with pool for four in Northern Alentejo",
       capacity: "Capacity 4 people", features: "2 suites, private pool.", images: [
          "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg",
-         "https://www.vigias.pt/fotos/CASA_SOL/CASA_SOL00023_rtq002.png"
+         "https://vigias.pt/fotos/CASA_SOL/CASA_SOL00023_rtq_002.jpg"
       ], galleryImages: [
          "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_293.jpg",
          "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_306.jpg",

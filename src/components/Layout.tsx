@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { CookieBanner } from "./CookieBanner";
@@ -15,6 +15,7 @@ export function Layout({ lang }: { lang: Language }) {
       <Footer lang={lang} />
       <CookieBanner lang={lang} />
       <OfferPopup lang={lang} />
+      <ScrollRestoration />
     </div>
   );
 }

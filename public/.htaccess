@@ -2,7 +2,59 @@ Options -MultiViews
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  
+  # ==========================================
+  # BASE REGULAR EXPRESSION CONFIGURATION
+  # Change these when going live under vigias.pt root:
+  # 1. Change 'RewriteBase /vigias/' -> 'RewriteBase /'
+  # 2. Change '/vigias/index.html' -> '/index.html' (in RewriteRule and ErrorDocument)
+  # ==========================================
   RewriteBase /vigias/
+  
+  # 301 Redirects for Old Pages (SEO Preservation)
+  # Dynamic handling to keep either root or /vigias/ subdirectory context intact
+  
+  # 1. Main Language Roots and Indexes
+  RewriteRule ^index\.(html|php|htm)$ pt/ [R=301,NC,L]
+  RewriteRule ^(index|home|default)$ pt/ [R=301,NC,L]
+  
+  # 2. General Section Pages (Portuguese)
+  RewriteRule ^casas\.(html|php)$ pt/casas [R=301,NC,L]
+  RewriteRule ^envolvente\.(html|php)$ pt/envolvente [R=301,NC,L]
+  RewriteRule ^experiencias\.(html|php)$ pt/experiencias [R=301,NC,L]
+  RewriteRule ^reservas\.(html|php)$ pt/reservas [R=301,NC,L]
+  RewriteRule ^(vigias|nos|sobre)\.(html|php)$ pt/vigias [R=301,NC,L]
+  RewriteRule ^(contacto|contactos)\.(html|php)$ pt/contacto [R=301,NC,L]
+  
+  # 3. Individual Casas (Portuguese)
+  RewriteRule ^(casa-sol|casas/sol)\.(html|php)$ pt/casas/casa-sol [R=301,NC,L]
+  RewriteRule ^(casa-gaio|casas/gaio)\.(html|php)$ pt/casas/casa-gaio [R=301,NC,L]
+  RewriteRule ^(casa-cal|casas/cal)\.(html|php)$ pt/casas/casa-cal [R=301,NC,L]
+  RewriteRule ^(casa-feto|casas/feto)\.(html|php)$ pt/casas/casa-feto [R=301,NC,L]
+  RewriteRule ^(casa-ocre|casas/ocre)\.(html|php)$ pt/casas/casa-ocre [R=301,NC,L]
+  
+  # 4. English Section Pages
+  RewriteRule ^houses\.(html|php)$ en/houses [R=301,NC,L]
+  RewriteRule ^surroundings\.(html|php)$ en/surroundings [R=301,NC,L]
+  RewriteRule ^experiences\.(html|php)$ en/experiences [R=301,NC,L]
+  RewriteRule ^book\.(html|php)$ en/book [R=301,NC,L]
+  RewriteRule ^about\.(html|php)$ en/about [R=301,NC,L]
+  RewriteRule ^contact\.(html|php)$ en/contact [R=301,NC,L]
+  
+  # 5. Individual Houses (English)
+  RewriteRule ^(house-sol|houses/sol)\.(html|php)$ en/houses/casa-sol [R=301,NC,L]
+  RewriteRule ^(house-gaio|houses/gaio)\.(html|php)$ en/houses/casa-gaio [R=301,NC,L]
+  RewriteRule ^(house-cal|houses/cal)\.(html|php)$ en/houses/casa-cal [R=301,NC,L]
+  RewriteRule ^(house-feto|houses/feto)\.(html|php)$ en/houses/casa-feto [R=301,NC,L]
+  RewriteRule ^(house-ocre|houses/ocre)\.(html|php)$ en/houses/casa-ocre [R=301,NC,L]
+  
+  # 6. Spanish Section Pages
+  RewriteRule ^entorno\.(html|php)$ es/entorno [R=301,NC,L]
+  RewriteRule ^es/casas\.(html|php)$ es/casas [R=301,NC,L]
+  RewriteRule ^es/experiencias\.(html|php)$ es/experiencias [R=301,NC,L]
+  RewriteRule ^es/reservas\.(html|php)$ es/reservas [R=301,NC,L]
+  RewriteRule ^es/vigias\.(html|php)$ es/vigias [R=301,NC,L]
+  RewriteRule ^es/contacto\.(html|php)$ es/contacto [R=301,NC,L]
   
   # Prevent rewriting of static asset files entirely to preserve caching headers
   RewriteRule \.(js|css|gif|jpe?g|png|ico|svg|woff2?|webp|pdf|txt)$ - [L]

@@ -66,6 +66,11 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
     const container = containerRef.current;
     if (!container) return;
 
+    if (!isOpen) {
+      container.innerHTML = "";
+      return;
+    }
+
     // Clear any pre-existing elements inside the container
     container.innerHTML = "";
 
@@ -81,6 +86,7 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
     ibeDiv.setAttribute("data-query-locale", lang);
     ibeDiv.setAttribute("data-query-currency", "EUR");
     ibeDiv.setAttribute("data-mobile_fullscreen", "false");
+    ibeDiv.setAttribute("data-use_parent", "true");
 
     container.appendChild(ibeDiv);
 
@@ -96,7 +102,7 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
         container.innerHTML = "";
       }
     };
-  }, [houseId, roomType, lang]);
+  }, [houseId, roomType, lang, isOpen]);
 
   const transText = houseId ? (TRANSLATIONS.text[lang] || TRANSLATIONS.text.pt) : (TRANSLATIONS.textGlobal[lang] || TRANSLATIONS.textGlobal.pt);
   const formattedText = houseId ? transText.replace("{houseName}", currentHouseName) : transText;
@@ -388,13 +394,10 @@ export function VigiasBookingSection({ houseId, lang = "pt" }: BookingSectionPro
 
           <div className="vigias-booking-fallback">
             <a
-              className="ibe vigias-booking-btn"
-              href="#"
-              data-region="emea"
-              data-channelcode="vigiasdirect"
-              {...(roomType ? { "data-query-room_type_id": roomType } : {})}
-              data-query-locale={lang}
-              data-query-currency="EUR"
+              className="vigias-booking-btn shadow-md hover:shadow-lg transition-transform"
+              href={externalBookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {houseId ? ((TRANSLATIONS.button[lang] || TRANSLATIONS.button.pt) + currentHouseName) : (TRANSLATIONS.button[lang] || TRANSLATIONS.button.pt) + "Vigias"}
             </a>
