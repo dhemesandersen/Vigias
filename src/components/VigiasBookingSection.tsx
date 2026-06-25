@@ -277,10 +277,10 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
         }
 
         .vigias-booking-modal-header {
-          height: 64px;
+          height: 72px;
           padding: 0 24px;
-          background: #fbf9f6;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          background: #F5F2ED;
+          border-bottom: 1px solid rgba(26, 26, 26, 0.08);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -290,47 +290,48 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
         .vigias-booking-modal-title-group {
           display: flex;
           flex-direction: column;
-          line-height: 1.2;
+          line-height: 1.25;
           text-align: left;
         }
 
         .vigias-booking-modal-eyebrow {
-          font-size: 10px;
+          font-size: 9px;
           text-transform: uppercase;
-          letter-spacing: 0.15em;
-          color: #8a7657;
-          font-weight: 500;
+          letter-spacing: 0.18em;
+          color: #5A5A40;
+          font-weight: 600;
         }
 
         .vigias-booking-modal-title {
           font-family: inherit;
-          font-size: 15px;
+          font-size: 14px;
           font-weight: 600;
-          color: #2f3028;
-          margin-top: 2px;
+          color: #1A1A1A;
+          margin-top: 1px;
+          letter-spacing: -0.01em;
         }
 
         .vigias-booking-modal-close-btn {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          padding: 10px 18px;
-          background: #3f4a3c;
+          gap: 6px;
+          padding: 9px 15px;
+          background: #5A5A40;
           color: #ffffff;
           border: none;
-          border-radius: 6px;
+          border-radius: 4px;
           font-family: inherit;
-          font-size: 11px;
+          font-size: 10px;
           font-weight: 600;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.06em;
           text-transform: uppercase;
           cursor: pointer;
           transition: background 0.2s ease;
-          box-shadow: 0 2px 4px rgba(63, 74, 60, 0.1);
+          box-shadow: 0 1px 2px rgba(90, 90, 64, 0.15);
         }
 
         .vigias-booking-modal-close-btn:hover {
-          background: #2f382d;
+          background: #1A1A1A;
         }
 
         .vigias-booking-modal-body {
@@ -430,13 +431,21 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
 
       <div className={`vigias-booking-modal ${isOpen ? 'open' : ''}`}>
         <div className="vigias-booking-modal-header">
-          <div className="vigias-booking-modal-title-group">
-            <span className="vigias-booking-modal-eyebrow">
-              {lang === 'en' ? 'Direct Booking' : lang === 'es' ? 'Reserva Directa' : 'Reserva Direta'}
-            </span>
-            <span className="vigias-booking-modal-title">
-              {houseId ? currentHouseName : "Vigias LCQ"}
-            </span>
+          <div className="flex items-center gap-3 md:gap-4">
+            <img 
+              src="https://criealgo.pro/vigias/vigiaslogo1.png" 
+              alt="Vigias" 
+              className="h-7 md:h-9 object-contain" 
+            />
+            <div className="hidden sm:block h-6 w-px bg-stone-300"></div>
+            <div className="vigias-booking-modal-title-group">
+              <span className="vigias-booking-modal-eyebrow">
+                {lang === 'en' ? 'Direct Booking' : lang === 'es' ? 'Reserva Directa' : 'Reserva Direta'}
+              </span>
+              <span className="vigias-booking-modal-title">
+                Vigias — Eternal Landscapes
+              </span>
+            </div>
           </div>
           
           <button
