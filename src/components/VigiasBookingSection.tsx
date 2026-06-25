@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, ChevronUp, Calendar } from "lucide-react";
+import { ChevronDown, ChevronUp, Calendar, X } from "lucide-react";
 
 interface BookingSectionProps {
   houseId?: string;
@@ -82,13 +82,19 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
   const currentHouseName = houseNameObj ? (houseNameObj[lang] || houseNameObj.pt) : "";
 
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-
-    if (!isOpen) {
-      container.innerHTML = "";
-      return;
-    }
 
     // Clear any pre-existing elements inside the container
     container.innerHTML = "";
@@ -101,7 +107,7 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
     ibeDiv.setAttribute("data-widget", "embed");
     ibeDiv.setAttribute("data-query-locale", lang);
     ibeDiv.setAttribute("data-query-currency", "EUR");
-    ibeDiv.setAttribute("data-mobile_fullscreen", "true");
+    ibeDiv.setAttribute("data-mobile_fullscreen", "false");
     ibeDiv.setAttribute("data-use_parent", "true");
 
     container.appendChild(ibeDiv);
@@ -118,7 +124,7 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
         container.innerHTML = "";
       }
     };
-  }, [lang, isOpen]);
+  }, [lang]);
 
   const transText = discreet
     ? (DISCREET_TRANSLATIONS.text[lang] || DISCREET_TRANSLATIONS.text.pt)
@@ -216,78 +222,6 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
           color: #55554a;
         }
 
-        /* Accordion transition classes */
-        .vigias-booking-accordion {
-          max-height: 0;
-          opacity: 0;
-          overflow: hidden;
-          transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-        }
-
-        .vigias-booking-accordion.open {
-          max-height: 3500px;
-          opacity: 1;
-          overflow: visible;
-        }
-
-        .vigias-booking-shell {
-          width: 100%;
-          min-height: 680px;
-          margin: 24px auto 0;
-          padding: 16px;
-          border-radius: 20px;
-          background: #ffffff;
-          box-shadow: 0 16px 48px rgba(38, 38, 30, 0.08);
-          overflow: visible;
-        }
-
-        .vigias-booking-shell .ibe {
-          width: 100%;
-          min-height: 640px;
-        }
-
-        .vigias-booking-shell iframe {
-          width: 100% !important;
-          min-height: 640px !important;
-          border: 0 !important;
-        }
-
-        .vigias-booking-mobile-external {
-          display: none;
-          justify-content: center;
-          margin: 20px auto 10px;
-          max-width: 760px;
-          width: 100%;
-          padding: 0 16px;
-        }
-
-        .vigias-booking-mobile-external-btn {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          min-height: 54px;
-          padding: 14px 24px;
-          border-radius: 8px;
-          background: #e6e0d2;
-          color: #3f4a3c;
-          border: 1px solid #c9beaa;
-          font-family: inherit;
-          font-size: 13px;
-          font-weight: 600;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-          text-decoration: none;
-          transition: all 0.25s ease;
-          text-align: center;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
-
-        .vigias-booking-mobile-external-btn:hover {
-          background: #dbd3c2;
-          color: #2f382d;
-        }
-
         .vigias-booking-toggle-btn {
           display: inline-flex;
           align-items: center;
@@ -314,43 +248,132 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
           box-shadow: 0 6px 16px rgba(63, 74, 60, 0.25);
         }
 
-        .vigias-booking-fallback {
+        /* Modal specific styles */
+        .vigias-booking-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100vw;
+          height: 100vh;
+          background: #ffffff;
+          z-index: 999999;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          transition: opacity 0.25s ease-out, transform 0.25s ease-out, visibility 0.25s ease-out;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transform: scale(0.99);
+        }
+
+        .vigias-booking-modal.open {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          transform: scale(1);
+        }
+
+        .vigias-booking-modal-header {
+          height: 64px;
+          padding: 0 24px;
+          background: #fbf9f6;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-shrink: 0;
+        }
+
+        .vigias-booking-modal-title-group {
+          display: flex;
+          flex-direction: column;
+          line-height: 1.2;
+          text-align: left;
+        }
+
+        .vigias-booking-modal-eyebrow {
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          color: #8a7657;
+          font-weight: 500;
+        }
+
+        .vigias-booking-modal-title {
+          font-family: inherit;
+          font-size: 15px;
+          font-weight: 600;
+          color: #2f3028;
+          margin-top: 2px;
+        }
+
+        .vigias-booking-modal-close-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 10px 18px;
+          background: #3f4a3c;
+          color: #ffffff;
+          border: none;
+          border-radius: 6px;
+          font-family: inherit;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: background 0.2s ease;
+          box-shadow: 0 2px 4px rgba(63, 74, 60, 0.1);
+        }
+
+        .vigias-booking-modal-close-btn:hover {
+          background: #2f382d;
+        }
+
+        .vigias-booking-modal-body {
+          flex: 1;
+          width: 100%;
+          overflow-y: auto;
+          background: #ffffff;
+          padding: 16px;
+          box-sizing: border-box;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .vigias-booking-modal-body .ibe {
+          width: 100% !important;
+          height: 100% !important;
+          min-height: calc(100vh - 96px) !important;
+        }
+
+        .vigias-booking-modal-body iframe {
+          width: 100% !important;
+          height: 100% !important;
+          min-height: calc(100vh - 96px) !important;
+          border: 0 !important;
+        }
+
+        .vigias-booking-modal-help-bar {
           display: none;
-          max-width: 760px;
-          margin: 26px auto 0;
+          padding: 10px 16px;
+          background: #fcfbf9;
+          border-top: 1px solid rgba(0, 0, 0, 0.05);
           text-align: center;
         }
 
-        .vigias-booking-btn {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 52px;
-          padding: 14px 30px;
-          border-radius: 999px;
-          background: #3f4a3c;
-          color: #ffffff;
-          font-size: 15px;
-          line-height: 1;
-          font-weight: 500;
-          text-decoration: none;
-          transition: transform 0.25s ease, background 0.25s ease;
-        }
-
-        .vigias-booking-btn:hover {
-          background: #2f382d;
-          color: #ffffff;
-          transform: translateY(-2px);
+        .vigias-booking-modal-help-btn {
+          display: inline-block;
+          font-size: 11px;
+          color: #8a7657;
+          text-decoration: underline;
         }
 
         @media (max-width: 767px) {
           .vigias-booking-section {
             padding: 48px 16px;
-            overflow: visible;
-          }
-
-          .vigias-booking-inner {
-            overflow: visible;
           }
 
           .vigias-booking-header {
@@ -358,43 +381,22 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
             margin-bottom: 20px;
           }
 
-          .vigias-booking-mobile-external {
-            display: flex;
+          .vigias-booking-modal-header {
+            height: 60px;
+            padding: 0 16px;
+          }
+          
+          .vigias-booking-modal-close-btn {
+            padding: 8px 12px;
+            font-size: 10px;
+          }
+          
+          .vigias-booking-modal-body {
+            padding: 8px 4px;
           }
 
-          .vigias-booking-accordion.open {
-            max-height: 3500px;
-            overflow: visible;
-          }
-
-          .vigias-booking-shell {
-            width: 100vw;
-            max-width: 100vw;
-            margin-left: calc(50% - 50vw);
-            margin-right: calc(50% - 50vw);
-            border-radius: 0;
-            padding: 12px 6px;
-            height: 75vh;
-            min-height: 550px;
-            max-height: 700px;
-            overflow: hidden;
-            box-shadow: none;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-          }
-
-          .vigias-booking-shell .ibe {
-            height: 100%;
-            width: 100%;
-          }
-
-          .vigias-booking-shell iframe {
-            height: 100% !important;
-            width: 100% !important;
-          }
-
-          .vigias-booking-fallback {
-            text-align: center;
+          .vigias-booking-modal-help-bar {
+            display: block;
           }
         }
       `}} />
@@ -413,49 +415,54 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
           
           <div className="flex justify-center mt-8">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen(true)}
               className="vigias-booking-toggle-btn"
             >
               <Calendar className="w-4 h-4 opacity-80" />
               <span>
-                {isOpen 
-                  ? (lang === 'en' ? 'Hide Rates & Selection' : lang === 'es' ? 'Ocultar tarifas y selección' : 'Ocultar tarifas e seleção')
-                  : (lang === 'en' ? 'Check Rates & Dates' : lang === 'es' ? 'Consultar tarifas y fechas' : 'Consultar tarifas e datas')
-                }
+                {lang === 'en' ? 'Check Rates & Dates' : lang === 'es' ? 'Consultar tarifas y fechas' : 'Consultar tarifas e datas'}
               </span>
-              {isOpen ? <ChevronUp className="w-4 h-4 ml-1" /> : <ChevronDown className="w-4 h-4 ml-1" />}
+              <ChevronDown className="w-4 h-4 ml-1" />
             </button>
           </div>
         </div>
+      </div>
 
-        <div className={`vigias-booking-accordion ${isOpen ? 'open' : ''}`}>
-          <div className="vigias-booking-mobile-external">
-            <a
-              href={externalBookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="vigias-booking-mobile-external-btn"
-            >
-              <span>
-                {lang === 'en' ? 'Trouble booking? Open in new window' : lang === 'es' ? '¿Problemas al reservar? Abrir en nueva ventana' : 'Dificuldade em reservar? Abrir em nova janela'}
-              </span>
-            </a>
+      <div className={`vigias-booking-modal ${isOpen ? 'open' : ''}`}>
+        <div className="vigias-booking-modal-header">
+          <div className="vigias-booking-modal-title-group">
+            <span className="vigias-booking-modal-eyebrow">
+              {lang === 'en' ? 'Direct Booking' : lang === 'es' ? 'Reserva Directa' : 'Reserva Direta'}
+            </span>
+            <span className="vigias-booking-modal-title">
+              {houseId ? currentHouseName : "Vigias LCQ"}
+            </span>
           </div>
+          
+          <button
+            onClick={() => setIsOpen(false)}
+            className="vigias-booking-modal-close-btn"
+          >
+            <X className="w-4 h-4" />
+            <span>
+              {lang === 'en' ? 'Return to Site' : lang === 'es' ? 'Volver al Sitio' : 'Voltar ao Site'}
+            </span>
+          </button>
+        </div>
 
-          <div className="vigias-booking-shell" ref={containerRef}>
-            {/* Siteminder IBE will load here */}
-          </div>
+        <div className="vigias-booking-modal-body" ref={containerRef}>
+          {/* Siteminder IBE will load here */}
+        </div>
 
-          <div className="vigias-booking-fallback">
-            <a
-              className="vigias-booking-btn shadow-md hover:shadow-lg transition-transform"
-              href={externalBookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {houseId ? ((TRANSLATIONS.button[lang] || TRANSLATIONS.button.pt) + currentHouseName) : (TRANSLATIONS.button[lang] || TRANSLATIONS.button.pt) + "Vigias"}
-            </a>
-          </div>
+        <div className="vigias-booking-modal-help-bar">
+          <a
+            href={externalBookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="vigias-booking-modal-help-btn"
+          >
+            {lang === 'en' ? 'Trouble booking? Open in new window' : lang === 'es' ? '¿Problemas al reservar? Abrir en nueva ventana' : 'Dificuldade em reservar? Abrir em nova janela'}
+          </a>
         </div>
       </div>
     </section>
