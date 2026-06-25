@@ -140,10 +140,10 @@ export function Home({ lang }: { lang: Language }) {
                 <img 
                   src={casa.image} 
                   alt={casa.name} 
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0 brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05] ${casa.id === "casa-ocre" ? "object-right" : ""}`} 
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out group-hover:opacity-0 brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05] ${casa.id === "casa-ocre" ? "lg:object-right object-bottom" : (casa.id === "casa-sol" || casa.id === "casa-gaio") ? "lg:object-center object-bottom" : ""}`} 
                 />
                 {casa.hoverImage && (
-                  <img src={casa.hoverImage} alt={casa.name} className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100 brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05]" />
+                  <img src={casa.hoverImage} alt={casa.name} className={`absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100 brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05] ${casa.id === "casa-ocre" ? "lg:object-right object-bottom" : (casa.id === "casa-sol" || casa.id === "casa-gaio") ? "lg:object-center object-bottom" : ""}`} />
                 )}
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/90 via-brand-ink/20 to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-700" />

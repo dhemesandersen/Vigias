@@ -99,12 +99,9 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
     ibeDiv.setAttribute("data-region", "emea");
     ibeDiv.setAttribute("data-channelcode", "vigiasdirect");
     ibeDiv.setAttribute("data-widget", "embed");
-    if (roomType) {
-      ibeDiv.setAttribute("data-query-room_type_id", roomType);
-    }
     ibeDiv.setAttribute("data-query-locale", lang);
     ibeDiv.setAttribute("data-query-currency", "EUR");
-    ibeDiv.setAttribute("data-mobile_fullscreen", "false");
+    ibeDiv.setAttribute("data-mobile_fullscreen", "true");
     ibeDiv.setAttribute("data-use_parent", "true");
 
     container.appendChild(ibeDiv);
@@ -121,7 +118,7 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
         container.innerHTML = "";
       }
     };
-  }, [houseId, roomType, lang, isOpen]);
+  }, [lang, isOpen]);
 
   const transText = discreet
     ? (DISCREET_TRANSLATIONS.text[lang] || DISCREET_TRANSLATIONS.text.pt)
@@ -137,9 +134,7 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
     ? (DISCREET_TRANSLATIONS.title[lang] || DISCREET_TRANSLATIONS.title.pt)
     : (TRANSLATIONS.title[lang] || TRANSLATIONS.title.pt);
 
-  const externalBookingUrl = roomType 
-    ? `https://direct-book.com/properties/vigiasdirect?locale=${lang}&currency=EUR&room_type_id=${roomType}` 
-    : `https://direct-book.com/properties/vigiasdirect?locale=${lang}&currency=EUR`;
+  const externalBookingUrl = `https://direct-book.com/properties/vigiasdirect?locale=${lang}&currency=EUR`;
 
   return (
     <section id={houseId ? `reservar-${houseId}` : "reservas-vigias"} className={`vigias-booking-section ${discreet ? 'is-discreet' : ''}`}>
@@ -379,20 +374,22 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
             margin-right: calc(50% - 50vw);
             border-radius: 0;
             padding: 12px 6px;
-            min-height: 1550px;
-            overflow: visible;
+            height: 75vh;
+            min-height: 550px;
+            max-height: 700px;
+            overflow: hidden;
             box-shadow: none;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
           }
 
           .vigias-booking-shell .ibe {
-            min-height: 1500px;
+            height: 100%;
             width: 100%;
           }
 
           .vigias-booking-shell iframe {
-            min-height: 1500px !important;
+            height: 100% !important;
             width: 100% !important;
           }
 

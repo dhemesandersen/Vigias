@@ -34,10 +34,9 @@ export function DirectBookWidget({
       ibeDiv.setAttribute("data-region", "emea");
       ibeDiv.setAttribute("data-channelcode", "vigiasdirect");
       ibeDiv.setAttribute("data-widget", "embed");
-      ibeDiv.setAttribute("data-query-room_type_id", roomType);
       ibeDiv.setAttribute("data-query-locale", lang || "pt");
       ibeDiv.setAttribute("data-query-currency", "EUR");
-      ibeDiv.setAttribute("data-mobile_fullscreen", "false");
+      ibeDiv.setAttribute("data-mobile_fullscreen", "true");
       ibeDiv.setAttribute("data-use_parent", "true");
 
       container.appendChild(ibeDiv);
