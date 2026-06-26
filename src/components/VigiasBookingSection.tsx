@@ -383,7 +383,7 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
           }
 
           .vigias-booking-modal-header {
-            height: 60px;
+            height: 78px;
             padding: 0 16px;
           }
           

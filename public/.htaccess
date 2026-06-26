@@ -9,7 +9,7 @@ Options -MultiViews
   # 1. Change 'RewriteBase /vigias/' -> 'RewriteBase /'
   # 2. Change '/vigias/index.html' -> '/index.html' (in RewriteRule and ErrorDocument)
   # ==========================================
-  RewriteBase /vigias/
+  RewriteBase /
   
   # 301 Redirects for Old Pages (SEO Preservation)
   # Dynamic handling to keep either root or /vigias/ subdirectory context intact
@@ -19,19 +19,21 @@ Options -MultiViews
   RewriteRule ^(index|home|default)$ pt/ [R=301,NC,L]
   
   # 2. General Section Pages (Portuguese)
-  RewriteRule ^casas\.(html|php)$ pt/casas [R=301,NC,L]
-  RewriteRule ^envolvente\.(html|php)$ pt/envolvente [R=301,NC,L]
-  RewriteRule ^experiencias\.(html|php)$ pt/experiencias [R=301,NC,L]
-  RewriteRule ^reservas\.(html|php)$ pt/reservas [R=301,NC,L]
-  RewriteRule ^(vigias|nos|sobre)\.(html|php)$ pt/vigias [R=301,NC,L]
-  RewriteRule ^(contacto|contactos)\.(html|php)$ pt/contacto [R=301,NC,L]
+  RewriteRule ^casas/?(\.html|\.php)?$ pt/casas [R=301,NC,L]
+  RewriteRule ^(envolvente|natureza)/?(\.html|\.php)?$ pt/envolvente [R=301,NC,L]
+  RewriteRule ^(experiencias|experiência|experiencia)/?(\.html|\.php)?$ pt/experiencias [R=301,NC,L]
+  RewriteRule ^reservas/?(\.html|\.php)?$ pt/reservas [R=301,NC,L]
+  RewriteRule ^(vigias|nos|sobre|sustentabilidade|historia)/?(\.html|\.php)?$ pt/vigias [R=301,NC,L]
+  RewriteRule ^(contacto|contactos)/?(\.html|\.php)?$ pt/contacto [R=301,NC,L]
+  RewriteRule ^patrimonio/?(\.html|\.php)?$ pt/envolvente [R=301,NC,L]
+  RewriteRule ^politica-de-privacidade/?(\.html|\.php)?$ pt/politica-de-privacidade [R=301,NC,L]
   
   # 3. Individual Casas (Portuguese)
-  RewriteRule ^(casa-sol|casas/sol)\.(html|php)$ pt/casas/casa-sol [R=301,NC,L]
-  RewriteRule ^(casa-gaio|casas/gaio)\.(html|php)$ pt/casas/casa-gaio [R=301,NC,L]
-  RewriteRule ^(casa-cal|casas/cal)\.(html|php)$ pt/casas/casa-cal [R=301,NC,L]
-  RewriteRule ^(casa-feto|casas/feto)\.(html|php)$ pt/casas/casa-feto [R=301,NC,L]
-  RewriteRule ^(casa-ocre|casas/ocre)\.(html|php)$ pt/casas/casa-ocre [R=301,NC,L]
+  RewriteRule ^(casa-sol|casas/casa-sol|casas/sol)/?(\.html|\.php)?$ pt/casas/casa-sol [R=301,NC,L]
+  RewriteRule ^(casa-gaio|casas/casa-gaio|casas/gaio)/?(\.html|\.php)?$ pt/casas/casa-gaio [R=301,NC,L]
+  RewriteRule ^(casa-cal|casas/casa-cal|casas/cal)/?(\.html|\.php)?$ pt/casas/casa-cal [R=301,NC,L]
+  RewriteRule ^(casa-feto|casas/casa-feto|casas/feto)/?(\.html|\.php)?$ pt/casas/casa-feto [R=301,NC,L]
+  RewriteRule ^(casa-ocre|casas/casa-ocre|casas/ocre)/?(\.html|\.php)?$ pt/casas/casa-ocre [R=301,NC,L]
   
   # 4. English Section Pages
   RewriteRule ^houses\.(html|php)$ en/houses [R=301,NC,L]
@@ -64,12 +66,12 @@ Options -MultiViews
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
   
-  # Absolute rewrite rule to target the core index.html on the subfolder
-  RewriteRule ^(.*)$ /vigias/index.html [L]
+  # Absolute rewrite rule to target the core index.html on the root folder
+  RewriteRule ^(.*)$ /index.html [L]
 </IfModule>
 
 # Definitive fallback for 404 errors (essential for LiteSpeed / Hostinger subdirectories)
-ErrorDocument 404 /vigias/index.html
+ErrorDocument 404 /index.html
 
 # Disable caching for index.html (both browsers and servers like LiteSpeed/Hostinger cache)
 <FilesMatch "\.(html|htm)$">
