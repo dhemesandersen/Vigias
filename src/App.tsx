@@ -24,8 +24,19 @@ import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { Terms } from "./pages/Terms";
 import { languages } from "./lib/i18n";
 
-const base = (import.meta as any).env.BASE_URL || "/";
-const routerBasename = base === "/" ? undefined : base.replace(/\/$/, "");
+const getRouterBasename = () => {
+  const pathname = window.location.pathname;
+  if (pathname.startsWith("/vigias")) {
+    return "/vigias";
+  }
+  const base = (import.meta as any).env.BASE_URL || "/";
+  if (base === "/" || base === "./") {
+    return undefined;
+  }
+  return base.replace(/\/$/, "");
+};
+
+const routerBasename = getRouterBasename();
 
 const router = createBrowserRouter(
   [

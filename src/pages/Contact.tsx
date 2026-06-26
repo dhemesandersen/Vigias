@@ -73,7 +73,7 @@ export function Contact({ lang }: { lang: Language }) {
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: "350px" }}
-                src="https://maps.google.com/maps?q=Quinta%20da%20Vigia%2C%20Carreiras%2C%20Portalegre%2C%20Portugal&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=39.3657722,-7.4238882&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

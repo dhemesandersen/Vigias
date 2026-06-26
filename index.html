@@ -1,6 +1,17 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      (function() {
+        var baseHref = '/';
+        if (window.location.pathname.indexOf('/vigias') === 0) {
+          baseHref = '/vigias/';
+        }
+        var baseEl = document.createElement('base');
+        baseEl.href = baseHref;
+        document.head.appendChild(baseEl);
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>As Vigias | Eternal Landscapes</title>
@@ -76,6 +87,6 @@
     </noscript>
     <!-- End Meta Pixel Code Noscript -->
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>
