@@ -41,7 +41,7 @@ const experiencesData = [
     }
   },
   {
-    image: "https://vigias.pt/wp-content/uploads/2024/10/Bikes-Vigias-scaled.jpg",
+    image: "https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_199.jpg",
     title: {
       pt: "Passeios de bicicleta ao redor de Marvão",
       es: "Rutas en bicicleta alrededor de Marvão",

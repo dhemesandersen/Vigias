@@ -45,7 +45,7 @@ export function Home({ lang }: { lang: Language }) {
         <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
           {/* YouTube Video Background */}
           <iframe 
-            src="https://www.youtube.com/embed/IJYMuDc7Gto?autoplay=1&mute=1&controls=0&loop=1&playlist=IJYMuDc7Gto&playsinline=1&showinfo=0&rel=0" 
+            src="https://www.youtube.com/embed/IJYMuDc7Gto?autoplay=1&mute=1&controls=0&loop=1&playlist=IJYMuDc7Gto&playsinline=1&showinfo=0&rel=0&enablejsapi=1&iv_load_policy=3&modestbranding=1" 
             style={{
               width: "115vw",
               height: "64.69vw",
@@ -161,8 +161,8 @@ export function Home({ lang }: { lang: Language }) {
 
       {/* Bloco 3 - A Envolvente e Parque Natural */}
       <section 
-         className="relative py-32 flex items-center justify-center bg-brand-ink bg-fixed bg-center bg-cover overflow-hidden" 
-         style={{ backgroundImage: "url('https://vigias.pt/wp-content/uploads/2023/05/parque-natural-s-mamede.jpg')" }}
+         className="relative py-32 flex items-center justify-center bg-brand-ink bg-scroll md:bg-fixed bg-center bg-cover overflow-hidden" 
+         style={{ backgroundImage: "url('https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_363.jpg')" }}
       >
          <div className="absolute inset-0 bg-brand-ink/40 mix-blend-multiply"></div>
          <div className="absolute inset-0 bg-black/20"></div>

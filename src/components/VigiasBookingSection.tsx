@@ -77,12 +77,22 @@ const DISCREET_TRANSLATIONS = {
 export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }: BookingSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const roomType = houseId ? ROOM_TYPES[houseId] : undefined;
   const houseNameObj = houseId ? HOUSE_NAMES[houseId] : undefined;
   const currentHouseName = houseNameObj ? (houseNameObj[lang] || houseNameObj.pt) : "";
 
   useEffect(() => {
-    if (isOpen) {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+    checkIsDesktop();
+    window.addEventListener("resize", checkIsDesktop);
+    return () => window.removeEventListener("resize", checkIsDesktop);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen && !isDesktop) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -90,9 +100,12 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, [isOpen, isDesktop]);
 
   useEffect(() => {
+    // If it's mobile and the modal is not open, don't mount the widget to avoid blank or uninitialized state
+    if (!isDesktop && !isOpen) return;
+
     const container = containerRef.current;
     if (!container) return;
 
@@ -107,6 +120,9 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
     ibeDiv.setAttribute("data-widget", "embed");
     ibeDiv.setAttribute("data-query-locale", lang);
     ibeDiv.setAttribute("data-query-currency", "EUR");
+    if (roomType) {
+      ibeDiv.setAttribute("data-query-room_type_id", roomType);
+    }
     ibeDiv.setAttribute("data-mobile_fullscreen", "false");
     ibeDiv.setAttribute("data-use_parent", "true");
 
@@ -124,7 +140,7 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
         container.innerHTML = "";
       }
     };
-  }, [lang]);
+  }, [lang, isDesktop, isOpen, roomType]);
 
   const transText = discreet
     ? (DISCREET_TRANSLATIONS.text[lang] || DISCREET_TRANSLATIONS.text.pt)
@@ -414,66 +430,76 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
             {formattedText}
           </p>
           
-          <div className="flex justify-center mt-8">
+          {!isDesktop && (
+            <div className="flex justify-center mt-8">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="vigias-booking-toggle-btn"
+              >
+                <Calendar className="w-4 h-4 opacity-80" />
+                <span>
+                  {lang === 'en' ? 'Check Rates & Dates' : lang === 'es' ? 'Consultar tarifas y fechas' : 'Consultar tarifas e datas'}
+                </span>
+                <ChevronDown className="w-4 h-4 ml-1" />
+              </button>
+            </div>
+          )}
+        </div>
+
+        {isDesktop && (
+          <div className="mt-12 bg-white rounded-sm min-h-[600px] p-6 shadow-sm border border-brand-ink/10 relative overflow-hidden" ref={containerRef}>
+            {/* Siteminder IBE will load here directly inline on desktop */}
+          </div>
+        )}
+      </div>
+
+      {!isDesktop && (
+        <div className={`vigias-booking-modal ${isOpen ? 'open' : ''}`}>
+          <div className="vigias-booking-modal-header">
+            <div className="flex items-center gap-3 md:gap-4">
+              <img 
+                src="https://criealgo.pro/vigias/vigiaslogo1.png" 
+                alt="Vigias" 
+                className="h-7 md:h-9 object-contain" 
+              />
+              <div className="hidden sm:block h-6 w-px bg-stone-300"></div>
+              <div className="vigias-booking-modal-title-group">
+                <span className="vigias-booking-modal-eyebrow">
+                  {lang === 'en' ? 'Direct Booking' : lang === 'es' ? 'Reserva Directa' : 'Reserva Direta'}
+                </span>
+                <span className="vigias-booking-modal-title">
+                  Vigias — Eternal Landscapes
+                </span>
+              </div>
+            </div>
+            
             <button
-              onClick={() => setIsOpen(true)}
-              className="vigias-booking-toggle-btn"
+              onClick={() => setIsOpen(false)}
+              className="vigias-booking-modal-close-btn"
             >
-              <Calendar className="w-4 h-4 opacity-80" />
+              <X className="w-4 h-4" />
               <span>
-                {lang === 'en' ? 'Check Rates & Dates' : lang === 'es' ? 'Consultar tarifas y fechas' : 'Consultar tarifas e datas'}
+                {lang === 'en' ? 'Return to Site' : lang === 'es' ? 'Volver al Sitio' : 'Voltar ao Site'}
               </span>
-              <ChevronDown className="w-4 h-4 ml-1" />
             </button>
           </div>
-        </div>
-      </div>
 
-      <div className={`vigias-booking-modal ${isOpen ? 'open' : ''}`}>
-        <div className="vigias-booking-modal-header">
-          <div className="flex items-center gap-3 md:gap-4">
-            <img 
-              src="https://criealgo.pro/vigias/vigiaslogo1.png" 
-              alt="Vigias" 
-              className="h-7 md:h-9 object-contain" 
-            />
-            <div className="hidden sm:block h-6 w-px bg-stone-300"></div>
-            <div className="vigias-booking-modal-title-group">
-              <span className="vigias-booking-modal-eyebrow">
-                {lang === 'en' ? 'Direct Booking' : lang === 'es' ? 'Reserva Directa' : 'Reserva Direta'}
-              </span>
-              <span className="vigias-booking-modal-title">
-                Vigias — Eternal Landscapes
-              </span>
-            </div>
+          <div className="vigias-booking-modal-body" ref={containerRef}>
+            {/* Siteminder IBE will load here */}
           </div>
-          
-          <button
-            onClick={() => setIsOpen(false)}
-            className="vigias-booking-modal-close-btn"
-          >
-            <X className="w-4 h-4" />
-            <span>
-              {lang === 'en' ? 'Return to Site' : lang === 'es' ? 'Volver al Sitio' : 'Voltar ao Site'}
-            </span>
-          </button>
-        </div>
 
-        <div className="vigias-booking-modal-body" ref={containerRef}>
-          {/* Siteminder IBE will load here */}
+          <div className="vigias-booking-modal-help-bar">
+            <a
+              href={externalBookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="vigias-booking-modal-help-btn"
+            >
+              {lang === 'en' ? 'Trouble booking? Open in new window' : lang === 'es' ? '¿Problemas al reservar? Abrir en nueva ventana' : 'Dificuldade em reservar? Abrir em nova janela'}
+            </a>
+          </div>
         </div>
-
-        <div className="vigias-booking-modal-help-bar">
-          <a
-            href={externalBookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="vigias-booking-modal-help-btn"
-          >
-            {lang === 'en' ? 'Trouble booking? Open in new window' : lang === 'es' ? '¿Problemas al reservar? Abrir en nueva ventana' : 'Dificuldade em reservar? Abrir em nova janela'}
-          </a>
-        </div>
-      </div>
+      )}
     </section>
   );
 }
