@@ -58,6 +58,10 @@ Options -MultiViews
   RewriteRule ^es/vigias\.(html|php)$ es/vigias [R=301,NC,L]
   RewriteRule ^es/contacto\.(html|php)$ es/contacto [R=301,NC,L]
   
+  # Correção para rotas profundas: Redireciona chamadas de assets para a pasta assets correta do subdirectório
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^.*/assets/(.*)$ assets/$1 [L,QSA]
+
   # Prevent rewriting of static asset files entirely to preserve caching headers
   RewriteRule \.(js|css|gif|jpe?g|png|ico|svg|woff2?|webp|pdf|txt)$ - [L]
   
