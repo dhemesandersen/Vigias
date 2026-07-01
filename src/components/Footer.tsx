@@ -86,12 +86,20 @@ export function Footer({ lang }: { lang: Language }) {
           {/* Socials & Contact (Right Col) */}
           <div className="lg:col-span-3 flex flex-col items-start lg:items-end">
              <h4 className="text-[10px] tracking-widest uppercase text-[#E8E6E1]/60 mb-6">{lang === 'pt' ? 'Siga-nos' : lang === 'es' ? 'Síguenos' : 'Follow Us'}</h4>
-             <div className="flex gap-4 mb-10">
-                <a href="https://www.instagram.com/_vigias_/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-[#E8E6E1]/30 flex items-center justify-center hover:bg-[#E8E6E1] hover:text-[#2e2624] transition-all">
+             <div className="flex flex-wrap gap-4 mb-10 justify-start lg:justify-end">
+                <a href="https://www.instagram.com/_vigias_/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-[#E8E6E1]/30 flex items-center justify-center hover:bg-[#E8E6E1] hover:text-[#2e2624] transition-all">
                    <Instagram className="w-4 h-4" />
                 </a>
-                <a href="https://www.facebook.com/casadavigia.turismo" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-[#E8E6E1]/30 flex items-center justify-center hover:bg-[#E8E6E1] hover:text-[#2e2624] transition-all">
+                <a href="https://www.facebook.com/casadavigia.turismo" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-[#E8E6E1]/30 flex items-center justify-center hover:bg-[#E8E6E1] hover:text-[#2e2624] transition-all">
                    <Facebook className="w-4 h-4" />
+                </a>
+                <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-[#E8E6E1]/30 flex items-center justify-center hover:bg-[#E8E6E1] hover:text-[#2e2624] transition-all">
+                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.42 7.62 11.16-.1-.95-.2-2.4.04-3.43.22-.93 1.4-5.93 1.4-5.93s-.36-.72-.36-1.77c0-1.66.96-2.9 2.16-2.9 1.02 0 1.51.77 1.51 1.69 0 1.03-.65 2.56-.99 3.98-.28 1.19.6 2.16 1.77 2.16 2.12 0 3.76-2.24 3.76-5.47 0-2.86-2.06-4.86-5-4.86-3.4 0-5.4 2.55-5.4 5.2 0 1.03.4 2.13.9 2.73.1.12.11.23.08.35-.09.37-.29 1.17-.33 1.33-.05.21-.18.25-.41.14-1.52-.7-2.47-2.92-2.47-4.7 0-3.83 2.78-7.35 8.03-7.35 4.22 0 7.5 3.01 7.5 7.03 0 4.19-2.64 7.56-6.3 7.56-1.23 0-2.39-.64-2.79-1.4l-.76 2.9c-.27 1.04-1.02 2.33-1.52 3.15C8.98 23.78 10.45 24 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/>
+                   </svg>
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-[#E8E6E1]/30 flex items-center justify-center hover:bg-[#E8E6E1] hover:text-[#2e2624] transition-all">
+                   <Youtube className="w-4 h-4" />
                 </a>
              </div>
 

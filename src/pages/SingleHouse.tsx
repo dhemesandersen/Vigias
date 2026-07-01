@@ -58,7 +58,7 @@ const labelTranslations: Record<string, Record<Language, string>> = {
   "Camas": { pt: "Camas", en: "Beds", es: "Camas" },
   "Casas de Banho": { pt: "Casas de Banho", en: "Bathrooms", es: "Cuartos de Baño" },
   "Piscina": { pt: "Piscina", en: "Pool", es: "Piscina" },
-  "Climatização": { pt: "Climatização", en: "Climate Control", es: "Climatización" },
+  "Conforto": { pt: "Conforto", en: "Comfort", es: "Confort" },
   "Cozinha": { pt: "Cozinha", en: "Kitchen", es: "Cocina" },
   "Internet": { pt: "Internet", en: "Internet", es: "Internet" }
 };
@@ -133,8 +133,8 @@ const valueTranslations: Record<string, Record<Language, string>> = {
 
   // "casa-cal"
   "6 pessoas": { pt: "6 pessoas", en: "6 people", es: "6 personas" },
-  "2 Suites + Mezanino": { 
-    pt: "2 Suites + Mezanino", 
+  "2 Suites + Mezanine": { 
+    pt: "2 Suites + Mezanine", 
     en: "2 Suites + Mezzanine", 
     es: "2 Suites + Altillo" 
   },
@@ -193,13 +193,13 @@ const valueTranslations: Record<string, Record<Language, string>> = {
 
   // "casa-ocre"
   "5 pessoas": { pt: "5 pessoas", en: "5 people", es: "5 personas" },
-  "T2 + Mezanino": { 
-    pt: "T2 + Mezanino", 
+  "T2 + Mezanine": { 
+    pt: "T2 + Mezanine", 
     en: "2-Bedroom + Mezzanine", 
     es: "T2 + Altillo" 
   },
-  "1 cama King (suite principal), 2 singles ou King (quarto), 1 sofá-cama individual (mezanino)": { 
-    pt: "1 cama King (suite principal), 2 singles ou King (quarto), 1 sofá-cama individual (mezanino)", 
+  "1 cama King (suite principal), 2 singles ou King (quarto), 1 sofá-cama individual (mezanine)": { 
+    pt: "1 cama King (suite principal), 2 singles ou King (quarto), 1 sofá-cama individual (mezanine)", 
     en: "1 King bed (main suite), 2 singles or 1 King (bedroom), 1 single sofa bed (mezzanine)", 
     es: "1 cama King (suite principal), 2 individuales o King (habitación), 1 sofá cama individual (altillo)" 
   },
@@ -213,10 +213,30 @@ const valueTranslations: Record<string, Record<Language, string>> = {
     en: "Large private pool with bar & lounge area", 
     es: "Piscina privada grande con bar y zona lounge" 
   },
+  "Piscina privada e ampla": { 
+    pt: "Piscina privada e ampla", 
+    en: "Spacious private pool", 
+    es: "Piscina privada y amplia" 
+  },
+  "Piscina privada e ampla de água salgada": { 
+    pt: "Piscina privada e ampla de água salgada", 
+    en: "Spacious private saltwater pool", 
+    es: "Piscina privada y amplia de agua salada" 
+  },
   "Ar condicionado e Lareira": { 
     pt: "Ar condicionado e Lareira", 
     en: "Air conditioning & Fireplace", 
     es: "Aire acondicionado & Chimenea" 
+  },
+  "2 casas de banho, sendo uma com banheira": { 
+    pt: "2 casas de banho, sendo uma com banheira", 
+    en: "2 bathrooms, one with freestanding bathtub", 
+    es: "2 cuartos de baño, uno con bañera independiente" 
+  },
+  "Ar condicionado, lareira suspensa e piso radiante": { 
+    pt: "Ar condicionado, lareira suspensa e piso radiante", 
+    en: "Air conditioning, suspended fireplace & underfloor heating", 
+    es: "Aire acondicionado, chimenea suspendida y calefacción radiante" 
   }
 };
 

@@ -45,9 +45,9 @@ const blogIllustrations: Record<string, { url: string; caption: Record<Language,
     {
       url: "https://www.vigias.pt/fotos/CASA_CAL/IMG_3149.jpg",
       caption: {
-        pt: "Cada casa usufrui de uma piscina privativa de água salgada, sem partilhas ou ruídos.",
-        en: "Each villa features a private saltwater pool, with no shared areas or interruptions.",
-        es: "Cada casa goza de su propia piscina privada de agua salada, sin zonas comunes ni ruidos."
+        pt: "Cada casa usufrui de uma piscina privativa e ampla, sem partilhas ou ruídos.",
+        en: "Each villa features a spacious private pool, with no shared areas or interruptions.",
+        es: "Cada casa goza de su propia piscina privada y amplia, sin zonas comunes ni ruidos."
       }
     },
     {

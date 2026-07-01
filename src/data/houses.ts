@@ -12,10 +12,9 @@ export const houseData = {
       fichaTecnica: [
         { label: "Capacidade", value: "4 pessoas" },
         { label: "Tipologia", value: "2 Suites (uma com banheira independente)" },
-        { label: "Camas", value: "2 camas de casal King Size" },
         { label: "Casas de Banho", value: "2 privativas + 1 serviço" },
-        { label: "Piscina", value: "Privada de água salgada" },
-        { label: "Climatização", value: "Ar condicionado e Lareira de duas faces" },
+        { label: "Piscina", value: "Piscina privada e ampla" },
+        { label: "Conforto", value: "Ar condicionado e Lareira de duas faces" },
         { label: "Cozinha", value: "Luz natural e totalmente equipada" },
         { label: "Internet", value: "Wi-Fi (Starlink)" }
       ],
@@ -40,16 +39,15 @@ export const houseData = {
         description: "Casa Gaio, loft privado para duas pessoas no montado do Parque Natural Serra de S. Mamede. Janelas, lareira suspensa, banheira. Reserva direta."
       },
       h1: "Casa Gaio",
-      h2: "Loft privado com piscina para dois, completamente integrado no montado",
+      h2: "Loft privado com piscina para dois, completely integrado no montado",
       capacity: "Capacidade 2 pessoas",
       features: "Estúdio/loft. Lareira suspensa. Banheira. Janelas do chão ao teto. Piscina privada. Cozinha equipada. WiFi. Estada mínima 2 noites.",
       fichaTecnica: [
         { label: "Capacidade", value: "2 pessoas" },
         { label: "Tipologia", value: "Loft em open-space" },
-        { label: "Camas", value: "1 cama de casal King Size" },
         { label: "Casas de Banho", value: "1 com duche amplo + banheira no quarto" },
-        { label: "Piscina", value: "Privada de água salgada" },
-        { label: "Climatização", value: "Ar condicionado e Lareira suspensa" },
+        { label: "Piscina", value: "Piscina privada e ampla" },
+        { label: "Conforto", value: "Ar condicionado e Lareira suspensa" },
         { label: "Cozinha", value: "Totalmente equipada" },
         { label: "Internet", value: "Wi-Fi" }
       ],
@@ -71,14 +69,14 @@ export const houseData = {
     "casa-cal": {
       seo: { title: "Casa Cal · Villa com piscina privada para seis no Alentejo | Vigias", description: "Casa Cal, villa privada para seis pessoas. Arquitetura e design moderno..." },
       h1: "Casa Cal", h2: "Villa privada com piscina para seis no Norte Alentejano.",
-      capacity: "Capacidade 6 pessoas", features: "2 suites + mezanino. Lareira suspensa. Piscina",
+      capacity: "Capacidade 6 pessoas", features: "2 suites + mezanine. Lareira suspensa. Piscina privada. Cozinha totalmente equipada. WiFi.",
       fichaTecnica: [
         { label: "Capacidade", value: "6 pessoas" },
-        { label: "Tipologia", value: "2 Suites + Mezanino" },
-        { label: "Camas", value: "3 camas de casal" },
-        { label: "Casas de Banho", value: "3 completas" },
-        { label: "Piscina", value: "Privada e ampla" },
-        { label: "Climatização", value: "Ar condicionado e recuperador de calor" },
+        { label: "Tipologia", value: "2 Suites + Mezanine" },
+        { label: "Casas de Banho", value: "2 casas de banho, sendo uma com banheira" },
+        { label: "Piscina", value: "Piscina privada e ampla" },
+        { label: "Conforto", value: "Ar condicionado, lareira suspensa e piso radiante" },
+        { label: "Cozinha", value: "Totalmente equipada" },
         { label: "Internet", value: "Wi-Fi de alta velocidade" }
       ],
       images: [
@@ -101,10 +99,11 @@ export const houseData = {
       fichaTecnica: [
         { label: "Capacidade", value: "4 pessoas" },
         { label: "Tipologia", value: "2 Suites independentes" },
-        { label: "Camas", value: "2 camas de casal" },
         { label: "Casas de Banho", value: "2 com acesso ao exterior" },
-        { label: "Piscina", value: "Privada com deck panorâmico" },
-        { label: "Climatização", value: "Ar condicionado" }
+        { label: "Piscina", value: "Piscina privada e ampla" },
+        { label: "Conforto", value: "Ar condicionado" },
+        { label: "Cozinha", value: "Totalmente equipada" },
+        { label: "Internet", value: "Wi-Fi" }
       ],
       images: [
         "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00048.jpg",
@@ -122,14 +121,15 @@ export const houseData = {
     "casa-ocre": {
       seo: { title: "Casa Ocre · A casa-mãe das Vigias · Villa com piscina para cinco no Alentejo", description: "..." },
       h1: "Casa Ocre", h2: "A nossa casa de família. Villa privada de grandes dimensões, ideal para cinco hóspedes.",
-      capacity: "Capacidade 5 pessoas", features: "2 quartos + mezanino.",
+      capacity: "Capacidade 5 pessoas", features: "2 quartos + mezanine.",
       fichaTecnica: [
         { label: "Capacidade", value: "5 pessoas" },
-        { label: "Tipologia", value: "T2 + Mezanino" },
-        { label: "Camas", value: "1 cama King (suite principal), 2 singles ou King (quarto), 1 sofá-cama individual (mezanino)" },
+        { label: "Tipologia", value: "T2 + Mezanine" },
         { label: "Casas de Banho", value: "2 na casa principal, 1 no anexo de serviço" },
-        { label: "Piscina", value: "Privada grande com bar e zona lounge" },
-        { label: "Climatização", value: "Ar condicionado e Lareira" }
+        { label: "Piscina", value: "Piscina privada e ampla de água salgada" },
+        { label: "Conforto", value: "Ar condicionado e Lareira" },
+        { label: "Cozinha", value: "Totalmente equipada" },
+        { label: "Internet", value: "Wi-Fi" }
       ],
       images: [
         "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE03_steady.png",

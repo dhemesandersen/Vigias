@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Prata&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Gilda+Display&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Prata", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Gilda Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-condensed: "Barlow Condensed", sans-serif;
 
   --color-brand-bg: #F5F2ED;
   --color-brand-ink: #1A1A1A;
@@ -51,6 +52,10 @@
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif font-normal;
+  }
+
+  .uppercase {
+    font-family: "Barlow Condensed", sans-serif !important;
   }
 }
 

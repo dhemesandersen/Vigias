@@ -3,6 +3,7 @@ import { SEO } from "../components/SEO";
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { VigiasBookingSection } from "../components/VigiasBookingSection";
+import { YoutubeBackground } from "../components/YoutubeBackground";
 
 export function About({ lang }: { lang: Language }) {
   const paisagensImages = [
@@ -67,27 +68,30 @@ export function About({ lang }: { lang: Language }) {
 
       {/* Block 1 */}
       <section className="py-20 md:py-32 px-6 md:px-12 bg-white">
-         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-            
-            {/* Left Column */}
-            <div className="w-full lg:w-5/12 flex flex-col justify-between h-full min-h-[lg:800px]">
-               <h3 className="font-serif text-5xl md:text-6xl lg:text-[4rem] text-[#2e2624] mb-12 leading-[1.1] tracking-tight">
-                 {lang === 'pt' && <>O Renascer<br/>do Montado</>}
-                 {lang === 'es' && <>El Renacer<br/>del Montado</>}
-                 {lang === 'en' && <>The Rebirth<br/>of the Montado</>}
-               </h3>
+         <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
                
-               <div className="w-3/4 sm:w-2/3 lg:w-3/4 self-center lg:self-end mb-16 lg:mr-10">
-                  <div className="aspect-[4/5] overflow-hidden">
-                     <img 
-                       src="https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_061.jpg" 
-                       alt="Vigias Nature" 
-                       className="w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05]"
-                     />
+               {/* Left Column */}
+               <div className="w-full flex flex-col justify-between">
+                  <h3 className="font-serif text-5xl md:text-6xl lg:text-[4rem] text-[#2e2624] mb-12 leading-[1.1] tracking-tight">
+                    {lang === 'pt' && <>O Renascer<br/>do Montado</>}
+                    {lang === 'es' && <>El Renacer<br/>del Montado</>}
+                    {lang === 'en' && <>The Rebirth<br/>of the Montado</>}
+                  </h3>
+                  
+                  <div className="w-full max-w-md mb-12">
+                     <div className="aspect-[4/3] overflow-hidden">
+                        <img 
+                          src="https://www.vigias.pt/fotos/CAMINHOS_VIGIAS/Vigias-LCQ_061.jpg" 
+                          alt="Vigias Nature" 
+                          className="w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05]"
+                        />
+                     </div>
                   </div>
                </div>
 
-               <div className="font-sans font-light text-[#2e2624]/70 leading-relaxed space-y-6 text-justify md:text-left">
+               {/* Right Column - Text */}
+               <div className="font-sans font-light text-[#2e2624]/70 leading-relaxed space-y-6 text-justify md:text-left pt-0 lg:pt-24">
                   <h4 className="text-xs md:text-sm tracking-[0.2em] font-medium text-[#2e2624] uppercase mb-4">
                     {lang === 'pt' ? 'UM LUGAR MÁGICO ONDE A NATUREZA IMPERA' : lang === 'es' ? 'UN LUGAR MÁGICO DONDE LA NATURALEZA IMPERA' : 'A MAGICAL PLACE WHERE NATURE PRESIDES'}
                   </h4>
@@ -104,17 +108,25 @@ export function About({ lang }: { lang: Language }) {
                </div>
             </div>
 
-            {/* Right Column - Large Video */}
-            <div className="w-full lg:w-7/12">
-               <div className="w-full h-full min-h-[600px] lg:min-h-[900px] bg-gray-100 overflow-hidden relative">
-                  <iframe 
-                    src="https://www.youtube.com/embed/IJYMuDc7Gto?autoplay=1&mute=1&loop=1&playlist=IJYMuDc7Gto&playsinline=1&controls=0&showinfo=0&rel=0&enablejsapi=1&iv_load_policy=3&modestbranding=1"
-                    className="absolute top-1/2 left-1/2 w-[300vw] h-[300vh] -translate-x-1/2 -translate-y-1/2 md:w-[200vw] md:h-[200vh] lg:w-[150vw] lg:h-[150vh] opacity-100 object-cover pointer-events-none"
-                    frameBorder="0"
-                    allow="autoplay; muted; encrypted-media"
-                    title="Vigias Video"
-                  />
-               </div>
+            {/* Horizontal Video Banner (Landscape format) */}
+            <div className="w-full mt-20 aspect-video md:aspect-[21/9] max-h-[550px] bg-gray-100 overflow-hidden relative border border-brand-ink/5 shadow-sm">
+               <YoutubeBackground 
+                 videoId="IJYMuDc7Gto"
+                 startSeconds={17}
+                 endSeconds={32}
+                 style={{
+                   width: "115vw",
+                   height: "64.69vw",
+                   minHeight: "115%",
+                   minWidth: "204.44%",
+                   transform: "translate(-50%, -50%)",
+                   top: "50%",
+                   left: "50%",
+                 }}
+                 className="opacity-100"
+               />
+               {/* Transparent overlay to block clicks/touches from reaching the iframe */}
+               <div className="absolute inset-0 bg-transparent z-10 pointer-events-auto" />
             </div>
 
          </div>

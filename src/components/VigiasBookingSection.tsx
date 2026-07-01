@@ -293,14 +293,14 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
         }
 
         .vigias-booking-modal-header {
-          height: 72px;
-          padding: 0 24px;
+          padding: 12px 24px calc(12px + env(safe-area-inset-bottom, 0px));
           background: #F5F2ED;
-          border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+          border-top: 1px solid rgba(26, 26, 26, 0.08);
           display: flex;
           align-items: center;
           justify-content: space-between;
           flex-shrink: 0;
+          box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.03);
         }
 
         .vigias-booking-modal-title-group {
@@ -362,14 +362,12 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
 
         .vigias-booking-modal-body .ibe {
           width: 100% !important;
-          height: 100% !important;
-          min-height: calc(100vh - 96px) !important;
+          min-height: 480px !important;
         }
 
         .vigias-booking-modal-body iframe {
           width: 100% !important;
-          height: 100% !important;
-          min-height: calc(100vh - 96px) !important;
+          min-height: 480px !important;
           border: 0 !important;
         }
 
@@ -390,7 +388,7 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
 
         @media (max-width: 767px) {
           .vigias-booking-section {
-            padding: 48px 16px;
+            padding: 48px 16px 120px;
           }
 
           .vigias-booking-header {
@@ -399,8 +397,8 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
           }
 
           .vigias-booking-modal-header {
-            height: 78px;
-            padding: 0 16px;
+            height: auto;
+            padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
           }
           
           .vigias-booking-modal-close-btn {
@@ -429,21 +427,6 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
           <p className="vigias-booking-text">
             {formattedText}
           </p>
-          
-          {!isDesktop && (
-            <div className="flex justify-center mt-8">
-              <button
-                onClick={() => setIsOpen(true)}
-                className="vigias-booking-toggle-btn"
-              >
-                <Calendar className="w-4 h-4 opacity-80" />
-                <span>
-                  {lang === 'en' ? 'Check Rates & Dates' : lang === 'es' ? 'Consultar tarifas y fechas' : 'Consultar tarifas e datas'}
-                </span>
-                <ChevronDown className="w-4 h-4 ml-1" />
-              </button>
-            </div>
-          )}
         </div>
 
         {isDesktop && (
@@ -453,8 +436,38 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
         )}
       </div>
 
+      {!isDesktop && !isOpen && (
+        <div className="fixed bottom-0 left-0 right-0 bg-[#f7f3ea]/95 backdrop-blur-md border-t border-brand-ink/10 px-6 py-4 z-40 pb-[calc(1rem+env(safe-area-inset-bottom))] shadow-[0_-8px_30px_rgba(47,48,40,0.12)] flex justify-center">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="vigias-booking-toggle-btn w-full max-w-md flex items-center justify-center gap-2"
+          >
+            <Calendar className="w-4 h-4 opacity-80" />
+            <span>
+              {lang === 'en' ? 'Book Now' : lang === 'es' ? 'Reservar ahora' : 'Reservar agora'}
+            </span>
+            <ChevronDown className="w-4 h-4 ml-1" />
+          </button>
+        </div>
+      )}
+
       {!isDesktop && (
         <div className={`vigias-booking-modal ${isOpen ? 'open' : ''}`}>
+          <div className="vigias-booking-modal-body" ref={containerRef}>
+            {/* Siteminder IBE will load here */}
+          </div>
+
+          <div className="vigias-booking-modal-help-bar">
+            <a
+              href={externalBookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="vigias-booking-modal-help-btn"
+            >
+              {lang === 'en' ? 'Trouble booking? Open in new window' : lang === 'es' ? '¿Problemas al reservar? Abrir en nueva ventana' : 'Dificuldade em reservar? Abrir em nova janela'}
+            </a>
+          </div>
+
           <div className="vigias-booking-modal-header">
             <div className="flex items-center gap-3 md:gap-4">
               <img 
@@ -482,21 +495,6 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
                 {lang === 'en' ? 'Return to Site' : lang === 'es' ? 'Volver al Sitio' : 'Voltar ao Site'}
               </span>
             </button>
-          </div>
-
-          <div className="vigias-booking-modal-body" ref={containerRef}>
-            {/* Siteminder IBE will load here */}
-          </div>
-
-          <div className="vigias-booking-modal-help-bar">
-            <a
-              href={externalBookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="vigias-booking-modal-help-btn"
-            >
-              {lang === 'en' ? 'Trouble booking? Open in new window' : lang === 'es' ? '¿Problemas al reservar? Abrir en nueva ventana' : 'Dificuldade em reservar? Abrir em nova janela'}
-            </a>
           </div>
         </div>
       )}

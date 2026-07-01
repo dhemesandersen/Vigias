@@ -5,15 +5,11 @@ Options -MultiViews
   
   # ==========================================
   # BASE REGULAR EXPRESSION CONFIGURATION
-  # Change these when going live under vigias.pt root:
-  # 1. Change 'RewriteBase /vigias/' -> 'RewriteBase /'
-  # 2. Change '/vigias/index.html' -> '/index.html' (in RewriteRule and ErrorDocument)
+  # Configured for root domain deployment (public_html)
   # ==========================================
   RewriteBase /
   
   # 301 Redirects for Old Pages (SEO Preservation)
-  # Dynamic handling to keep either root or /vigias/ subdirectory context intact
-  
   # 1. Main Language Roots and Indexes
   RewriteRule ^index\.(html|php|htm)$ pt/ [R=301,NC,L]
   RewriteRule ^(index|home|default)$ pt/ [R=301,NC,L]
@@ -57,10 +53,6 @@ Options -MultiViews
   RewriteRule ^es/reservas\.(html|php)$ es/reservas [R=301,NC,L]
   RewriteRule ^es/vigias\.(html|php)$ es/vigias [R=301,NC,L]
   RewriteRule ^es/contacto\.(html|php)$ es/contacto [R=301,NC,L]
-  
-  # Correção para rotas profundas: Redireciona chamadas de assets para a pasta assets correta do subdirectório
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^.*/assets/(.*)$ assets/$1 [L,QSA]
 
   # Prevent rewriting of static asset files entirely to preserve caching headers
   RewriteRule \.(js|css|gif|jpe?g|png|ico|svg|woff2?|webp|pdf|txt)$ - [L]
@@ -71,10 +63,10 @@ Options -MultiViews
   RewriteCond %{REQUEST_FILENAME} !-l
   
   # Absolute rewrite rule to target the core index.html on the root folder
-  RewriteRule ^(.*)$ /index.html [L]
+  RewriteRule ^(.*)$ index.html [L]
 </IfModule>
 
-# Definitive fallback for 404 errors (essential for LiteSpeed / Hostinger subdirectories)
+# Definitive fallback for 404 errors (essential for LiteSpeed / Hostinger)
 ErrorDocument 404 /index.html
 
 # Disable caching for index.html (both browsers and servers like LiteSpeed/Hostinger cache)

@@ -6,6 +6,7 @@ import { homeData } from "../data/home";
 import { DirectBookWidget } from "../components/DirectBookWidget";
 import { FaqSection } from "../components/FaqSection";
 import { Mountain, Leaf, Castle, Star, ShieldCheck, Play, X } from "lucide-react";
+import { YoutubeBackground } from "../components/YoutubeBackground";
 
 const ctaTranslations = {
   pt: {
@@ -44,21 +45,24 @@ export function Home({ lang }: { lang: Language }) {
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-brand-ink">
         <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
           {/* YouTube Video Background */}
-          <iframe 
-            src="https://www.youtube.com/embed/IJYMuDc7Gto?autoplay=1&mute=1&controls=0&loop=1&playlist=IJYMuDc7Gto&playsinline=1&showinfo=0&rel=0&enablejsapi=1&iv_load_policy=3&modestbranding=1" 
+          <YoutubeBackground 
+            videoId="IJYMuDc7Gto"
             style={{
               width: "115vw",
               height: "64.69vw",
               minHeight: "115vh",
-              minWidth: "204.44vh"
+              minWidth: "204.44vh",
+              transform: "translate(-50%, -50%)",
+              top: "50%",
+              left: "50%",
             }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-60 pointer-events-none"
-            frameBorder="0"
-            allow="autoplay; muted; encrypted-media"
-            title="Vigias Video"
+            className="opacity-60"
           />
           <div className="absolute inset-0 bg-brand-ink/10 mix-blend-multiply"></div>
         </div>
+        
+        {/* Transparent click/touch blocking overlay to prevent YouTube pause button/controls from showing up */}
+        <div className="absolute inset-0 bg-transparent z-[5] pointer-events-auto" />
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center flex flex-col items-center animate-fade-in">
            <p className="text-[11px] uppercase letter-spacing-wide text-brand-bg/80 mb-6 font-medium tracking-widest">
@@ -76,18 +80,7 @@ export function Home({ lang }: { lang: Language }) {
               </Link>
            </div>
            
-           {/* YouTube Video popup trigger */}
-           <button 
-             onClick={() => setIsModalOpen(true)}
-             className="mt-10 text-white/95 text-[10px] uppercase tracking-widest hover:text-white transition-all flex items-center gap-3 font-medium border border-white/40 bg-white/5 hover:bg-white/15 px-7 py-3.5 rounded-none cursor-pointer animate-pulse-glow shadow-sm"
-           >
-             <span className="relative flex h-2 w-2">
-               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-             </span>
-             <Play className="w-3 h-3 fill-current ml-0.5" />
-             {lang === 'pt' ? 'Ver o Filme das Casas' : lang === 'es' ? 'Ver el Filme de las Casas' : 'Watch Houses Film'}
-           </button>
+
         </div>
       </section>
 
@@ -129,7 +122,12 @@ export function Home({ lang }: { lang: Language }) {
       )}
 
       {/* Bloco 2 - Casas */}
-      <section className="py-24 px-12 bg-brand-bg">
+      <section className="py-24 px-6 md:px-12 bg-brand-bg">
+        <div className="max-w-7xl mx-auto mb-12 text-center">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-ink leading-tight">
+            {lang === 'pt' ? 'As cinco casas das Vigias' : lang === 'es' ? 'Las cinco casas de las Vigias' : 'The five houses of Vigias'}
+          </h2>
+        </div>
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-4 h-[auto] lg:h-[65vh] min-h-[500px]">
           {data.casas.items.map((casa, index) => (
              <Link 
@@ -150,8 +148,8 @@ export function Home({ lang }: { lang: Language }) {
                 
                 <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
                    <h3 className="font-serif text-2xl text-white mt-1 mb-1">{casa.name}</h3>
-                   <div className="overflow-hidden transition-all duration-700 ease-in-out max-h-0 group-hover:max-h-10 opacity-0 group-hover:opacity-100">
-                     <p className="text-white/80 font-sans text-[11px] mb-2 mt-1 whitespace-nowrap">{casa.capacity}</p>
+                   <div className="overflow-hidden transition-all duration-700 ease-in-out max-h-0 group-hover:max-h-20 opacity-0 group-hover:opacity-100">
+                     <p className="text-white/80 font-sans text-[11px] mb-2 mt-1 leading-relaxed">{casa.capacity}</p>
                    </div>
                 </div>
              </Link>

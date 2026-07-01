@@ -32,7 +32,7 @@ Ao explorar Marvão com vagar, a melhor recompensa é o silêncio que se instala
 
 Para que a experiência de slow travel seja verdadeiramente plena, a escolha do alojamento desempenha um papel fulcral. Afastar-se de hotéis padronizados de grande escala e optar por uma casa privada integrada organicamente na paisagem permite uma imersão direta e exclusiva com o ambiente envolvente. Uma estadia onde a arquitetura respeita a topografia do terreno e os materiais locais estabelece uma continuidade natural com o exterior, transformando as janelas em autênticas molduras de uma paisagem viva.
 
-Ficar num refúgio privado significa ter o privilégio de gerir o próprio tempo sem constrangimentos ou horários alheios. Permite preparar o pequeno-almoço com calma utilizando produtos da região, ler um livro à beira da piscina privativa ouvindo apenas o murmurar da natureza envolvente e desfrutar de momentos de privacidade total que são hoje tão difíceis de encontrar. É o prolongamento perfeito da filosofia do território: um espaço de recolhimento confortável que serve de base para explorar e de porto de abrigo para descansar.
+Ficar num refúgio privado significa ter o privilégio de gerir o próprio tempo sem constrangimentos ou horários alheios. Permite cozinhar com calma utilizando produtos da região, ler um livro à beira da piscina privativa ouvindo apenas o murmurar da natureza envolvente e desfrutar de momentos de privacidade total que são hoje tão difíceis de encontrar. É o prolongamento perfeito da filosofia do território: um espaço de recolhimento confortável que serve de base para explorar e de porto de abrigo para descansar.
 
 ## Experiências sugeridas para viver o território sem pressa
 
@@ -124,7 +124,7 @@ Em termos práticos de alojamento, esta mudança traduz-se no crescente privilé
 
 ## O que distingue hospedar-se numa casa privada de design
 
-A escolha de uma vivenda ou casa privada como alojamento turístico representa uma mudança radical na experiência de viagem comparativamente à hotelaria convencional. Numa propriedade privada, o hóspede deixa de partilhar áreas públicas, piscinas ou salas de jantar com estranhos. Passa a dispor de um património residencial inteiramente seu durante o período da estadia, com a liberdade incondicional que isso acarreta. Não existem horários para usufruir da piscina, pressões para o pequeno-almoço ou ruídos de terceiros que possam perturbar o sono.
+A escolha de uma vivenda ou casa privada como alojamento turístico representa uma mudança radical na experiência de viagem comparativamente à hotelaria convencional. Numa propriedade privada, o hóspede deixa de partilhar áreas públicas, piscinas ou salas de jantar com estranhos. Passa a dispor de um património residencial inteiramente seu durante o período da estadia, com a liberdade incondicional que isso acarreta. Não existem horários para usufruir da piscina, pressões de horários ou ruídos de terceiros que possam perturbar o sono.
 
 Adicionalmente, as casas privadas que integram uma forte componente de arquitetura de autor não são meras habitações de férias; são obras que dialogam intimamente com o território. Cada recanto é projetado para tirar o máximo partido do sol alentejano, para garantir conforto térmico natural através do uso apropriado de materiais da região, como o xisto, a cal e o pinho, e para conferir uma sensação de bem-estar estético imediato através de uma decoração minimalista e confortável.
 
@@ -146,7 +146,6 @@ O isolamento e a privacidade residencial não têm de significar escassez de con
 
 Este equilíbrio convida à exploração de vivências pensadas para potenciar a exclusividade da estadia, sem que o hóspede precise de se preocupar com logística:
 
-- Um pequeno-almoço maravilhoso deixado diariamente com toda a discrição junto à porta da sua unidade, repleto de iguarias frescas locais e pão ainda quente da padaria tradicional da aldeia.
 - Uma sessão guiada de observação astronómica aproveitando a ausência de poluição visual desta zona do Norte Alentejano para decifrar as constelações no céu estrelado mais cristalino do país.
 - Passeios de bicicleta ou percursos pedestres traçados diretamente a partir da soleira da entrada, cruzando os trilhos secretos que atravessam as propriedades vizinhas até alcançar recantos com vistas infinitas sobre a planície rústica.
 - A possibilidade de dispor de um profissional da culinária local para preparar um jantar autêntico na sua própria cozinha, permitindo saborear a riqueza da cozinha alentejana de forma privada e exclusiva.
@@ -303,7 +302,6 @@ Esta conjunción estimula un descanso íntimo. El porche se une plácidamente a 
 
 La privacidad residencial y la desconexión combinan a la perfección con atenciones cuidadas, diseñadas para potenciar una estancia confortable:
 
-- Desayunos artesanales entregados diariamente con discreción a su puerta, compuestos por pan tradicional de horno de leña, quesos de la zona y fruta fresca de temporada.
 - Observación guiada de estrellas aprovechando la limpidez celestial y la escasa polución luminosa del interior alentejano para descubrir satélites y constelaciones.
 - Paseos en bicicleta o caminatas planificadas partiendo desde su propio dintel, recorriendo caminos privados envueltos de flora autóctona.
 - Un menú tradicional preparado por un chef a domicilio en la cocina de la casa, para degustar la riqueza gastronómica del Alentejo con comodidad absoluta.
@@ -358,7 +356,7 @@ Wandering Marvão at a slow pace rewards you with absolute quiet at dusk, once d
 
 Choosing the right accommodation is essential to complete a slow travel experience. Avoiding massive, generic hotels and opting for an isolated private house integrated into the landscape ensures exceptional comfort and total immersion. Staying in a home where contemporary design honors local craftsmanship and materials establishes a fluid dialogue with the woods.
 
-Having your own private space means the freedom to manage your schedule without rules. You can prepare fresh breakfast using local farm ingredients, read by your own private pool listening to the birds, and enjoy undisturbed privacy. It is the perfect Extension of the region's philosophy—a restful space acting as your ultimate base and private haven.
+Having your own private space means the freedom to manage your schedule without rules. You can cook at your own pace using local farm ingredients, read by your own private pool listening to the birds, and enjoy undisturbed privacy. It is the perfect Extension of the region's philosophy—a restful space acting as your ultimate base and private haven.
 
 ## Suggested experiences for a slow-paced getaway
 
@@ -446,7 +444,7 @@ Modern travellers seek out individual sanctuaries that offer peaceful isolation 
 
 ## The benefits of choosing a private design villa
 
-Staying in a masterfully designed private house is a total departure from conventional hospitality. Devoid of shared public spaces, pools, or dining tables, the guest gains complete freedom. There are no schedules for breakfast, swimming, or relaxing; the property adapts entirely to your wishes and lifestyle.
+Staying in a masterfully designed private house is a total departure from conventional hospitality. Devoid of shared public spaces, pools, or dining tables, the guest gains complete freedom. There are no tight schedules, and you can swim or relax whenever you wish; the property adapts entirely to your wishes and lifestyle.
 
 Private homes with author architecture do not just shelter; they dialogue with the terrain. Crafted from natural materials like slate, lime, and pine, they ensure high levels of comfort while maintaining an elegant aesthetic that balances perfectly with the surrounding woods.
 
@@ -466,7 +464,6 @@ This integration encourages mental rest. The outdoor patio connects smoothly wit
 
 Private villas and nature isolation pair beautifully with subtle, highly-curated services designed to make your journey effortless and memorable:
 
-- Artisanal breakfast baskets delivered discretely to your door each morning, with fresh rustic bread, regional cheeses, and seasonal fruits.
 - Guided stargazing sessions taking advantage of the region's low light pollution to read the stellar pathways of the Milky Way.
 - Biking adventures or walks starting right from your doorstep, exploring country roads wrapped in country fragrances.
 - A private chef preparing regional dishes in the kitchen of your villa, to enjoy local cuisine in complete privacy.

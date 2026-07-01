@@ -12,11 +12,11 @@ export const homeData = {
     },
     casas: {
       items: [
-        { id: "casa-sol", name: "Casa Sol", capacity: "Para 4 pessoas · 2 suites", image: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_613.jpg", link: "/pt/casas/casa-sol" },
-        { id: "casa-gaio", name: "Casa Gaio", capacity: "Para 2 pessoas · Loft privado", image: "https://vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_170.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_107.jpg", link: "/pt/casas/casa-gaio" },
-        { id: "casa-cal", name: "Casa Cal", capacity: "Para 6 pessoas · 2 suites + mezanino", image: "https://www.vigias.pt/fotos/CASA_CAL/IMG_3149.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_CAL/IMG_2769.jpg", link: "/pt/casas/casa-cal" },
-        { id: "casa-feto", name: "Casa Feto", capacity: "Para 4 pessoas · 2 suites", image: "https://vigias.pt/fotos/CASA_FETO/CASA_FETO00001.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg", link: "/pt/casas/casa-feto" },
-        { id: "casa-ocre", name: "Casa Ocre", capacity: "Para 5 pessoas · 2 quartos + mezanino", image: "https://vigias.pt/fotos/CASA_OCRE/CASA_OCRE00_MilkyWay_photography.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg", link: "/pt/casas/casa-ocre" }
+        { id: "casa-sol", name: "Casa Sol", capacity: "Para quatro. A mais luminosa. Vistas diretas para o parque.", image: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_613.jpg", link: "/pt/casas/casa-sol" },
+        { id: "casa-gaio", name: "Casa Gaio", capacity: "Para dois. Completamente integrada no montado de sobro. Privacidade total.", image: "https://vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_170.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_107.jpg", link: "/pt/casas/casa-gaio" },
+        { id: "casa-cal", name: "Casa Cal", capacity: "Para seis. Arquitetura tradicional alentejana. Cal branca e luz filtrada.", image: "https://www.vigias.pt/fotos/CASA_CAL/IMG_3149.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_CAL/IMG_2769.jpg", link: "/pt/casas/casa-cal" },
+        { id: "casa-feto", name: "Casa Feto", capacity: "Para quatro. Num ponto alto, isolado e sereno da herdade. Horizonte sem cortes.", image: "https://vigias.pt/fotos/CASA_FETO/CASA_FETO00001.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg", link: "/pt/casas/casa-feto" },
+        { id: "casa-ocre", name: "Casa Ocre", capacity: "Para cinco. A casa-mãe. Tons terra e grande abertura para a paisagem.", image: "https://vigias.pt/fotos/CASA_OCRE/CASA_OCRE00_MilkyWay_photography.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg", link: "/pt/casas/casa-ocre" }
       ]
     },
     envolvente: {
@@ -28,7 +28,7 @@ export const homeData = {
       items: [
         { name: "Luísa", from: "Google", text: "Um verdadeiro paraíso de paz e silêncio absoluto. A casa está perfeitamente integrada na natureza e a piscina privativa é maravilhosa. Privacidade e descanso total!" },
         { name: "Diogo", from: "Google", text: "Arquitetura minimalista fantástica e conforto excecional em cada detalhe. O acolhimento da Isabel e do Francisco foi fantástico, fazem-nos sentir verdadeiramente em casa. Mal podemos esperar por voltar!" },
-        { name: "Catarina", from: "Google", text: "O verdadeiro luxo do silêncio. Acordar com um pequeno-almoço maravilhoso deixado à porta e desfrutar da vista desimpedida sobre o montado. À noite, o céu estrelado é inesquecível." }
+        { name: "Catarina", from: "Google", text: "O verdadeiro luxo do silêncio. Acordar e desfrutar da vista desimpedida sobre o montado. À noite, o céu estrelado é inesquecível." }
       ]
     },
     sustentabilidade: {
@@ -38,8 +38,7 @@ export const homeData = {
     faq: {
       title: "Questões Frequentes sobre Vigias",
       items: [
-        { q: "Qual a capacidade máxima das casas Vigias?", a: "Temos casas pensadas para diferentes perfis. A Casa Gaio, sendo um estúdio íntimo, acolhe 2 pessoas. As Casas Sol e Feto recebem até 4, enquanto a Casa Ocre pode acomodar 5 e a Casa Cal, a nossa maior moradia, tem espaço para até 6 hóspedes (com duas suites e mezanino)." },
-        { q: "O pequeno-almoço está incluído nas estadias?", a: "Sim, a pedido entregamos diariamente um pequeno-almoço fresco diretamente na sua casa, focado em produtos da região, padaria de excelência e nos sabores tradicionais e autênticos do Alentejo." },
+        { q: "Qual a capacidade máxima das casas Vigias?", a: "Temos casas pensadas para diferentes profiles ou perfis. A Casa Gaio, sendo um estúdio íntimo, acolhe 2 pessoas. As Casas Sol e Feto recebem até 4, enquanto a Casa Ocre pode acomodar 5 e a Casa Cal, a nossa maior moradia, tem espaço para até 6 hóspedes (com duas suites e mezanine)." },
         { q: "As villas possuem piscinas privativas ou partilhadas?", a: "As piscinas são de uso estritamente privado. Cada uma das cinco moradias Vigias conta com a sua própria piscina exterior desenhada para proporcionar a máxima exclusividade e privacidade." },
         { q: "As casas oferecem espaços exteriores como varanda ou terraço?", a: "Sim. O conceito Vigias assenta numa fusão com a paisagem, pelo que cada habitação possui varandas, terraços ou alpendres exteriores privados virados para o montado e serra." },
         { q: "A que horas é permitido efetuar o check-in e check-out?", a: "Os hóspedes poderão realizar o seu check-in na casa a partir das 16h00 e o check-out deverá realizar-se com toda a calma até às 11h00 na manhã de saída." },
@@ -64,11 +63,11 @@ export const homeData = {
     },
     casas: {
       items: [
-        { id: "casa-sol", name: "Casa Sol", capacity: "Para 4 personas · 2 suites", image: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_613.jpg", link: "/es/casas/casa-sol" },
-        { id: "casa-gaio", name: "Casa Gaio", capacity: "Para 2 personas · Loft privado", image: "https://vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_170.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_107.jpg", link: "/es/casas/casa-gaio" },
-        { id: "casa-cal", name: "Casa Cal", capacity: "Para 6 personas · 2 suites + altillo", image: "https://www.vigias.pt/fotos/CASA_CAL/IMG_3149.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_CAL/IMG_2769.jpg", link: "/es/casas/casa-cal" },
-        { id: "casa-feto", name: "Casa Feto", capacity: "Para 4 personas · 2 suites", image: "https://vigias.pt/fotos/CASA_FETO/CASA_FETO00001.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg", link: "/es/casas/casa-feto" },
-        { id: "casa-ocre", name: "Casa Ocre", capacity: "Para 5 personas · 2 dormitorios + altillo", image: "https://vigias.pt/fotos/CASA_OCRE/CASA_OCRE00_MilkyWay_photography.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg", link: "/es/casas/casa-ocre" }
+        { id: "casa-sol", name: "Casa Sol", capacity: "Para cuatro. La más luminosa. Vistas directas al parque.", image: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_613.jpg", link: "/es/casas/casa-sol" },
+        { id: "casa-gaio", name: "Casa Gaio", capacity: "Para dos. Totalmente integrada en el alcornocal. Privacidad absoluta.", image: "https://vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_170.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_107.jpg", link: "/es/casas/casa-gaio" },
+        { id: "casa-cal", name: "Casa Cal", capacity: "Para seis. Arquitectura tradicional alentejana. Cal blanca y luz filtrada.", image: "https://www.vigias.pt/fotos/CASA_CAL/IMG_3149.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_CAL/IMG_2769.jpg", link: "/es/casas/casa-cal" },
+        { id: "casa-feto", name: "Casa Feto", capacity: "Para cuatro. En un punto alto, aislado y sereno de la finca. Horizonte sin límites.", image: "https://vigias.pt/fotos/CASA_FETO/CASA_FETO00001.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg", link: "/es/casas/casa-feto" },
+        { id: "casa-ocre", name: "Casa Ocre", capacity: "Para cinco. La casa madre. Tonos tierra y gran apertura al paisaje.", image: "https://vigias.pt/fotos/CASA_OCRE/CASA_OCRE00_MilkyWay_photography.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg", link: "/es/casas/casa-ocre" }
       ]
     },
     envolvente: {
@@ -80,7 +79,7 @@ export const homeData = {
       items: [
         { name: "Luisa", from: "Google", text: "Un verdadero paraíso de paz y silencio absoluto. La casa se integra perfectamente en la naturaleza y la piscina privada es maravillosa. ¡Privacidad y descanso total!" },
         { name: "Diogo", from: "Google", text: "Arquitectura minimalista fantástica y un confort excepcional en cada detalle. La acogida de Isabel y Francisco fue fantástica, te hacen sentir realmente en casa. ¡Estamos deseando volver!" },
-        { name: "Catarina", from: "Google", text: "El verdadero lujo del silencio. Despertar con un desayuno maravilloso dejado en la puerta y disfrutar de la vista despejada sobre el alcornocal. Por la noche, el cielo estrellado es inolvidable." }
+        { name: "Catarina", from: "Google", text: "El verdadero lujo del silencio. Despertar y disfrutar de la vista despejada sobre el alcornocal. Por la noche, el cielo estrellado es inolvidable." }
       ]
     },
     sustentabilidade: {
@@ -91,7 +90,6 @@ export const homeData = {
       title: "Preguntas Frecuentes sobre Vigias",
       items: [
         { q: "¿Cuál es la capacidad máxima de las casas Vigias?", a: "Tenemos casas pensadas para diferentes perfiles. La Casa Gaio, es un estudio íntimo para 2 personas. Las Casas Sol y Feto reciben a 4 personas en 2 suites. La Casa Ocre acoge a 5, y la Casa Cal, la más grande de la propiedad, tiene espacio para hasta 6 huéspedes." },
-        { q: "¿El desayuno está incluido en las estancias?", a: "Sí, a petición entregamos un desayuno fresco directamente en su casa por la mañana, dando prioridad a productos locales de Alentejo, repostería tradicional y sabores de la tierra." },
         { q: "¿Las villas cuentan con piscinas privadas o compartidas?", a: "Las piscinas son de uso estrictamente privado. Cada una de las cinco moradas de Vigias tiene su propia piscina exterior para ofrecerle la máxima exclusividad y privacidad durante su reserva." },
         { q: "¿Las casas disponen de balcón, terraza o espacio exterior?", a: "El concepto Vigias se basa en la unión con el paisaje. Por ello, cada villa cuenta con amplios balcones, terrazas o porches privados orientados a la Sierra, perfectos para admirar el cielo de la reserva." },
         { q: "¿A qué hora se permite efectuar el check-in y el check-out?", a: "Los huéspedes podrán realizar el check-in a partir de las 16h00 y el check-out debe efectuarse, con calma, hasta las 11h00 la mañana de su salida." },
@@ -116,11 +114,11 @@ export const homeData = {
     },
     casas: {
       items: [
-        { id: "casa-sol", name: "Casa Sol", capacity: "For 4 people · 2 suites", image: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_613.jpg", link: "/en/houses/casa-sol" },
-        { id: "casa-gaio", name: "Casa Gaio", capacity: "For 2 people · Private loft", image: "https://vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_170.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_107.jpg", link: "/en/houses/casa-gaio" },
-        { id: "casa-cal", name: "Casa Cal", capacity: "For 6 people · 2 suites + mezzanine", image: "https://www.vigias.pt/fotos/CASA_CAL/IMG_3149.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_CAL/IMG_2769.jpg", link: "/en/houses/casa-cal" },
-        { id: "casa-feto", name: "Casa Feto", capacity: "For 4 people · 2 suites", image: "https://vigias.pt/fotos/CASA_FETO/CASA_FETO00001.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg", link: "/en/houses/casa-feto" },
-        { id: "casa-ocre", name: "Casa Ocre", capacity: "For 5 people · 2 bedrooms + mezzanine", image: "https://vigias.pt/fotos/CASA_OCRE/CASA_OCRE00_MilkyWay_photography.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg", link: "/en/houses/casa-ocre" }
+        { id: "casa-sol", name: "Casa Sol", capacity: "For four. The brightest. Direct views of the park.", image: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_065.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_SOL/Vigias-LCQ_613.jpg", link: "/en/houses/casa-sol" },
+        { id: "casa-gaio", name: "Casa Gaio", capacity: "For two. Fully integrated into the cork oak forest. Total privacy.", image: "https://vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_170.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_GAIO/Vigias-LCQ_107.jpg", link: "/en/houses/casa-gaio" },
+        { id: "casa-cal", name: "Casa Cal", capacity: "For six. Traditional Alentejo architecture. White lime and filtered light.", image: "https://www.vigias.pt/fotos/CASA_CAL/IMG_3149.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_CAL/IMG_2769.jpg", link: "/en/houses/casa-cal" },
+        { id: "casa-feto", name: "Casa Feto", capacity: "For four. On a high, isolated and serene spot of the estate. Uninterrupted horizon.", image: "https://vigias.pt/fotos/CASA_FETO/CASA_FETO00001.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_FETO/CASA_FETO00009.jpg", link: "/en/houses/casa-feto" },
+        { id: "casa-ocre", name: "Casa Ocre", capacity: "For five. The mother house. Earthy tones and wide open views of the landscape.", image: "https://vigias.pt/fotos/CASA_OCRE/CASA_OCRE00_MilkyWay_photography.jpg", hoverImage: "https://www.vigias.pt/fotos/CASA_OCRE/CASA_OCRE00011.jpg", link: "/en/houses/casa-ocre" }
       ]
     },
     envolvente: {
@@ -132,7 +130,7 @@ export const homeData = {
       items: [
         { name: "Luisa", from: "Google", text: "A true paradise of peace and absolute silence. The house is perfectly integrated into nature and the private pool is wonderful. Total privacy and relaxation!" },
         { name: "Diogo", from: "Google", text: "Fantastic minimalist architecture and exceptional comfort in every detail. The welcome by Isabel and Francisco was fantastic, making us feel truly at home. We can't wait to return!" },
-        { name: "Catarina", from: "Google", text: "The real luxury of silence. Waking up to a wonderful breakfast left at the door and enjoying the unobstructed view of the cork oak forest. At night, the starry sky is unforgettable." }
+        { name: "Catarina", from: "Google", text: "The real luxury of silence. Waking up and enjoying the unobstructed view of the cork oak forest. At night, the starry sky is unforgettable." }
       ]
     },
     sustentabilidade: {
@@ -143,7 +141,6 @@ export const homeData = {
       title: "Frequently Asked Questions about Vigias",
       items: [
         { q: "What is the maximum capacity of each house?", a: "We have houses suited for diverse profiles. Casa Gaio, our intimate studio, accommodates 2 guests. Casa Sol and Casa Feto suit up to 4 guests across 2 suites. Casa Ocre can host 5, and the larger Casa Cal provides space for up to 6 guests." },
-        { q: "Is breakfast included in the stay?", a: "Yes, upon request we deliver a fresh morning breakfast directly to your house. Our selection is centered around regional products, excellent traditional bakery, and the authentic flavors of the Alentejo." },
         { q: "Do the villas have shared or private swimming pools?", a: "Our pools are strictly private. Each of the five Vigias homes features its very own outdoor swimming pool, ensuring our guests enjoy total exclusivity, serenity, and privacy." },
         { q: "Do the houses offer outdoor spaces, like a balcony or a terrace?", a: "Yes. The Vigias concept is based on blending smoothly with the landscape. Therefore, every residence provides private balconies, exterior terraces, or furnished porches facing the hills and forests." },
         { q: "At what time can I check in and check out?", a: "Guests. check-in begins at 16:00 (4:00 PM), while check-out remains peacefully relaxed, and must be completed by 11:00 AM on the day of departure." },

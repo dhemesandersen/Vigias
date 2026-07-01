@@ -64,7 +64,7 @@ export function HousesList({ lang }: { lang: Language }) {
                 <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end">
                    <h3 className="font-serif text-3xl text-white mt-1 mb-2">{casa.name}</h3>
                    <div className="overflow-hidden transition-all duration-700 ease-in-out max-h-0 group-hover:max-h-20 opacity-0 group-hover:opacity-100">
-                     <p className="text-white/80 font-sans text-sm mb-2 mt-1 whitespace-nowrap">{casa.capacity}</p>
+                     <p className="text-white/80 font-sans text-sm mb-2 mt-1 leading-relaxed">{casa.capacity}</p>
                    </div>
                 </div>
              </Link>

@@ -271,57 +271,65 @@ export function Experiences({ lang }: { lang: Language }) {
     <>
       <SEO title={seo.title} description={seo.description} lang={lang} />
       
-      <section className="pt-32 pb-24 px-6 md:px-12 bg-white min-h-screen">
-        <div className="max-w-7xl mx-auto mb-16">
+      <section className="pt-32 pb-0 bg-white min-h-screen flex flex-col">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 mb-16 shrink-0">
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-ink mb-4">{seo.h1}</h1>
           <p className="text-brand-ink/60 text-lg uppercase letter-spacing-wide font-medium text-[11px]">
             {seo.h2}
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {experiencesData.map((exp, idx) => (
-            <div 
-              key={idx} 
-              onClick={() => setSelectedExp(exp)}
-              className="group cursor-pointer flex flex-col gap-3"
-            >
-              <div className="relative aspect-[4/5] sm:aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-zinc-200">
-                <img 
-                  src={exp.image} 
-                  alt={exp.title[lang]} 
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out filter brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05]"
-                />
+        {/* Checkerboard alternating split layout */}
+        <div className="w-full flex-1 flex flex-col">
+          {experiencesData.map((exp, idx) => {
+            const isEven = idx % 2 === 0;
+            return (
+              <div 
+                key={idx} 
+                onClick={() => setSelectedExp(exp)}
+                className="w-full grid grid-cols-1 md:grid-cols-2 cursor-pointer group min-h-[420px] md:min-h-[500px] lg:min-h-[600px] border-b border-brand-ink/5"
+              >
+                {/* Image Block */}
+                <div className={`relative w-full h-[320px] sm:h-[400px] md:h-auto overflow-hidden ${isEven ? 'order-first' : 'order-first md:order-last'}`}>
+                  <img 
+                    src={exp.image} 
+                    alt={exp.title[lang]} 
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out filter brightness-[0.98] contrast-[1.02] saturate-[0.93] sepia-[0.05]"
+                  />
+                  
+                  {/* Optional Tag */}
+                  {exp.tag && (
+                    <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-xs text-brand-ink px-4 py-1.5 text-[11px] tracking-widest uppercase font-semibold border border-brand-ink/5">
+                      {exp.tag[lang]}
+                    </div>
+                  )}
+                </div>
                 
-                {/* Heart Icon Button */}
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                  }}
-                  className="absolute top-4 right-4 text-white hover:scale-110 transition-transform z-10 drop-shadow-md cursor-pointer"
-                >
-                   <Heart className="w-6 h-6 fill-black/30 stroke-white stroke-[1.5]" />
-                </button>
-                
-                {/* Optional Tag */}
-                {exp.tag && (
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-brand-ink px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm">
-                    {exp.tag[lang]}
+                {/* Text Block */}
+                <div className="bg-[#F5F2ED] flex flex-col justify-center p-8 sm:p-12 md:p-16 lg:p-24 xl:p-32 text-left relative">
+                  <span className="text-[11px] uppercase tracking-[0.25em] text-[#5A5A40] font-semibold mb-4 block">
+                    {exp.host[lang]}
+                  </span>
+                  
+                  <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-brand-ink leading-tight mb-6 tracking-wide">
+                    {exp.title[lang]}
+                  </h2>
+                  
+                  <p className="font-sans text-brand-ink/75 text-sm sm:text-base leading-relaxed mb-8 max-w-lg line-clamp-3">
+                    {exp.description[lang][0]}
+                  </p>
+                  
+                  <div className="flex items-center gap-2 text-[11px] uppercase tracking-widest font-bold text-[#5A5A40] group-hover:text-brand-ink transition-colors duration-300">
+                    <span>
+                      {lang === 'en' ? 'Discover more' : lang === 'es' ? 'Descubrir más' : 'Descobrir mais'}
+                    </span>
+                    <span className="transform group-hover:translate-x-2 transition-transform duration-300">→</span>
                   </div>
-                )}
+                </div>
               </div>
-              
-              <div className="flex flex-col">
-                <h3 className="font-sans font-semibold text-brand-ink text-[15px] leading-tight line-clamp-2">
-                  {exp.title[lang]}
-                </h3>
-                <p className="font-sans text-brand-ink/60 text-sm mt-0.5 truncate">
-                  {exp.host[lang]}
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

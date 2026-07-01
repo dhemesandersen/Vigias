@@ -46,7 +46,8 @@ export function Contact({ lang }: { lang: Language }) {
                </div>
                <div>
                   <h3 className="font-semibold uppercase tracking-widest text-xs text-olive-700 mb-2">WhatsApp / Telefone</h3>
-                  <a href="https://wa.me/351936721199" className="text-lg hover:text-ochre-600 transition" target="_blank" rel="noopener noreferrer">+351 936721199</a>
+                  <a href="https://wa.me/351936721199" className="text-lg hover:text-ochre-600 transition inline-block mr-2" target="_blank" rel="noopener noreferrer">+351 936721199</a>
+                  <span className="text-xs text-stone-500 font-light block sm:inline mt-1 sm:mt-0">(chamada para rede móvel nacional)</span>
                </div>
                <div>
                   <h3 className="font-semibold uppercase tracking-widest text-xs text-olive-700 mb-2">
