@@ -112,8 +112,8 @@ export function About({ lang }: { lang: Language }) {
             <div className="w-full mt-20 aspect-video md:aspect-[21/9] max-h-[550px] bg-gray-100 overflow-hidden relative border border-brand-ink/5 shadow-sm">
                <YoutubeBackground 
                  videoId="IJYMuDc7Gto"
-                 startSeconds={17}
-                 endSeconds={32}
+                 startSeconds={63}
+                 endSeconds={68}
                  style={{
                    width: "115vw",
                    height: "64.69vw",

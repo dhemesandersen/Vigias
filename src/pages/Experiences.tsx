@@ -287,10 +287,10 @@ export function Experiences({ lang }: { lang: Language }) {
               <div 
                 key={idx} 
                 onClick={() => setSelectedExp(exp)}
-                className="w-full grid grid-cols-1 md:grid-cols-2 cursor-pointer group min-h-[420px] md:min-h-[500px] lg:min-h-[600px] border-b border-brand-ink/5"
+                className="w-full grid grid-cols-1 md:grid-cols-2 cursor-pointer group md:h-[480px] lg:h-[550px] xl:h-[600px] border-b border-brand-ink/5"
               >
                 {/* Image Block */}
-                <div className={`relative w-full h-[320px] sm:h-[400px] md:h-auto overflow-hidden ${isEven ? 'order-first' : 'order-first md:order-last'}`}>
+                <div className={`relative w-full h-[320px] sm:h-[400px] md:h-full overflow-hidden ${isEven ? 'order-first' : 'order-first md:order-last'}`}>
                   <img 
                     src={exp.image} 
                     alt={exp.title[lang]} 
@@ -307,7 +307,7 @@ export function Experiences({ lang }: { lang: Language }) {
                 </div>
                 
                 {/* Text Block */}
-                <div className="bg-[#F5F2ED] flex flex-col justify-center p-8 sm:p-12 md:p-16 lg:p-24 xl:p-32 text-left relative">
+                <div className="bg-[#F5F2ED] flex flex-col justify-center p-8 sm:p-12 md:p-14 lg:p-16 xl:p-24 text-left relative h-auto md:h-full">
                   <span className="text-[11px] uppercase tracking-[0.25em] text-[#5A5A40] font-semibold mb-4 block">
                     {exp.host[lang]}
                   </span>

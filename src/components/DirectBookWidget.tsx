@@ -36,8 +36,8 @@ export function DirectBookWidget({
       ibeDiv.setAttribute("data-widget", "embed");
       ibeDiv.setAttribute("data-query-locale", lang || "pt");
       ibeDiv.setAttribute("data-query-currency", "EUR");
-      ibeDiv.setAttribute("data-mobile_fullscreen", "true");
-      ibeDiv.setAttribute("data-use_parent", "true");
+      ibeDiv.setAttribute("data-mobile_fullscreen", "false");
+      ibeDiv.setAttribute("data-use_parent", "false");
 
       container.appendChild(ibeDiv);
 

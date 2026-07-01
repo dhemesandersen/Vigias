@@ -103,9 +103,6 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
   }, [isOpen, isDesktop]);
 
   useEffect(() => {
-    // If it's mobile and the modal is not open, don't mount the widget to avoid blank or uninitialized state
-    if (!isDesktop && !isOpen) return;
-
     const container = containerRef.current;
     if (!container) return;
 
@@ -124,7 +121,7 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
       ibeDiv.setAttribute("data-query-room_type_id", roomType);
     }
     ibeDiv.setAttribute("data-mobile_fullscreen", "false");
-    ibeDiv.setAttribute("data-use_parent", "true");
+    ibeDiv.setAttribute("data-use_parent", "false");
 
     container.appendChild(ibeDiv);
 
@@ -140,7 +137,7 @@ export function VigiasBookingSection({ houseId, lang = "pt", discreet = false }:
         container.innerHTML = "";
       }
     };
-  }, [lang, isDesktop, isOpen, roomType]);
+  }, [lang, isDesktop, roomType]);
 
   const transText = discreet
     ? (DISCREET_TRANSLATIONS.text[lang] || DISCREET_TRANSLATIONS.text.pt)
